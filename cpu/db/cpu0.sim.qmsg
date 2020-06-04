@@ -1,0 +1,6 @@
+{ "Info" "IQEXE_SEPARATOR" "" "Info: *******************************************************************" {  } {  } 3}
+{ "Info" "IQEXE_START_BANNER_PRODUCT" "Simulator Quartus II " "Info: Running Quartus II Simulator" { { "Info" "IQEXE_START_BANNER_VERSION" "Version 5.0 Build 148 04/26/2005 SJ Full Version " "Info: Version 5.0 Build 148 04/26/2005 SJ Full Version" {  } {  } 0} { "Info" "IQEXE_START_BANNER_TIME" "Sat May 09 11:01:14 2020 " "Info: Processing started: Sat May 09 11:01:14 2020" {  } {  } 0}  } {  } 4}
+{ "Info" "IQEXE_START_BANNER_COMMANDLINE" "quartus_sim --read_settings_files=on --write_settings_files=off cpu0 -c cpu0 " "Info: Command: quartus_sim --read_settings_files=on --write_settings_files=off cpu0 -c cpu0" {  } {  } 0}
+{ "Info" "ISIM_SIM_SIMULATION_COVERAGE" "     60.99 % " "Info: Simulation coverage is      60.99 %" {  } {  } 0}
+{ "Info" "ISIM_SIM_NUMBER_OF_TRANSITION" "300855 " "Info: Number of transitions in simulation is 300855" {  } {  } 0}
+{ "Info" "IQEXE_ERROR_COUNT" "Simulator 0 s 0 s Quartus II " "Info: Quartus II Simulator was successful. 0 errors, 0 warnings" { { "Info" "IQEXE_END_BANNER_TIME" "Sat May 09 11:01:15 2020 " "Info: Processing ended: Sat May 09 11:01:15 2020" {  } {  } 0} { "Info" "IQEXE_ELAPSED_TIME" "00:00:01 " "Info: Elapsed time: 00:00:01" {  } {  } 0}  } {  } 0}

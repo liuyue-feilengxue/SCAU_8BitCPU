@@ -1,0 +1,39 @@
+;寄存器4个（2位），指令也只有4位  4位op码，  16位的offset是8位，8位offset要4位
+ADD dr,sr "0000[u4][u4]",dr,sr             0000[u2][u2]（寄存器）  function 000
+AND dr,sr "00000010[u4][u4]",dr,sr     0001[u2][u2]                  function  010
+CMP dr,sr "00000011[u4][u4]",dr,sr     0010[u2][u2]          减法 function  001
+MVRR dr,sr "00000111[u4][u4]",dr,sr   0011[u2][u2] sr移到dr   
+DEC dr "00001000[u4]xxxx",dr              0100[u2]xx(00)
+SHL dr "00001010[u4]xxxx",dr              0101[u2]xx(00)（寄存器，移1位）
+ADC dr,sr "00001100[u4][u4]",dr,sr      0110[u2][u2]（两个寄存器号）
+JR addr "01000000[4]",addr-@-1         0111[4](4是地址)
+JRC addr "01000100[8]",addr-@-1       1000[4]  （c=1跳转）
+JRNZ addr "0100 0111[8]",addr-@-1    1001[4]  （z=1跳转）
+CLC . "01111000 00000000"                  1010 0000  （c=0）
+STC . "01111010 00000000"                  1011 0000  （c=1）
+B类
+JMPA addr "1100 000000000000[u16]",addr   1100 0000 [u8]（双字）
+LDRR dr,sr "1100 0010[u4][u4]",dr,sr                1101[u2][u2]
+STRR dr,sr "1100 0011[u4][u4]",dr,sr                1110[u2][u2]
+MVRD dr,data "1111[u4]xxxx[u16]",dr,data      1111[u2]xx [u8]（双字）
+R0 = 0
+R1 = 1
+R2 = 2
+R3 = 3
+
+B类指令，最高位是11
+pc是8位，offset已经改了，从4位扩展到8位
+timer  t2  t1（不用动）flag
+
+alu ok
+bus_mux ok
+t1 ok
+flag ok
+t2 ok
+pc ok
+ar ok     ir ok
+reg ok(寄存器)  
+timer ok
+reg ok
+reg_mux **（ok）
+controller  ok

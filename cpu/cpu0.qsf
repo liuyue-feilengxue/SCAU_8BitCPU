@@ -1,0 +1,173 @@
+# Copyright (C) 1991-2005 Altera Corporation
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic       
+# functions, and any output files any of the foregoing           
+# (including device programming or simulation files), and any    
+# associated documentation or information are expressly subject  
+# to the terms and conditions of the Altera Program License      
+# Subscription Agreement, Altera MegaCore Function License       
+# Agreement, or other applicable license agreement, including,   
+# without limitation, that your use is for the sole purpose of   
+# programming logic devices manufactured by Altera and sold by   
+# Altera or its authorized distributors.  Please refer to the    
+# applicable agreement for further details.
+
+
+# The default values for assignments are stored in the file
+#		cpu0_assignment_defaults.qdf
+# If this file doesn't exist, and for assignments not listed, see file
+#		assignment_defaults.qdf
+
+# Altera recommends that you do not modify this file. This
+# file is updated automatically by the Quartus II software
+# and any changes you make may be lost or overwritten.
+
+
+# Project-Wide Assignments
+# ========================
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 4.1
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "15:01:27  AUGUST 08, 2005"
+set_global_assignment -name LAST_QUARTUS_VERSION 5.0
+set_global_assignment -name VHDL_FILE ../dram.vhd
+set_global_assignment -name BDF_FILE cpu0.bdf
+set_global_assignment -name VHDL_FILE alu.vhd
+set_global_assignment -name VHDL_FILE ar.vhd
+set_global_assignment -name VHDL_FILE bus_dir.vhd
+set_global_assignment -name VHDL_FILE bus_mux.vhd
+set_global_assignment -name VHDL_FILE controller.vhd
+set_global_assignment -name VHDL_FILE flag_reg.vhd
+set_global_assignment -name VHDL_FILE ir.vhd
+set_global_assignment -name VHDL_FILE pc.vhd
+set_global_assignment -name VHDL_FILE reg.vhd
+set_global_assignment -name VHDL_FILE reg_mux.vhd
+set_global_assignment -name VHDL_FILE reg_out.vhd
+set_global_assignment -name VHDL_FILE reg_test.vhd
+set_global_assignment -name VHDL_FILE reg_testa.vhd
+set_global_assignment -name VHDL_FILE t1.vhd
+set_global_assignment -name VHDL_FILE t2.vhd
+set_global_assignment -name VHDL_FILE t3.vhd
+set_global_assignment -name VHDL_FILE timer.vhd
+set_global_assignment -name VECTOR_WAVEFORM_FILE ../cpu0.vwf
+set_global_assignment -name BDF_FILE cpu1.bdf
+set_global_assignment -name VHDL_FILE controllertest.vhd
+set_global_assignment -name BDF_FILE backups.bdf
+
+# Pin & Location Assignments
+# ==========================
+set_location_assignment PIN_41 -to address_bus[0]
+set_location_assignment PIN_42 -to address_bus[1]
+set_location_assignment PIN_43 -to address_bus[2]
+set_location_assignment PIN_44 -to address_bus[3]
+set_location_assignment PIN_45 -to address_bus[4]
+set_location_assignment PIN_46 -to address_bus[5]
+set_location_assignment PIN_47 -to address_bus[6]
+set_location_assignment PIN_48 -to address_bus[7]
+set_location_assignment PIN_57 -to address_bus[8]
+set_location_assignment PIN_58 -to address_bus[9]
+set_location_assignment PIN_59 -to address_bus[10]
+set_location_assignment PIN_60 -to address_bus[11]
+set_location_assignment PIN_61 -to address_bus[12]
+set_location_assignment PIN_62 -to address_bus[13]
+set_location_assignment PIN_63 -to address_bus[14]
+set_location_assignment PIN_64 -to address_bus[15]
+set_location_assignment PIN_86 -to c
+set_location_assignment PIN_29 -to clk
+set_location_assignment PIN_200 -to data_bus[0]
+set_location_assignment PIN_202 -to data_bus[2]
+set_location_assignment PIN_203 -to data_bus[3]
+set_location_assignment PIN_214 -to data_bus[4]
+set_location_assignment PIN_215 -to data_bus[5]
+set_location_assignment PIN_216 -to data_bus[6]
+set_location_assignment PIN_217 -to data_bus[7]
+set_location_assignment PIN_223 -to data_bus[8]
+set_location_assignment PIN_224 -to data_bus[9]
+set_location_assignment PIN_225 -to data_bus[10]
+set_location_assignment PIN_226 -to data_bus[11]
+set_location_assignment PIN_234 -to data_bus[12]
+set_location_assignment PIN_235 -to data_bus[13]
+set_location_assignment PIN_236 -to data_bus[14]
+set_location_assignment PIN_158 -to reg_data[0]
+set_location_assignment PIN_159 -to reg_data[1]
+set_location_assignment PIN_160 -to reg_data[2]
+set_location_assignment PIN_161 -to reg_data[3]
+set_location_assignment PIN_162 -to reg_data[4]
+set_location_assignment PIN_163 -to reg_data[5]
+set_location_assignment PIN_164 -to reg_data[6]
+set_location_assignment PIN_165 -to reg_data[7]
+set_location_assignment PIN_173 -to reg_data[8]
+set_location_assignment PIN_174 -to reg_data[9]
+set_location_assignment PIN_175 -to reg_data[10]
+set_location_assignment PIN_177 -to reg_data[11]
+set_location_assignment PIN_178 -to reg_data[12]
+set_location_assignment PIN_179 -to reg_data[13]
+set_location_assignment PIN_180 -to reg_data[14]
+set_location_assignment PIN_181 -to reg_data[15]
+set_location_assignment PIN_12 -to reg_sel[0]
+set_location_assignment PIN_13 -to reg_sel[1]
+set_location_assignment PIN_14 -to reg_sel[2]
+set_location_assignment PIN_15 -to reg_sel[3]
+set_location_assignment PIN_240 -to reset
+set_location_assignment PIN_83 -to s
+set_location_assignment PIN_16 -to sel[0]
+set_location_assignment PIN_17 -to sel[1]
+set_location_assignment PIN_84 -to v
+set_location_assignment PIN_75 -to wr
+set_location_assignment PIN_85 -to z
+set_location_assignment PIN_201 -to data_bus[1]
+set_location_assignment PIN_237 -to data_bus[15]
+
+# Analysis & Synthesis Assignments
+# ================================
+set_global_assignment -name FAMILY Cyclone
+set_global_assignment -name TOP_LEVEL_ENTITY controller
+
+# Fitter Assignments
+# ==================
+set_global_assignment -name DEVICE EP1C12Q240C8
+set_global_assignment -name ENABLE_DEVICE_WIDE_RESET OFF
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
+
+# Simulator Assignments
+# =====================
+set_global_assignment -name SIMULATION_MODE FUNCTIONAL
+set_global_assignment -name VECTOR_INPUT_SOURCE ../cpu0.vwf
+
+# LogicLock Region Assignments
+# ============================
+set_global_assignment -name LOGICLOCK_INCREMENTAL_COMPILE_ASSIGNMENT OFF
+
+# ------------------------
+# start ENTITY(controller)
+
+
+	# -------------------------------------
+	# start LOGICLOCK_REGION("Root Region")
+
+		# LogicLock Region Assignments
+		# ============================
+		set_global_assignment -name LL_ROOT_REGION ON -section_id "Root Region"
+		set_global_assignment -name LL_MEMBER_STATE LOCKED -section_id "Root Region"
+
+	# end LOGICLOCK_REGION("Root Region")
+	# -----------------------------------
+
+	# ----------------------------------
+	# start LOGICLOCK_REGION(controller)
+
+		# LogicLock Region Assignments
+		# ============================
+		set_global_assignment -name LL_ORIGIN LAB_X1_Y1 -section_id controller
+		set_global_assignment -name LL_HEIGHT 1 -section_id controller
+		set_global_assignment -name LL_WIDTH 1 -section_id controller
+		set_global_assignment -name LL_STATE FLOATING -section_id controller
+		set_global_assignment -name LL_AUTO_SIZE ON -section_id controller
+		set_global_assignment -name LL_RESERVED OFF -section_id controller
+		set_global_assignment -name LL_MEMBER_STATE LOCKED -section_id controller
+		set_global_assignment -name LL_SOFT OFF -section_id controller
+		set_global_assignment -name LL_MEMBER_OF controller -section_id controller
+
+	# end LOGICLOCK_REGION(controller)
+	# --------------------------------
+
+# end ENTITY(controller)
+# ----------------------

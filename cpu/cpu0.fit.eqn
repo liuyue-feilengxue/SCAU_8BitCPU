@@ -1,0 +1,723 @@
+-- Copyright (C) 1991-2005 Altera Corporation
+-- Your use of Altera Corporation's design tools, logic functions 
+-- and other software and tools, and its AMPP partner logic 
+-- functions, and any output files any of the foregoing 
+-- (including device programming or simulation files), and any 
+-- associated documentation or information are expressly subject 
+-- to the terms and conditions of the Altera Program License 
+-- Subscription Agreement, Altera MegaCore Function License 
+-- Agreement, or other applicable license agreement, including, 
+-- without limitation, that your use is for the sole purpose of 
+-- programming logic devices manufactured by Altera and sold by 
+-- Altera or its authorized distributors.  Please refer to the 
+-- applicable agreement for further details.
+--A1L53 is Mux~4463 at LC_X10_Y13_N4
+--operation mode is normal
+
+A1L53 = timer[0] & timer[2];
+
+
+--A1L63 is Mux~4464 at LC_X10_Y13_N5
+--operation mode is normal
+
+A1L63 = instruction[4] & timer[1];
+
+
+--A1L73 is Mux~4465 at LC_X10_Y12_N8
+--operation mode is normal
+
+A1L73 = instruction[6] & instruction[7];
+
+
+--A1L83 is Mux~4466 at LC_X10_Y13_N8
+--operation mode is normal
+
+A1L83 = A1L53 & (A1L73 & A1L63 # !A1L73 & (alu_out_sel[0]));
+
+
+--A1L93 is Mux~4467 at LC_X10_Y12_N6
+--operation mode is normal
+
+A1L93 = !timer[2] & (instruction[6] & instruction[7]);
+
+
+--A1L04 is Mux~4468 at LC_X10_Y13_N1
+--operation mode is normal
+
+A1L04 = timer[1] & alu_out_sel[0] & (A1L93 # !timer[0]);
+
+
+--A1L14 is Mux~4469 at LC_X10_Y16_N3
+--operation mode is normal
+
+A1L14 = !instruction[7] & (instruction[4] $ instruction[6] # !instruction[5]);
+
+
+--A1L24 is Mux~4470 at LC_X10_Y13_N0
+--operation mode is normal
+
+A1L24 = !timer[2] & timer[0] & timer[1];
+
+
+--A1L34 is Mux~4471 at LC_X10_Y13_N7
+--operation mode is normal
+
+A1L34 = A1L04 # A1L83 # A1L24 & A1L14;
+
+
+--A1L44 is Mux~4472 at LC_X10_Y13_N6
+--operation mode is normal
+
+A1L44 = !timer[0] & (timer[1] & (alu_out_sel[1]) # !timer[1] & !timer[2]);
+
+
+--A1L54 is Mux~4473 at LC_X10_Y13_N2
+--operation mode is normal
+
+A1L54 = instruction[4] & !timer[1] & instruction[5] # !instruction[4] & (!instruction[5]);
+
+
+--A1L64 is Mux~4474 at LC_X10_Y13_N9
+--operation mode is normal
+
+A1L64 = A1L44 # A1L53 & A1L54 & A1L73;
+
+
+--A1L74 is Mux~4475 at LC_X10_Y12_N4
+--operation mode is normal
+
+A1L74 = !timer[2] & (timer[1]);
+
+
+--A1L84 is Mux~4476 at LC_X10_Y11_N2
+--operation mode is normal
+
+A1L84 = instruction[4] & (!z) # !instruction[4] & c;
+
+
+--A1L94 is Mux~4477 at LC_X9_Y13_N6
+--operation mode is normal
+
+A1L94 = instruction[7] & !instruction[6] & A1L84 & !instruction[5];
+
+
+--A1L05 is Mux~4478 at LC_X9_Y13_N2
+--operation mode is normal
+
+A1L05 = !instruction[7] & (instruction[4] & instruction[5]);
+
+
+--A1L15 is Mux~4479 at LC_X9_Y13_N5
+--operation mode is normal
+
+A1L15 = instruction[7] & (alu_out_sel[1] # timer[0] & A1L05) # !instruction[7] & timer[0] & A1L05;
+
+
+--A1L25 is Mux~4480 at LC_X9_Y13_N4
+--operation mode is normal
+
+A1L25 = A1L94 & (timer[0] # instruction[6] & A1L15) # !A1L94 & (instruction[6] & A1L15);
+
+
+--A1L35 is Mux~4481 at LC_X9_Y13_N7
+--operation mode is normal
+
+A1L35 = A1L64 # A1L98 # A1L74 & A1L25;
+
+
+--A1L45 is Mux~4482 at LC_X7_Y12_N7
+--operation mode is normal
+
+A1L45 = !instruction[7] & (!instruction[6]);
+
+
+--A1L55 is Mux~4483 at LC_X7_Y12_N3
+--operation mode is normal
+
+A1L55 = timer[2] & (timer[0] # timer[1]) # !timer[2] & (A1L45 & timer[1]);
+
+
+--A1L65 is Mux~4484 at LC_X10_Y11_N4
+--operation mode is normal
+
+A1L65 = instruction[4] & (instruction[5]);
+
+
+--A1L75 is Mux~4485 at LC_X7_Y12_N4
+--operation mode is normal
+
+A1L75 = A1L55 # timer[1] & !A1L65 & instruction[6];
+
+
+--A1L85 is Mux~4486 at LC_X8_Y13_N1
+--operation mode is normal
+
+A1L85 = timer[0] & (timer[2] # !A1L73) # !timer[1];
+
+
+--dest_reg[0]$latch is dest_reg[0]$latch at LC_X1_Y4_N5
+--operation mode is normal
+
+dest_reg[0]$latch = GLOBAL(A1L85) & A1L75 & (instruction[2]) # !GLOBAL(A1L85) & (dest_reg[0]$latch);
+
+
+--dest_reg[1]$latch is dest_reg[1]$latch at LC_X1_Y4_N8
+--operation mode is normal
+
+dest_reg[1]$latch = GLOBAL(A1L85) & A1L75 & instruction[3] # !GLOBAL(A1L85) & (dest_reg[1]$latch);
+
+
+--sour_reg[0]$latch is sour_reg[0]$latch at LC_X7_Y12_N8
+--operation mode is normal
+
+sour_reg[0]$latch = GLOBAL(A1L85) & (instruction[0] & A1L75) # !GLOBAL(A1L85) & sour_reg[0]$latch;
+
+
+--sour_reg[1]$latch is sour_reg[1]$latch at LC_X1_Y4_N4
+--operation mode is normal
+
+sour_reg[1]$latch = GLOBAL(A1L85) & A1L75 & instruction[1] # !GLOBAL(A1L85) & (sour_reg[1]$latch);
+
+
+--A1L95 is Mux~4487 at LC_X7_Y12_N2
+--operation mode is normal
+
+A1L95 = A1L24 & (instruction[6] & (A1L65) # !instruction[6] & instruction[7]);
+
+
+--offset[0]$latch is offset[0]$latch at LC_X7_Y12_N0
+--operation mode is normal
+
+offset[0]$latch = GLOBAL(A1L85) & A1L95 & (instruction[0]) # !GLOBAL(A1L85) & (offset[0]$latch);
+
+
+--offset[1]$latch is offset[1]$latch at LC_X1_Y4_N9
+--operation mode is normal
+
+offset[1]$latch = GLOBAL(A1L85) & A1L95 & instruction[1] # !GLOBAL(A1L85) & (offset[1]$latch);
+
+
+--offset[2]$latch is offset[2]$latch at LC_X1_Y4_N2
+--operation mode is normal
+
+offset[2]$latch = GLOBAL(A1L85) & A1L95 & instruction[2] # !GLOBAL(A1L85) & (offset[2]$latch);
+
+
+--offset[3]$latch is offset[3]$latch at LC_X1_Y4_N6
+--operation mode is normal
+
+offset[3]$latch = GLOBAL(A1L85) & (instruction[3] & A1L95) # !GLOBAL(A1L85) & offset[3]$latch;
+
+
+--A1L06 is Mux~4488 at LC_X10_Y16_N6
+--operation mode is normal
+
+A1L06 = instruction[7] $ (instruction[4] & instruction[5]);
+
+
+--sst[0]$latch is sst[0]$latch at LC_X10_Y16_N4
+--operation mode is normal
+
+sst[0]$latch = GLOBAL(A1L85) & (A1L06 # !A1L74) # !GLOBAL(A1L85) & (sst[0]$latch);
+
+
+--A1L16 is Mux~4489 at LC_X10_Y16_N2
+--operation mode is normal
+
+A1L16 = instruction[5] & instruction[4] # !instruction[5] & (instruction[7]);
+
+
+--sst[1]$latch is sst[1]$latch at LC_X10_Y16_N7
+--operation mode is normal
+
+sst[1]$latch = GLOBAL(A1L85) & (A1L16 # !A1L74) # !GLOBAL(A1L85) & (sst[1]$latch);
+
+
+--A1L26 is Mux~4490 at LC_X8_Y16_N0
+--operation mode is normal
+
+A1L26 = instruction[4] $ (instruction[5]);
+
+
+--A1L36 is Mux~4491 at LC_X8_Y16_N6
+--operation mode is normal
+
+A1L36 = !timer[1] & (timer[0] & timer[2] & !A1L26 # !timer[0] & !timer[2]);
+
+
+--A1L46 is Mux~4492 at LC_X8_Y16_N4
+--operation mode is normal
+
+A1L46 = timer[1] & !timer[2] & instruction[6] & !instruction[4];
+
+
+--A1L56 is Mux~4493 at LC_X8_Y16_N8
+--operation mode is normal
+
+A1L56 = A1L36 # !instruction[5] & A1L46;
+
+
+--A1L66 is Mux~4494 at LC_X8_Y13_N5
+--operation mode is normal
+
+A1L66 = timer[0] & (timer[1] & (timer[2] # !A1L73) # !timer[1] & (A1L73 # !timer[2])) # !timer[0] & !timer[1];
+
+
+--sci[0]$latch is sci[0]$latch at LC_X8_Y16_N9
+--operation mode is normal
+
+sci[0]$latch = GLOBAL(A1L66) & A1L56 # !GLOBAL(A1L66) & (sci[0]$latch);
+
+
+--A1L76 is Mux~4495 at LC_X8_Y16_N7
+--operation mode is normal
+
+A1L76 = instruction[5] & A1L46;
+
+
+--sci[1]$latch is sci[1]$latch at LC_X5_Y19_N2
+--operation mode is normal
+
+sci[1]$latch = GLOBAL(A1L66) & (A1L76) # !GLOBAL(A1L66) & sci[1]$latch;
+
+
+--A1L86 is Mux~4496 at LC_X10_Y12_N5
+--operation mode is normal
+
+A1L86 = timer[0] & (instruction[6] & timer[2]) # !timer[0] & (!timer[2]);
+
+
+--A1L96 is Mux~4497 at LC_X8_Y13_N6
+--operation mode is normal
+
+A1L96 = timer[0] & (timer[1] # A1L73 # !timer[2]) # !timer[0] & !timer[1];
+
+
+--rec[0]$latch is rec[0]$latch at LC_X10_Y12_N2
+--operation mode is normal
+
+rec[0]$latch = GLOBAL(A1L96) & !timer[1] & A1L86 # !GLOBAL(A1L96) & (rec[0]$latch);
+
+
+--A1L07 is Mux~4498 at LC_X8_Y16_N1
+--operation mode is normal
+
+A1L07 = !timer[1] & timer[0] & (A1L26 # !timer[2]);
+
+
+--rec[1]$latch is rec[1]$latch at LC_X7_Y19_N2
+--operation mode is normal
+
+rec[1]$latch = GLOBAL(A1L96) & A1L07 # !GLOBAL(A1L96) & (rec[1]$latch);
+
+
+--A1L17 is Mux~4499 at LC_X10_Y16_N1
+--operation mode is normal
+
+A1L17 = !instruction[7] & (instruction[6] & (!instruction[5]) # !instruction[6] & !instruction[4] & instruction[5]);
+
+
+--alu_func[0]$latch is alu_func[0]$latch at LC_X10_Y16_N0
+--operation mode is normal
+
+alu_func[0]$latch = GLOBAL(A1L85) & A1L17 & (A1L74) # !GLOBAL(A1L85) & (alu_func[0]$latch);
+
+
+--A1L27 is Mux~4500 at LC_X7_Y12_N5
+--operation mode is normal
+
+A1L27 = !instruction[5] & (instruction[4]);
+
+
+--alu_func[1]$latch is alu_func[1]$latch at LC_X4_Y11_N2
+--operation mode is normal
+
+alu_func[1]$latch = GLOBAL(A1L85) & A1L09 # !GLOBAL(A1L85) & (alu_func[1]$latch);
+
+
+--alu_func[2]$latch is alu_func[2]$latch at LC_X7_Y18_N2
+--operation mode is normal
+
+alu_func[2]$latch = GLOBAL(A1L85) & A1L19 # !GLOBAL(A1L85) & (alu_func[2]$latch);
+
+
+--A1L37 is Mux~4501 at LC_X7_Y12_N1
+--operation mode is normal
+
+A1L37 = timer[2] & (timer[1] & instruction[6] # !timer[1] & (A1L27));
+
+
+--A1L47 is Mux~4502 at LC_X9_Y13_N8
+--operation mode is normal
+
+A1L47 = instruction[7] & (!instruction[5]);
+
+
+--A1L57 is Mux~4503 at LC_X9_Y13_N9
+--operation mode is normal
+
+A1L57 = A1L37 # A1L74 & (A1L05 # A1L47);
+
+
+--A1L67 is Mux~4504 at LC_X8_Y13_N0
+--operation mode is normal
+
+A1L67 = timer[0] & (A1L73 & (timer[2] # !timer[1]) # !A1L73 & (!timer[2])) # !timer[0] & !timer[1];
+
+
+--alu_in_sel[0]$latch is alu_in_sel[0]$latch at LC_X8_Y13_N9
+--operation mode is normal
+
+alu_in_sel[0]$latch = GLOBAL(A1L67) & timer[0] & A1L57 # !GLOBAL(A1L67) & (alu_in_sel[0]$latch);
+
+
+--A1L77 is Mux~4505 at LC_X8_Y13_N7
+--operation mode is normal
+
+A1L77 = timer[2] $ (!timer[1]) # !timer[0];
+
+
+--A1L87 is Mux~4506 at LC_X8_Y16_N5
+--operation mode is normal
+
+A1L87 = instruction[4] # !instruction[5];
+
+
+--A1L97 is Mux~4507 at LC_X10_Y16_N5
+--operation mode is normal
+
+A1L97 = instruction[6] & !instruction[7] & (instruction[4] # !instruction[5]) # !instruction[6] & (!instruction[5] & instruction[7]);
+
+
+--A1L08 is Mux~4508 at LC_X8_Y16_N2
+--operation mode is normal
+
+A1L08 = A1L77 # timer[2] & (A1L87) # !timer[2] & !A1L97;
+
+
+--alu_in_sel[1]$latch is alu_in_sel[1]$latch at LC_X8_Y21_N2
+--operation mode is normal
+
+alu_in_sel[1]$latch = GLOBAL(A1L67) & (!A1L08) # !GLOBAL(A1L67) & alu_in_sel[1]$latch;
+
+
+--A1L18 is Mux~4509 at LC_X8_Y16_N3
+--operation mode is normal
+
+A1L18 = A1L36 # timer[2] & timer[1] & A1L87;
+
+
+--alu_in_sel[2]$latch is alu_in_sel[2]$latch at LC_X7_Y25_N2
+--operation mode is normal
+
+alu_in_sel[2]$latch = GLOBAL(A1L67) & A1L18 # !GLOBAL(A1L67) & (alu_in_sel[2]$latch);
+
+
+--A1L28 is Mux~4510 at LC_X10_Y16_N8
+--operation mode is normal
+
+A1L28 = instruction[7] # instruction[5] & (instruction[4] $ !instruction[6]);
+
+
+--A1L38 is Mux~4511 at LC_X10_Y16_N9
+--operation mode is normal
+
+A1L38 = timer[2] & instruction[4] # !timer[2] & (!A1L28);
+
+
+--alu_out_sel[0] is alu_out_sel[0] at LC_X10_Y13_N3
+--operation mode is normal
+
+alu_out_sel[0] = GLOBAL(A1L67) & timer[1] & (A1L38) # !GLOBAL(A1L67) & (alu_out_sel[0]);
+
+
+--A1L48 is Mux~4512 at LC_X8_Y13_N8
+--operation mode is normal
+
+A1L48 = !instruction[4] & timer[2] & timer[1] & !instruction[5];
+
+
+--A1L58 is Mux~4513 at LC_X9_Y13_N3
+--operation mode is normal
+
+A1L58 = instruction[6] & (A1L05) # !instruction[6] & A1L84 & A1L47;
+
+
+--A1L68 is Mux~4514 at LC_X9_Y13_N0
+--operation mode is normal
+
+A1L68 = A1L48 # A1L36 # A1L74 & A1L58;
+
+
+--alu_out_sel[1] is alu_out_sel[1] at LC_X9_Y12_N2
+--operation mode is normal
+
+alu_out_sel[1] = GLOBAL(A1L67) & A1L68 # !GLOBAL(A1L67) & (alu_out_sel[1]);
+
+
+--A1L78 is Mux~4515 at LC_X8_Y13_N4
+--operation mode is normal
+
+A1L78 = timer[0] & (instruction[4] # !instruction[5] # !timer[2]);
+
+
+--A1L88 is Mux~4516 at LC_X8_Y13_N2
+--operation mode is normal
+
+A1L88 = timer[0] & (A1L73 # !timer[2]) # !timer[1];
+
+
+--wr$latch is wr$latch at LC_X8_Y13_N3
+--operation mode is normal
+
+wr$latch = A1L88 & (A1L78 # !timer[1]) # !A1L88 & (wr$latch);
+
+
+--A1L98 is Mux~4517 at LC_X9_Y13_N1
+--operation mode is normal
+
+A1L98 = !A1L73 & timer[0] & timer[2] & alu_out_sel[1];
+
+
+--A1L09 is Mux~4518 at LC_X7_Y12_N9
+--operation mode is normal
+
+A1L09 = A1L45 & timer[1] & !timer[2] & A1L27;
+
+
+--A1L19 is Mux~4519 at LC_X7_Y12_N6
+--operation mode is normal
+
+A1L19 = !timer[2] & timer[1] & instruction[6] & A1L27;
+
+
+--v is v at PIN_84
+--operation mode is input
+
+v = INPUT();
+
+
+--s is s at PIN_83
+--operation mode is input
+
+s = INPUT();
+
+
+--timer[0] is timer[0] at PIN_20
+--operation mode is input
+
+timer[0] = INPUT();
+
+
+--timer[2] is timer[2] at PIN_23
+--operation mode is input
+
+timer[2] = INPUT();
+
+
+--instruction[4] is instruction[4] at PIN_39
+--operation mode is input
+
+instruction[4] = INPUT();
+
+
+--timer[1] is timer[1] at PIN_21
+--operation mode is input
+
+timer[1] = INPUT();
+
+
+--instruction[6] is instruction[6] at PIN_19
+--operation mode is input
+
+instruction[6] = INPUT();
+
+
+--instruction[7] is instruction[7] at PIN_226
+--operation mode is input
+
+instruction[7] = INPUT();
+
+
+--instruction[5] is instruction[5] at PIN_38
+--operation mode is input
+
+instruction[5] = INPUT();
+
+
+--c is c at PIN_86
+--operation mode is input
+
+c = INPUT();
+
+
+--z is z at PIN_85
+--operation mode is input
+
+z = INPUT();
+
+
+--instruction[2] is instruction[2] at PIN_47
+--operation mode is input
+
+instruction[2] = INPUT();
+
+
+--instruction[3] is instruction[3] at PIN_45
+--operation mode is input
+
+instruction[3] = INPUT();
+
+
+--instruction[0] is instruction[0] at PIN_66
+--operation mode is input
+
+instruction[0] = INPUT();
+
+
+--instruction[1] is instruction[1] at PIN_55
+--operation mode is input
+
+instruction[1] = INPUT();
+
+
+--dest_reg[0] is dest_reg[0] at PIN_46
+--operation mode is output
+
+dest_reg[0] = OUTPUT(dest_reg[0]$latch);
+
+
+--dest_reg[1] is dest_reg[1] at PIN_49
+--operation mode is output
+
+dest_reg[1] = OUTPUT(dest_reg[1]$latch);
+
+
+--sour_reg[0] is sour_reg[0] at PIN_43
+--operation mode is output
+
+sour_reg[0] = OUTPUT(sour_reg[0]$latch);
+
+
+--sour_reg[1] is sour_reg[1] at PIN_53
+--operation mode is output
+
+sour_reg[1] = OUTPUT(sour_reg[1]$latch);
+
+
+--offset[0] is offset[0] at PIN_67
+--operation mode is output
+
+offset[0] = OUTPUT(offset[0]$latch);
+
+
+--offset[1] is offset[1] at PIN_48
+--operation mode is output
+
+offset[1] = OUTPUT(offset[1]$latch);
+
+
+--offset[2] is offset[2] at PIN_50
+--operation mode is output
+
+offset[2] = OUTPUT(offset[2]$latch);
+
+
+--offset[3] is offset[3] at PIN_54
+--operation mode is output
+
+offset[3] = OUTPUT(offset[3]$latch);
+
+
+--sst[0] is sst[0] at PIN_224
+--operation mode is output
+
+sst[0] = OUTPUT(sst[0]$latch);
+
+
+--sst[1] is sst[1] at PIN_225
+--operation mode is output
+
+sst[1] = OUTPUT(sst[1]$latch);
+
+
+--sci[0] is sci[0] at PIN_228
+--operation mode is output
+
+sci[0] = OUTPUT(sci[0]$latch);
+
+
+--sci[1] is sci[1] at PIN_18
+--operation mode is output
+
+sci[1] = OUTPUT(sci[1]$latch);
+
+
+--rec[0] is rec[0] at PIN_76
+--operation mode is output
+
+rec[0] = OUTPUT(rec[0]$latch);
+
+
+--rec[1] is rec[1] at PIN_17
+--operation mode is output
+
+rec[1] = OUTPUT(rec[1]$latch);
+
+
+--alu_func[0] is alu_func[0] at PIN_222
+--operation mode is output
+
+alu_func[0] = OUTPUT(alu_func[0]$latch);
+
+
+--alu_func[1] is alu_func[1] at PIN_41
+--operation mode is output
+
+alu_func[1] = OUTPUT(alu_func[1]$latch);
+
+
+--alu_func[2] is alu_func[2] at PIN_234
+--operation mode is output
+
+alu_func[2] = OUTPUT(alu_func[2]$latch);
+
+
+--alu_in_sel[0] is alu_in_sel[0] at PIN_73
+--operation mode is output
+
+alu_in_sel[0] = OUTPUT(alu_in_sel[0]$latch);
+
+
+--alu_in_sel[1] is alu_in_sel[1] at PIN_227
+--operation mode is output
+
+alu_in_sel[1] = OUTPUT(alu_in_sel[1]$latch);
+
+
+--alu_in_sel[2] is alu_in_sel[2] at PIN_233
+--operation mode is output
+
+alu_in_sel[2] = OUTPUT(alu_in_sel[2]$latch);
+
+
+--en_reg is en_reg at PIN_77
+--operation mode is output
+
+en_reg = OUTPUT(A1L34);
+
+
+--en_pc is en_pc at PIN_79
+--operation mode is output
+
+en_pc = OUTPUT(A1L35);
+
+
+--wr is wr at PIN_75
+--operation mode is output
+
+wr = OUTPUT(wr$latch);
+
+
+
+

@@ -1,0 +1,357 @@
+Analysis & Synthesis report for cpu0
+Wed Jun 03 12:19:44 2020
+Version 5.0 Build 148 04/26/2005 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Analysis & Synthesis Source Files Read
+  5. Analysis & Synthesis Resource Usage Summary
+  6. Analysis & Synthesis Resource Utilization by Entity
+  7. User-Specified and Inferred Latches
+  8. General Register Statistics
+  9. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 10. Analysis & Synthesis Equations
+ 11. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2005 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic       
+functions, and any output files any of the foregoing           
+(including device programming or simulation files), and any    
+associated documentation or information are expressly subject  
+to the terms and conditions of the Altera Program License      
+Subscription Agreement, Altera MegaCore Function License       
+Agreement, or other applicable license agreement, including,   
+without limitation, that your use is for the sole purpose of   
+programming logic devices manufactured by Altera and sold by   
+Altera or its authorized distributors.  Please refer to the    
+applicable agreement for further details.
+
+
+
++------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                           ;
++-----------------------------+------------------------------------------+
+; Analysis & Synthesis Status ; Successful - Wed Jun 03 12:19:44 2020    ;
+; Quartus II Version          ; 5.0 Build 148 04/26/2005 SJ Full Version ;
+; Revision Name               ; cpu0                                     ;
+; Top-level Entity Name       ; controller                               ;
+; Family                      ; Cyclone                                  ;
+; Total logic elements        ; 80                                       ;
+; Total pins                  ; 38                                       ;
+; Total virtual pins          ; 0                                        ;
+; Total memory bits           ; 0                                        ;
+; Total PLLs                  ; 0                                        ;
++-----------------------------+------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                     ;
++--------------------------------------------------------------------+--------------+---------------+
+; Option                                                             ; Setting      ; Default Value ;
++--------------------------------------------------------------------+--------------+---------------+
+; Device                                                             ; EP1C12Q240C8 ;               ;
+; Top-level entity name                                              ; controller   ; cpu0          ;
+; Family name                                                        ; Cyclone      ; Stratix       ;
+; Use smart compilation                                              ; Off          ; Off           ;
+; Restructure Multiplexers                                           ; Auto         ; Auto          ;
+; Create Debugging Nodes for IP Cores                                ; off          ; off           ;
+; Preserve fewer node names                                          ; On           ; On            ;
+; Disable OpenCore Plus hardware evaluation                          ; Off          ; Off           ;
+; Verilog Version                                                    ; Verilog_2001 ; Verilog_2001  ;
+; VHDL Version                                                       ; VHDL93       ; VHDL93        ;
+; State Machine Processing                                           ; Auto         ; Auto          ;
+; Extract Verilog State Machines                                     ; On           ; On            ;
+; Extract VHDL State Machines                                        ; On           ; On            ;
+; Add Pass-Through Logic to Inferred RAMs                            ; On           ; On            ;
+; NOT Gate Push-Back                                                 ; On           ; On            ;
+; Power-Up Don't Care                                                ; On           ; On            ;
+; Remove Redundant Logic Cells                                       ; Off          ; Off           ;
+; Remove Duplicate Registers                                         ; On           ; On            ;
+; Ignore CARRY Buffers                                               ; Off          ; Off           ;
+; Ignore CASCADE Buffers                                             ; Off          ; Off           ;
+; Ignore GLOBAL Buffers                                              ; Off          ; Off           ;
+; Ignore ROW GLOBAL Buffers                                          ; Off          ; Off           ;
+; Ignore LCELL Buffers                                               ; Off          ; Off           ;
+; Ignore SOFT Buffers                                                ; On           ; On            ;
+; Limit AHDL Integers to 32 Bits                                     ; Off          ; Off           ;
+; Optimization Technique -- Cyclone                                  ; Balanced     ; Balanced      ;
+; Carry Chain Length -- Stratix/Stratix GX/Cyclone/MAX II/Cyclone II ; 70           ; 70            ;
+; Auto Carry Chains                                                  ; On           ; On            ;
+; Auto Open-Drain Pins                                               ; On           ; On            ;
+; Remove Duplicate Logic                                             ; On           ; On            ;
+; Perform WYSIWYG Primitive Resynthesis                              ; Off          ; Off           ;
+; Perform gate-level register retiming                               ; Off          ; Off           ;
+; Allow register retiming to trade off Tsu/Tco with Fmax             ; On           ; On            ;
+; Auto ROM Replacement                                               ; On           ; On            ;
+; Auto RAM Replacement                                               ; On           ; On            ;
+; Auto Shift Register Replacement                                    ; On           ; On            ;
+; Auto Clock Enable Replacement                                      ; On           ; On            ;
+; Allows Synchronous Control Signal Usage in Normal Mode Logic Cells ; On           ; On            ;
+; Auto RAM Block Balancing                                           ; On           ; On            ;
+; Auto Resource Sharing                                              ; Off          ; Off           ;
+; Allow Any RAM Size For Recognition                                 ; Off          ; Off           ;
+; Allow Any ROM Size For Recognition                                 ; Off          ; Off           ;
+; Allow Any Shift Register Size For Recognition                      ; Off          ; Off           ;
+; Maximum Number of M512 Memory Blocks                               ; -1           ; -1            ;
+; Maximum Number of M4K Memory Blocks                                ; -1           ; -1            ;
+; Maximum Number of M-RAM Memory Blocks                              ; -1           ; -1            ;
+; Ignore translate_off and translate_on Synthesis Directives         ; Off          ; Off           ;
+; Show Parameter Settings Tables in Synthesis Report                 ; On           ; On            ;
++--------------------------------------------------------------------+--------------+---------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                           ;
++----------------------------------+-----------------+-----------------+-------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path              ;
++----------------------------------+-----------------+-----------------+-------------------------------------------+
+; controller.vhd                   ; yes             ; User VHDL File  ; E:/Quartus5/file/week9/cpu/controller.vhd ;
++----------------------------------+-----------------+-----------------+-------------------------------------------+
+
+
++---------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary ;
++---------------------------------+-----------+
+; Resource                        ; Usage     ;
++---------------------------------+-----------+
+; Total logic elements            ; 80        ;
+; Total combinational functions   ; 80        ;
+;     -- Total 4-input functions  ; 50        ;
+;     -- Total 3-input functions  ; 19        ;
+;     -- Total 2-input functions  ; 11        ;
+;     -- Total 1-input functions  ; 0         ;
+;     -- Total 0-input functions  ; 0         ;
+; Combinational cells for routing ; 0         ;
+; Total registers                 ; 0         ;
+; I/O pins                        ; 38        ;
+; Maximum fan-out node            ; timer[2]  ;
+; Maximum fan-out                 ; 25        ;
+; Total fan-out                   ; 302       ;
+; Average fan-out                 ; 2.56      ;
++---------------------------------+-----------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                       ;
++----------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+---------------------+
+; Compilation Hierarchy Node ; Logic Cells ; LC Registers ; Memory Bits ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Full Hierarchy Name ;
++----------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+---------------------+
+; |controller                ; 80 (80)     ; 0            ; 0           ; 38   ; 0            ; 80 (80)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; |controller         ;
++----------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+---------------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++----------------------------------------------------+
+; User-Specified and Inferred Latches                ;
++-----------------------------------------------+----+
+; Latch Name                                    ;    ;
++-----------------------------------------------+----+
+; dest_reg[0]$latch                             ;    ;
+; dest_reg[1]$latch                             ;    ;
+; sour_reg[0]$latch                             ;    ;
+; sour_reg[1]$latch                             ;    ;
+; offset[0]$latch                               ;    ;
+; offset[1]$latch                               ;    ;
+; offset[2]$latch                               ;    ;
+; offset[3]$latch                               ;    ;
+; sst[0]$latch                                  ;    ;
+; sst[1]$latch                                  ;    ;
+; sci[0]$latch                                  ;    ;
+; sci[1]$latch                                  ;    ;
+; rec[0]$latch                                  ;    ;
+; rec[1]$latch                                  ;    ;
+; alu_func[0]$latch                             ;    ;
+; alu_func[1]$latch                             ;    ;
+; alu_func[2]$latch                             ;    ;
+; alu_in_sel[0]$latch                           ;    ;
+; alu_in_sel[1]$latch                           ;    ;
+; alu_in_sel[2]$latch                           ;    ;
+; alu_out_sel[0]                                ;    ;
+; alu_out_sel[1]                                ;    ;
+; wr$latch                                      ;    ;
+; Number of user-specified and inferred latches ; 23 ;
++-----------------------------------------------+----+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 0     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 14:1               ; 2 bits    ; 18 LEs        ; 8 LEs                ; 10 LEs                 ; No         ; |controller|Mux~31         ;
+; 10:1               ; 4 bits    ; 24 LEs        ; 4 LEs                ; 20 LEs                 ; No         ; |controller|Mux~24         ;
+; 10:1               ; 4 bits    ; 24 LEs        ; 4 LEs                ; 20 LEs                 ; No         ; |controller|Mux~14         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+
+
++--------------------------------+
+; Analysis & Synthesis Equations ;
++--------------------------------+
+The equations can be found in E:/Quartus5/file/week9/cpu/cpu0.map.eqn.
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Analysis & Synthesis
+    Info: Version 5.0 Build 148 04/26/2005 SJ Full Version
+    Info: Processing started: Wed Jun 03 12:19:43 2020
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off cpu0 -c cpu0
+Info: Found 2 design units, including 1 entities, in source file ../dram.vhd
+    Info: Found design unit 1: dram-b_dram
+    Info: Found entity 1: dram
+Info: Found 1 design units, including 1 entities, in source file cpu0.bdf
+    Info: Found entity 1: cpu0
+Info: Found 2 design units, including 1 entities, in source file alu.vhd
+    Info: Found design unit 1: alu-behave
+    Info: Found entity 1: alu
+Info: Found 2 design units, including 1 entities, in source file ar.vhd
+    Info: Found design unit 1: ar-behave
+    Info: Found entity 1: ar
+Info: Found 2 design units, including 1 entities, in source file bus_dir.vhd
+    Info: Found design unit 1: bus_dir-behave
+    Info: Found entity 1: bus_dir
+Info: Found 2 design units, including 1 entities, in source file bus_mux.vhd
+    Info: Found design unit 1: bus_mux-behave
+    Info: Found entity 1: bus_mux
+Info: Found 2 design units, including 1 entities, in source file controller.vhd
+    Info: Found design unit 1: controller-behave
+    Info: Found entity 1: controller
+Info: Found 2 design units, including 1 entities, in source file flag_reg.vhd
+    Info: Found design unit 1: flag_reg-behave
+    Info: Found entity 1: flag_reg
+Info: Found 2 design units, including 1 entities, in source file ir.vhd
+    Info: Found design unit 1: ir-behave
+    Info: Found entity 1: ir
+Info: Found 2 design units, including 1 entities, in source file pc.vhd
+    Info: Found design unit 1: pc-behave
+    Info: Found entity 1: pc
+Info: Found 2 design units, including 1 entities, in source file reg.vhd
+    Info: Found design unit 1: reg-behave
+    Info: Found entity 1: reg
+Info: Found 2 design units, including 1 entities, in source file reg_mux.vhd
+    Info: Found design unit 1: reg_mux-behave
+    Info: Found entity 1: reg_mux
+Info: Found 2 design units, including 1 entities, in source file reg_out.vhd
+    Info: Found design unit 1: reg_out-behave
+    Info: Found entity 1: reg_out
+Info: Found 2 design units, including 1 entities, in source file reg_test.vhd
+    Info: Found design unit 1: reg_test-behave
+    Info: Found entity 1: reg_test
+Info: Found 2 design units, including 1 entities, in source file reg_testa.vhd
+    Info: Found design unit 1: reg_testa-behave
+    Info: Found entity 1: reg_testa
+Info: Found 2 design units, including 1 entities, in source file t1.vhd
+    Info: Found design unit 1: t1-behave
+    Info: Found entity 1: t1
+Info: Found 2 design units, including 1 entities, in source file t2.vhd
+    Info: Found design unit 1: t2-behave
+    Info: Found entity 1: t2
+Info: Found 2 design units, including 1 entities, in source file t3.vhd
+    Info: Found design unit 1: t3-behave
+    Info: Found entity 1: t3
+Info: Found 2 design units, including 1 entities, in source file timer.vhd
+    Info: Found design unit 1: timer-behave
+    Info: Found entity 1: timer
+Info: Found 1 design units, including 1 entities, in source file cpu1.bdf
+    Info: Found entity 1: cpu1
+Info: Found 2 design units, including 1 entities, in source file controllertest.vhd
+    Info: Found design unit 1: controllertest-behave
+    Info: Found entity 1: controllertest
+Info: Elaborating entity "controller" for the top level hierarchy
+Warning: VHDL Process Statement warning at controller.vhd(23): signal or variable "dest_reg" may not be assigned a new value in every possible path through the Process Statement. Signal or variable "dest_reg" holds its previous value in every path with no new value assignment, which may create a combinational loop in the current design.
+Warning: VHDL Process Statement warning at controller.vhd(23): signal or variable "sour_reg" may not be assigned a new value in every possible path through the Process Statement. Signal or variable "sour_reg" holds its previous value in every path with no new value assignment, which may create a combinational loop in the current design.
+Warning: VHDL Process Statement warning at controller.vhd(23): signal or variable "offset" may not be assigned a new value in every possible path through the Process Statement. Signal or variable "offset" holds its previous value in every path with no new value assignment, which may create a combinational loop in the current design.
+Warning: VHDL Process Statement warning at controller.vhd(23): signal or variable "sci" may not be assigned a new value in every possible path through the Process Statement. Signal or variable "sci" holds its previous value in every path with no new value assignment, which may create a combinational loop in the current design.
+Warning: VHDL Process Statement warning at controller.vhd(23): signal or variable "sst" may not be assigned a new value in every possible path through the Process Statement. Signal or variable "sst" holds its previous value in every path with no new value assignment, which may create a combinational loop in the current design.
+Warning: VHDL Process Statement warning at controller.vhd(23): signal or variable "alu_out_sel" may not be assigned a new value in every possible path through the Process Statement. Signal or variable "alu_out_sel" holds its previous value in every path with no new value assignment, which may create a combinational loop in the current design.
+Warning: VHDL Process Statement warning at controller.vhd(23): signal or variable "alu_in_sel" may not be assigned a new value in every possible path through the Process Statement. Signal or variable "alu_in_sel" holds its previous value in every path with no new value assignment, which may create a combinational loop in the current design.
+Warning: VHDL Process Statement warning at controller.vhd(23): signal or variable "alu_func" may not be assigned a new value in every possible path through the Process Statement. Signal or variable "alu_func" holds its previous value in every path with no new value assignment, which may create a combinational loop in the current design.
+Warning: VHDL Process Statement warning at controller.vhd(23): signal or variable "wr" may not be assigned a new value in every possible path through the Process Statement. Signal or variable "wr" holds its previous value in every path with no new value assignment, which may create a combinational loop in the current design.
+Warning: VHDL Process Statement warning at controller.vhd(23): signal or variable "rec" may not be assigned a new value in every possible path through the Process Statement. Signal or variable "rec" holds its previous value in every path with no new value assignment, which may create a combinational loop in the current design.
+Warning: Latch dest_reg[0]$latch has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal timer[1]
+Warning: Latch dest_reg[1]$latch has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal timer[1]
+Warning: Latch sour_reg[0]$latch has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal timer[1]
+Warning: Latch sour_reg[1]$latch has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal timer[1]
+Warning: Latch offset[0]$latch has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal timer[0]
+Warning: Latch offset[1]$latch has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal timer[0]
+Warning: Latch offset[2]$latch has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal timer[0]
+Warning: Latch offset[3]$latch has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal timer[0]
+Warning: Latch sst[0]$latch has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal timer[2]
+Warning: Latch sst[1]$latch has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal timer[2]
+Warning: Latch sci[0]$latch has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal timer[1]
+Warning: Latch sci[1]$latch has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal timer[1]
+Warning: Latch rec[0]$latch has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal timer[1]
+Warning: Latch rec[1]$latch has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal timer[0]
+Warning: Latch alu_func[0]$latch has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal timer[2]
+Warning: Latch alu_func[1]$latch has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal instruction[6]
+Warning: Latch alu_func[2]$latch has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal instruction[6]
+Warning: Latch alu_in_sel[0]$latch has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal timer[0]
+Warning: Latch alu_in_sel[1]$latch has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal timer[0]
+Warning: Latch alu_in_sel[2]$latch has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal timer[1]
+Warning: Latch alu_out_sel[0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal timer[1]
+Warning: Latch alu_out_sel[1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal timer[1]
+Warning: Latch wr$latch has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal timer[1]
+Warning: Design contains 2 input pin(s) that do not drive logic
+    Warning: No output dependent on input pin "v"
+    Warning: No output dependent on input pin "s"
+Info: Implemented 118 device resources after synthesis - the final resource count might be different
+    Info: Implemented 15 input pins
+    Info: Implemented 23 output pins
+    Info: Implemented 80 logic cells
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 59 warnings
+    Info: Processing ended: Wed Jun 03 12:19:44 2020
+    Info: Elapsed time: 00:00:01
+
+

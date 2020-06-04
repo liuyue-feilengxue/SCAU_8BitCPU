@@ -1,0 +1,36 @@
+--------------------------------------------------------------------------------------
+Timing Analyzer Summary
+--------------------------------------------------------------------------------------
+
+Type           : Worst-case tpd
+Slack          : N/A
+Required Time  : None
+Actual Time    : 23.355 ns
+From           : instruction[6]
+To             : en_pc
+From Clock     : 
+To Clock       : 
+Failed Paths   : 0
+
+Type           : Worst-case Minimum tpd
+Slack          : N/A
+Required Time  : None
+Actual Time    : 10.195 ns
+From           : instruction[2]
+To             : offset[2]
+From Clock     : 
+To Clock       : 
+Failed Paths   : 0
+
+Type           : Total number of failed paths
+Slack          : 
+Required Time  : 
+Actual Time    : 
+From           : 
+To             : 
+From Clock     : 
+To Clock       : 
+Failed Paths   : 0
+
+--------------------------------------------------------------------------------------
+

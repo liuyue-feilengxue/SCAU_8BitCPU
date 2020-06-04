@@ -1,0 +1,23 @@
+; 内存读写测试
+MAIN:   MVRD     R0,0xFF         ;源地址
+        MVRD     R1,0x1FF        ;目的地址
+
+        MVRD     R2,32
+1:      MVRR     R3,R0
+        ADD      R3,R2
+        STRR     R3,R2           ;r2数据,r3地址
+        DEC      R2
+        JRNZ     1B
+
+        MVRD     R2,16
+1:      MVRR     R3,R0
+        ADD      R3,R2
+        LDRR     R4,R3           ;r4数据,r3地址
+        MVRR     R3,R1
+        ADD      R3,R2
+        STRR     R3,R4           ;r4数据,r3地址
+        DEC      R2
+        JRNZ     1B
+        MVRR     R5,R5
+        MVRR     R5,R5
+1:      JR       1B

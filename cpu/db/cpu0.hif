@@ -1,0 +1,164 @@
+Version 5.0 Build 148 04/26/2005 SJ Full Version
+32
+1624
+OFF
+OFF
+OFF
+OFF
+OFF
+FV_OFF
+VRSM_ON
+VHSM_ON
+0
+# entity
+flag_reg
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+flag_reg.vhd
+1121659154
+4
+# storage
+db|cpu0.(2).cnf
+db|cpu0.(2).cnf
+# internal_option {
+ADD_PASS_THROUGH_LOGIC_TO_INFERRED_RAMS
+ON
+AUTO_RESOURCE_SHARING
+OFF
+}
+# end
+# entity
+t1
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+t1.vhd
+1121659158
+4
+# storage
+db|cpu0.(4).cnf
+db|cpu0.(4).cnf
+# internal_option {
+ADD_PASS_THROUGH_LOGIC_TO_INFERRED_RAMS
+ON
+AUTO_RESOURCE_SHARING
+OFF
+}
+# end
+# entity
+t2
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+t2.vhd
+1589010572
+4
+# storage
+db|cpu0.(14).cnf
+db|cpu0.(14).cnf
+# internal_option {
+ADD_PASS_THROUGH_LOGIC_TO_INFERRED_RAMS
+ON
+AUTO_RESOURCE_SHARING
+OFF
+}
+# end
+# entity
+alu
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+alu.vhd
+1589874563
+4
+# storage
+db|cpu0.(1).cnf
+db|cpu0.(1).cnf
+# internal_option {
+ADD_PASS_THROUGH_LOGIC_TO_INFERRED_RAMS
+ON
+AUTO_RESOURCE_SHARING
+OFF
+}
+# end
+# entity
+bus_mux
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+bus_mux.vhd
+1589267220
+4
+# storage
+db|cpu0.(5).cnf
+db|cpu0.(5).cnf
+# internal_option {
+ADD_PASS_THROUGH_LOGIC_TO_INFERRED_RAMS
+ON
+AUTO_RESOURCE_SHARING
+OFF
+}
+# end
+# entity
+controllertest
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+controllertest.vhd
+1591152935
+4
+# storage
+db|cpu0.(0).cnf
+db|cpu0.(0).cnf
+# internal_option {
+ADD_PASS_THROUGH_LOGIC_TO_INFERRED_RAMS
+ON
+AUTO_RESOURCE_SHARING
+OFF
+}
+# end
+# entity
+controller
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+controller.vhd
+1591157886
+4
+# storage
+db|cpu0.(3).cnf
+db|cpu0.(3).cnf
+# internal_option {
+ADD_PASS_THROUGH_LOGIC_TO_INFERRED_RAMS
+ON
+AUTO_RESOURCE_SHARING
+OFF
+}
+# hierarchies {
+|
+}
+# end
+# complete
+

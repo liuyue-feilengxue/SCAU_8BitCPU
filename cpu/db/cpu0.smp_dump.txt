@@ -1,0 +1,9 @@
+
+State Machine - |cpu0|timer:inst6|state
+Name state.s5 state.s4 state.s3 state.s2 state.s1 state.s0 
+state.s0 0 0 0 0 0 0 
+state.s1 0 0 0 0 1 1 
+state.s2 0 0 0 1 0 1 
+state.s3 0 0 1 0 0 1 
+state.s4 0 1 0 0 0 1 
+state.s5 1 0 0 0 0 1 
