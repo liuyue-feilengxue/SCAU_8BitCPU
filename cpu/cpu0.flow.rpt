@@ -1,5 +1,5 @@
 Flow report for cpu0
-Wed Jun 03 12:19:50 2020
+Thu Jun 04 17:24:45 2020
 Version 5.0 Build 148 04/26/2005 SJ Full Version
 
 
@@ -36,16 +36,16 @@ applicable agreement for further details.
 +--------------------------------------------------------------------+
 ; Flow Summary                                                       ;
 +-------------------------+------------------------------------------+
-; Flow Status             ; Successful - Wed Jun 03 12:19:50 2020    ;
+; Flow Status             ; Successful - Thu Jun 04 17:24:45 2020    ;
 ; Quartus II Version      ; 5.0 Build 148 04/26/2005 SJ Full Version ;
 ; Revision Name           ; cpu0                                     ;
-; Top-level Entity Name   ; controller                               ;
+; Top-level Entity Name   ; cpu1                                     ;
 ; Family                  ; Cyclone                                  ;
 ; Device                  ; EP1C12Q240C8                             ;
 ; Timing Models           ; Final                                    ;
 ; Met timing requirements ; Yes                                      ;
-; Total logic elements    ; 80 / 12,060 ( < 1 % )                    ;
-; Total pins              ; 38 / 173 ( 21 % )                        ;
+; Total logic elements    ; 540 / 12,060 ( 4 % )                     ;
+; Total pins              ; 26 / 173 ( 15 % )                        ;
 ; Total virtual pins      ; 0                                        ;
 ; Total memory bits       ; 0 / 239,616 ( 0 % )                      ;
 ; Total PLLs              ; 0 / 2 ( 0 % )                            ;
@@ -57,7 +57,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 06/03/2020 12:19:43 ;
+; Start date & time ; 06/04/2020 17:24:34 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; cpu0                ;
 +-------------------+---------------------+
@@ -68,11 +68,11 @@ applicable agreement for further details.
 +----------------------+--------------+
 ; Module Name          ; Elapsed Time ;
 +----------------------+--------------+
-; Analysis & Synthesis ; 00:00:01     ;
-; Fitter               ; 00:00:02     ;
+; Analysis & Synthesis ; 00:00:04     ;
+; Fitter               ; 00:00:04     ;
 ; Assembler            ; 00:00:01     ;
-; Timing Analyzer      ; 00:00:01     ;
-; Total                ; 00:00:05     ;
+; Timing Analyzer      ; 00:00:00     ;
+; Total                ; 00:00:09     ;
 +----------------------+--------------+
 
 

@@ -106,6 +106,7 @@ applicable agreement for further details.
 		(line (pt 4 78)(pt 8 82)(line_width 1))
 	)
 	(rotate270)
+	(annotation_block (location)(rect 1536 1152 1624 1184))
 )
 (pin
 	(output)
@@ -123,6 +124,7 @@ applicable agreement for further details.
 		(line (pt 4 78)(pt 8 82)(line_width 1))
 	)
 	(rotate270)
+	(annotation_block (location)(rect 1552 1152 1640 1184))
 )
 (pin
 	(output)
@@ -140,6 +142,7 @@ applicable agreement for further details.
 		(line (pt 4 78)(pt 8 82)(line_width 1))
 	)
 	(rotate270)
+	(annotation_block (location)(rect 1568 1152 1656 1184))
 )
 (pin
 	(output)
@@ -157,6 +160,7 @@ applicable agreement for further details.
 		(line (pt 4 78)(pt 8 82)(line_width 1))
 	)
 	(rotate270)
+	(annotation_block (location)(rect 1584 1152 1672 1184))
 )
 (pin
 	(output)
@@ -1233,43 +1237,6 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 1352 -544 1512 -448)
-	(text "dram" (rect 131 84 155 96)(font "Arial" ))
-	(text "inst21" (rect 123 4 152 16)(font "Arial" ))
-	(port
-		(pt 160 64)
-		(input)
-		(text "reset" (rect 0 0 24 12)(font "Arial" ))
-		(text "reset" (rect 115 57 139 69)(font "Arial" ))
-		(line (pt 160 64)(pt 144 64)(line_width 1))
-	)
-	(port
-		(pt 160 48)
-		(input)
-		(text "wr" (rect 0 0 10 12)(font "Arial" ))
-		(text "wr" (rect 129 41 139 53)(font "Arial" ))
-		(line (pt 160 48)(pt 144 48)(line_width 1))
-	)
-	(port
-		(pt 160 32)
-		(input)
-		(text "addr[15..0]" (rect 0 0 53 12)(font "Arial" ))
-		(text "addr[15..0]" (rect 86 25 139 37)(font "Arial" ))
-		(line (pt 160 32)(pt 144 32)(line_width 3))
-	)
-	(port
-		(pt 0 64)
-		(bidir)
-		(text "data[15..0]" (rect 0 0 53 12)(font "Arial" ))
-		(text "data[15..0]" (rect 21 57 74 69)(font "Arial" ))
-		(line (pt 0 64)(pt 16 64)(line_width 3))
-	)
-	(drawing
-		(rectangle (rect 16 16 144 80)(line_width 1))
-	)
-	(rotate180)
-)
-(symbol
 	(rect 1424 -304 1520 -136)
 	(text "t3" (rect 0 154 12 163)(font "Arial" )(vertical))
 	(text "inst22" (rect 80 131 92 160)(font "Arial" )(vertical))
@@ -1298,6 +1265,43 @@ applicable agreement for further details.
 		(rectangle (rect 16 16 80 152)(line_width 1))
 	)
 	(rotate90)
+)
+(symbol
+	(rect 1352 -544 1504 -448)
+	(text "dram1" (rect 117 84 147 96)(font "Arial" ))
+	(text "inst17" (rect 115 4 144 16)(font "Arial" ))
+	(port
+		(pt 152 64)
+		(input)
+		(text "reset" (rect 0 0 24 12)(font "Arial" ))
+		(text "reset" (rect 107 57 131 69)(font "Arial" ))
+		(line (pt 152 64)(pt 136 64)(line_width 1))
+	)
+	(port
+		(pt 152 48)
+		(input)
+		(text "wr" (rect 0 0 10 12)(font "Arial" ))
+		(text "wr" (rect 121 41 131 53)(font "Arial" ))
+		(line (pt 152 48)(pt 136 48)(line_width 1))
+	)
+	(port
+		(pt 152 32)
+		(input)
+		(text "addr[7..0]" (rect 0 0 47 12)(font "Arial" ))
+		(text "addr[7..0]" (rect 84 25 131 37)(font "Arial" ))
+		(line (pt 152 32)(pt 136 32)(line_width 3))
+	)
+	(port
+		(pt 0 64)
+		(bidir)
+		(text "data[7..0]" (rect 0 0 47 12)(font "Arial" ))
+		(text "data[7..0]" (rect 21 57 68 69)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64)(line_width 3))
+	)
+	(drawing
+		(rectangle (rect 16 16 136 80)(line_width 1))
+	)
+	(rotate180)
 )
 (connector
 	(pt 784 208)
@@ -1580,11 +1584,6 @@ applicable agreement for further details.
 (connector
 	(pt 1832 272)
 	(pt 1728 272)
-	(bus)
-)
-(connector
-	(pt 1728 272)
-	(pt 1728 472)
 	(bus)
 )
 (connector
@@ -2023,10 +2022,6 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(pt 1552 -496)
-	(pt 1512 -496)
-)
-(connector
 	(pt 1552 -424)
 	(pt 1552 -496)
 )
@@ -2034,10 +2029,6 @@ applicable agreement for further details.
 	(pt 1328 -480)
 	(pt 1328 -328)
 	(bus)
-)
-(connector
-	(pt 1512 -480)
-	(pt 1528 -480)
 )
 (connector
 	(pt 1456 -136)
@@ -2221,11 +2212,6 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(pt 1752 -512)
-	(pt 1512 -512)
-	(bus)
-)
-(connector
 	(pt 1400 -376)
 	(pt 1400 80)
 )
@@ -2273,11 +2259,6 @@ applicable agreement for further details.
 (connector
 	(pt 1368 192)
 	(pt 1368 16)
-	(bus)
-)
-(connector
-	(pt 1368 16)
-	(pt 1368 -112)
 	(bus)
 )
 (connector
@@ -2746,6 +2727,44 @@ applicable agreement for further details.
 	(pt 584 952)
 	(bus)
 )
+(connector
+	(pt 1504 -496)
+	(pt 1552 -496)
+)
+(connector
+	(pt 1504 -512)
+	(pt 1752 -512)
+	(bus)
+)
+(connector
+	(pt 1504 -480)
+	(pt 1528 -480)
+)
+(connector
+	(pt 1728 -80)
+	(pt 1368 -80)
+	(bus)
+)
+(connector
+	(pt 1728 -80)
+	(pt 1728 272)
+	(bus)
+)
+(connector
+	(pt 1728 272)
+	(pt 1728 472)
+	(bus)
+)
+(connector
+	(pt 1368 16)
+	(pt 1368 -80)
+	(bus)
+)
+(connector
+	(pt 1368 -80)
+	(pt 1368 -112)
+	(bus)
+)
 (junction (pt 48 72))
 (junction (pt 48 224))
 (junction (pt 48 376))
@@ -2793,3 +2812,5 @@ applicable agreement for further details.
 (junction (pt 1288 328))
 (junction (pt 1416 208))
 (junction (pt 584 920))
+(junction (pt 1728 272))
+(junction (pt 1368 -80))

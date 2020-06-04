@@ -6,7 +6,8 @@ MAIN:   MVRD     R0,25           ; 被乘数
         MVRD     R1,6            ; 乘数
         MVRD     R2,0            ; 结果
         MVRD     R3,8            ; 循环次数
-LOOP:   MVRD     R4,1   -9（47 F7）
+LOOP:                                  -8（47 F7）
+        MVRD     R4,1   
         AND      R4,R1
         JRZ      1F              ; r4=0时跳转往前第一个1标号处
         ADD      R2,R0           ; 否则加到部分积

@@ -11,712 +11,4099 @@
 -- programming logic devices manufactured by Altera and sold by 
 -- Altera or its authorized distributors.  Please refer to the 
 -- applicable agreement for further details.
---A1L53 is Mux~4463 at LC_X10_Y13_N4
+--N1_flag_s is flag_reg:inst14|flag_s at LC_X15_Y11_N8
 --operation mode is normal
 
-A1L53 = timer[0] & timer[2];
+N1_flag_s_lut_out = E1_alu_func[1] & (D1L4 & M1L621) # !E1_alu_func[1] & M1L821;
+N1_flag_s = DFFEAS(N1_flag_s_lut_out, GLOBAL(clk), reset, , N1L5, , , , );
 
 
---A1L63 is Mux~4464 at LC_X10_Y13_N5
+--N1_flag_v is flag_reg:inst14|flag_v at LC_X15_Y11_N5
 --operation mode is normal
 
-A1L63 = instruction[4] & timer[1];
+N1_flag_v_lut_out = !M1L771 & (D1L36 & D1L53 & !M1L521 # !D1L36 & !D1L53 & M1L521);
+N1_flag_v = DFFEAS(N1_flag_v_lut_out, GLOBAL(clk), reset, , N1L5, , , , );
 
 
---A1L73 is Mux~4465 at LC_X10_Y12_N8
+--N1_flag_z is flag_reg:inst14|flag_z at LC_X15_Y11_N9
 --operation mode is normal
 
-A1L73 = instruction[6] & instruction[7];
+N1_flag_z_lut_out = !M1L671 & !M1L571 & !M1L901 & !M1L511;
+N1_flag_z = DFFEAS(N1_flag_z_lut_out, GLOBAL(clk), reset, , N1L5, , , , );
 
 
---A1L83 is Mux~4466 at LC_X10_Y13_N8
+--N1_flag_c is flag_reg:inst14|flag_c at LC_X15_Y14_N0
 --operation mode is normal
 
-A1L83 = A1L53 & (A1L73 & A1L63 # !A1L73 & (alu_out_sel[0]));
+N1_flag_c_lut_out = E1_sst[0] & N1_flag_c & (E1_sst[1]) # !E1_sst[0] & (M1L521 # E1_sst[1]);
+N1_flag_c = DFFEAS(N1_flag_c_lut_out, GLOBAL(clk), reset, , , , , , );
 
 
---A1L93 is Mux~4467 at LC_X10_Y12_N6
+--P1L75 is reg_out:inst15|reg_data2[7]~824 at LC_X13_Y14_N0
 --operation mode is normal
 
-A1L93 = !timer[2] & (instruction[6] & instruction[7]);
+P1L75 = sel[0] & !res_sel[1] & sel[1] & !res_sel[0];
 
 
---A1L04 is Mux~4468 at LC_X10_Y13_N1
+--P1L6 is reg_out:inst15|reg_data1[6]~97 at LC_X14_Y11_N0
 --operation mode is normal
 
-A1L04 = timer[1] & alu_out_sel[0] & (A1L93 # !timer[0]);
+Q1_q1[6]_qfbk = Q1_q1[6];
+P1L6 = Q1_q1[6]_qfbk & P1L75;
 
+--Q1_q1[6] is reg_testa:inst16|q1[6] at LC_X14_Y11_N0
+--operation mode is normal
+
+Q1_q1[6] = DFFEAS(P1L6, GLOBAL(clk), reset, , , G1_output[2], , , VCC);
+
+
+--Q1_q1[5] is reg_testa:inst16|q1[5] at LC_X12_Y15_N5
+--operation mode is normal
+
+Q1_q1[5]_lut_out = !G1L2;
+Q1_q1[5] = DFFEAS(Q1_q1[5]_lut_out, GLOBAL(clk), reset, , , , , , );
+
+
+--P1L5 is reg_out:inst15|reg_data1[5]~98 at LC_X12_Y15_N6
+--operation mode is normal
+
+P1L5 = P1L75 & (Q1_q1[5]);
+
+
+--Q1_q1[4] is reg_testa:inst16|q1[4] at LC_X12_Y15_N9
+--operation mode is normal
+
+Q1_q1[4]_lut_out = !G1L4;
+Q1_q1[4] = DFFEAS(Q1_q1[4]_lut_out, GLOBAL(clk), reset, , , , , , );
+
+
+--P1L4 is reg_out:inst15|reg_data1[4]~99 at LC_X12_Y15_N1
+--operation mode is normal
+
+P1L4 = Q1_q1[4] & P1L75;
+
+
+--P1L3 is reg_out:inst15|reg_data1[2]~100 at LC_X14_Y11_N2
+--operation mode is normal
+
+Q1_q1[2]_qfbk = Q1_q1[2];
+P1L3 = Q1_q1[2]_qfbk & P1L75;
+
+--Q1_q1[2] is reg_testa:inst16|q1[2] at LC_X14_Y11_N2
+--operation mode is normal
+
+Q1_q1[2] = DFFEAS(P1L3, GLOBAL(clk), reset, , , E1_alu_func[2], , , VCC);
+
+
+--P1L2 is reg_out:inst15|reg_data1[1]~101 at LC_X14_Y11_N8
+--operation mode is normal
+
+Q1_q1[1]_qfbk = Q1_q1[1];
+P1L2 = Q1_q1[1]_qfbk & P1L75;
+
+--Q1_q1[1] is reg_testa:inst16|q1[1] at LC_X14_Y11_N8
+--operation mode is normal
+
+Q1_q1[1] = DFFEAS(P1L2, GLOBAL(clk), reset, , , E1_alu_func[1], , , VCC);
+
+
+--P1L1 is reg_out:inst15|reg_data1[0]~102 at LC_X14_Y11_N1
+--operation mode is normal
+
+Q1_q1[0]_qfbk = Q1_q1[0];
+P1L1 = Q1_q1[0]_qfbk & P1L75;
+
+--Q1_q1[0] is reg_testa:inst16|q1[0] at LC_X14_Y11_N1
+--operation mode is normal
+
+Q1_q1[0] = DFFEAS(P1L1, GLOBAL(clk), reset, , , E1_alu_func[0], , , VCC);
+
+
+--P1L94 is reg_out:inst15|reg_data2[6]~825 at LC_X13_Y14_N4
+--operation mode is normal
+
+P1L94 = !sel[0] & !res_sel[1] # !sel[1];
+
+
+--D1L06 is bus_mux:inst5|alu_sr[7]~521 at LC_X15_Y15_N1
+--operation mode is normal
+
+D1L06 = E1_offset[3] & E1_alu_in_sel[1] & (E1_alu_in_sel[0]);
+
+
+--D1L16 is bus_mux:inst5|alu_sr[7]~522 at LC_X15_Y14_N1
+--operation mode is normal
+
+B1_q[7]_qfbk = B1_q[7];
+D1L16 = E1_sour_reg[0] & (E1_sour_reg[1]) # !E1_sour_reg[0] & (E1_sour_reg[1] & B3_q[7] # !E1_sour_reg[1] & (B1_q[7]_qfbk));
+
+--B1_q[7] is reg:inst|q[7] at LC_X15_Y14_N1
+--operation mode is normal
+
+B1_q[7] = DFFEAS(D1L16, GLOBAL(clk), reset, , C1L1, M1L521, , , VCC);
+
+
+--D1L26 is bus_mux:inst5|alu_sr[7]~523 at LC_X15_Y15_N6
+--operation mode is normal
+
+D1L26 = D1L16 & (B4_q[7] # !E1_sour_reg[0]) # !D1L16 & B2_q[7] & E1_sour_reg[0];
+
+
+--D1L36 is bus_mux:inst5|alu_sr[7]~524 at LC_X15_Y15_N7
+--operation mode is normal
+
+D1L36 = !E1_alu_in_sel[2] & (D1L06 # !E1_alu_in_sel[1] & D1L26);
+
+
+--D1L92 is bus_mux:inst5|alu_dr[7]~1113 at LC_X14_Y12_N7
+--operation mode is normal
+
+D1L92 = !E1_alu_in_sel[2] & (!E1_alu_in_sel[0]);
+
+
+--D1L03 is bus_mux:inst5|alu_dr[7]~1114 at LC_X13_Y15_N4
+--operation mode is normal
+
+B3_q[7]_qfbk = B3_q[7];
+D1L03 = E1_dest_reg[1] & (B3_q[7]_qfbk # E1_dest_reg[0]) # !E1_dest_reg[1] & B1_q[7] & (!E1_dest_reg[0]);
+
+--B3_q[7] is reg:inst2|q[7] at LC_X13_Y15_N4
+--operation mode is normal
+
+B3_q[7] = DFFEAS(D1L03, GLOBAL(clk), reset, , C1L3, M1L521, , , VCC);
+
+
+--D1L13 is bus_mux:inst5|alu_dr[7]~1115 at LC_X15_Y15_N3
+--operation mode is normal
+
+B4_q[7]_qfbk = B4_q[7];
+D1L13 = D1L03 & (B4_q[7]_qfbk # !E1_dest_reg[0]) # !D1L03 & B2_q[7] & (E1_dest_reg[0]);
+
+--B4_q[7] is reg:inst3|q[7] at LC_X15_Y15_N3
+--operation mode is normal
+
+B4_q[7] = DFFEAS(D1L13, GLOBAL(clk), reset, , C1L4, M1L521, , , VCC);
+
+
+--D1L23 is bus_mux:inst5|alu_dr[7]~1116 at LC_X15_Y15_N4
+--operation mode is normal
+
+D1L23 = E1_alu_in_sel[2] & (E1_alu_in_sel[1] # E1_alu_in_sel[0]) # !E1_alu_in_sel[2] & (!E1_alu_in_sel[0] # !E1_alu_in_sel[1]);
+
+
+--D1L33 is bus_mux:inst5|alu_dr[7]~1117 at LC_X15_Y13_N2
+--operation mode is normal
+
+K1_q[7]_qfbk = K1_q[7];
+D1L33 = D1L23 & D1L92 & (D1L13) # !D1L23 & (K1_q[7]_qfbk # D1L92 & D1L13);
+
+--K1_q[7] is pc:inst11|q[7] at LC_X15_Y13_N2
+--operation mode is normal
+
+K1_q[7] = DFFEAS(D1L33, GLOBAL(clk), reset, , E1L32, M1L521, , , VCC);
+
+
+--D1L43 is bus_mux:inst5|alu_dr[7]~1118 at LC_X14_Y12_N1
+--operation mode is normal
+
+D1L43 = !E1_alu_in_sel[1] & E1_alu_in_sel[0] & (E1_alu_in_sel[2]);
+
+
+--D1L53 is bus_mux:inst5|alu_dr[7]~1119 at LC_X15_Y11_N4
+--operation mode is normal
+
+D1L53 = D1L33 # D1L43 & R1_data[7]$latch;
+
+
+--P1L85 is reg_out:inst15|reg_data2[7]~826 at LC_X15_Y16_N6
+--operation mode is normal
+
+P1L85 = res_sel[1] & (D1L53 # res_sel[0]) # !res_sel[1] & (E1_offset[3] & !res_sel[0]);
+
+
+--M1L021 is alu:inst13|alu_out[7]~4989 at LC_X14_Y16_N9
+--operation mode is normal
+
+M1L021 = E1_alu_func[1] & (!E1_alu_func[2]);
+
+
+--M1L121 is alu:inst13|alu_out[7]~4990 at LC_X15_Y11_N0
+--operation mode is normal
+
+M1L121 = M1L021 & (D1L53 & (D1L36 # E1_alu_func[0]) # !D1L53 & D1L36 & E1_alu_func[0]);
+
+
+--M1L1 is alu:inst13|add~1814 at LC_X13_Y11_N8
+--operation mode is normal
+
+M1L1_carry_eqn = (!M1L21 & M1L3) # (M1L21 & M1L4);
+M1L1 = M1L72 $ (M1L1_carry_eqn $ !M1L92);
+
+
+--M1L221 is alu:inst13|alu_out[7]~4991 at LC_X15_Y11_N3
+--operation mode is normal
+
+M1L221 = !E1_alu_func[2] & M1L1;
+
+
+--M1L621 is alu:inst13|c~433 at LC_X15_Y11_N7
+--operation mode is normal
+
+M1L621 = E1_alu_func[2] & (!E1_alu_func[0]);
+
+
+--M1L321 is alu:inst13|alu_out[7]~4992 at LC_X15_Y11_N2
+--operation mode is normal
+
+M1L321 = M1L221 # M1L621 & (D1L53 $ D1L36);
+
+
+--D1L52 is bus_mux:inst5|alu_dr[6]~1120 at LC_X15_Y15_N8
+--operation mode is normal
+
+B2_q[6]_qfbk = B2_q[6];
+D1L52 = E1_dest_reg[1] & (E1_dest_reg[0]) # !E1_dest_reg[1] & (E1_dest_reg[0] & (B2_q[6]_qfbk) # !E1_dest_reg[0] & B1_q[6]);
+
+--B2_q[6] is reg:inst1|q[6] at LC_X15_Y15_N8
+--operation mode is normal
+
+B2_q[6] = DFFEAS(D1L52, GLOBAL(clk), reset, , C1L2, M1L911, , , VCC);
+
+
+--D1L62 is bus_mux:inst5|alu_dr[6]~1121 at LC_X15_Y15_N9
+--operation mode is normal
+
+B4_q[6]_qfbk = B4_q[6];
+D1L62 = E1_dest_reg[1] & (D1L52 & (B4_q[6]_qfbk) # !D1L52 & B3_q[6]) # !E1_dest_reg[1] & (D1L52);
+
+--B4_q[6] is reg:inst3|q[6] at LC_X15_Y15_N9
+--operation mode is normal
+
+B4_q[6] = DFFEAS(D1L62, GLOBAL(clk), reset, , C1L4, M1L911, , , VCC);
+
+
+--D1L72 is bus_mux:inst5|alu_dr[6]~1122 at LC_X14_Y12_N9
+--operation mode is normal
+
+K1_q[6]_qfbk = K1_q[6];
+D1L72 = D1L92 & (D1L62 # K1_q[6]_qfbk & !D1L23) # !D1L92 & (K1_q[6]_qfbk & !D1L23);
+
+--K1_q[6] is pc:inst11|q[6] at LC_X14_Y12_N9
+--operation mode is normal
+
+K1_q[6] = DFFEAS(D1L72, GLOBAL(clk), reset, , E1L32, M1L911, , , VCC);
+
+
+--D1L82 is bus_mux:inst5|alu_dr[6]~1123 at LC_X14_Y12_N2
+--operation mode is normal
+
+D1L82 = D1L72 # R1_data[6]$latch & D1L43;
+
+
+--M1L421 is alu:inst13|alu_out[7]~4993 at LC_X15_Y11_N1
+--operation mode is normal
+
+M1L421 = E1_alu_func[2] & (D1L82 & E1_alu_func[0]);
+
+
+--M1L521 is alu:inst13|alu_out[7]~4994 at LC_X15_Y11_N6
+--operation mode is normal
+
+M1L521 = M1L121 # !E1_alu_func[1] & (M1L321 # M1L421);
+
+--B2_q[7] is reg:inst1|q[7] at LC_X15_Y11_N6
+--operation mode is normal
+
+B2_q[7] = DFFEAS(M1L521, GLOBAL(clk), reset, , C1L2, , , , );
+
+
+--P1L95 is reg_out:inst15|reg_data2[7]~827 at LC_X15_Y16_N2
+--operation mode is normal
+
+P1L95 = res_sel[0] & (P1L85 & (M1L521) # !P1L85 & D1L36) # !res_sel[0] & (P1L85);
+
+
+--P1L06 is reg_out:inst15|reg_data2[7]~828 at LC_X13_Y14_N8
+--operation mode is normal
+
+P1L06 = sel[0] # sel[1] & res_sel[0];
+
+
+--P1L16 is reg_out:inst15|reg_data2[7]~829 at LC_X13_Y14_N3
+--operation mode is normal
+
+P1L16 = sel[1] & !sel[0];
+
+
+--P1L26 is reg_out:inst15|reg_data2[7]~830 at LC_X16_Y14_N1
+--operation mode is normal
+
+P1L26 = res_sel[0] & (B2_q[7] # res_sel[1]) # !res_sel[0] & B1_q[7] & (!res_sel[1]);
+
+
+--P1L36 is reg_out:inst15|reg_data2[7]~831 at LC_X16_Y14_N2
+--operation mode is normal
+
+P1L36 = res_sel[1] & (P1L26 & (B4_q[7]) # !P1L26 & B3_q[7]) # !res_sel[1] & (P1L26);
+
+
+--P1L46 is reg_out:inst15|reg_data2[7]~832 at LC_X15_Y13_N6
+--operation mode is normal
+
+P1L46 = P1L06 & (P1L16) # !P1L06 & (P1L16 & K1_q[7] # !P1L16 & (P1L36));
+
+
+--P1L56 is reg_out:inst15|reg_data2[7]~833 at LC_X15_Y13_N1
+--operation mode is normal
+
+P1L56 = P1L46 & (H1_q[7] # !P1L06) # !P1L46 & P1L95 & (P1L06);
+
+
+--Q1_q2[7] is reg_testa:inst16|q2[7] at LC_X13_Y11_N9
+--operation mode is normal
+
+Q1_q2[7]_lut_out = !F1L1;
+Q1_q2[7] = DFFEAS(Q1_q2[7]_lut_out, GLOBAL(clk), reset, , , , , , );
+
+
+--P1L66 is reg_out:inst15|reg_data2[7]~834 at LC_X13_Y14_N5
+--operation mode is normal
+
+P1L66 = P1L56 & (P1L94 # P1L75 & Q1_q2[7]) # !P1L56 & P1L75 & Q1_q2[7];
+
+
+--D1L65 is bus_mux:inst5|alu_sr[6]~525 at LC_X15_Y14_N3
+--operation mode is normal
+
+B1_q[6]_qfbk = B1_q[6];
+D1L65 = E1_sour_reg[0] & E1_sour_reg[1] # !E1_sour_reg[0] & (E1_sour_reg[1] & (B3_q[6]) # !E1_sour_reg[1] & B1_q[6]_qfbk);
+
+--B1_q[6] is reg:inst|q[6] at LC_X15_Y14_N3
+--operation mode is normal
+
+B1_q[6] = DFFEAS(D1L65, GLOBAL(clk), reset, , C1L1, M1L911, , , VCC);
+
+
+--D1L75 is bus_mux:inst5|alu_sr[6]~526 at LC_X15_Y15_N5
+--operation mode is normal
+
+D1L75 = E1_sour_reg[0] & (D1L65 & B4_q[6] # !D1L65 & (B2_q[6])) # !E1_sour_reg[0] & (D1L65);
+
+
+--D1L85 is bus_mux:inst5|alu_sr[6]~527 at LC_X15_Y15_N2
+--operation mode is normal
+
+D1L85 = !E1_alu_in_sel[2] & (D1L06 # !E1_alu_in_sel[1] & D1L75);
+
+
+--P1L05 is reg_out:inst15|reg_data2[6]~835 at LC_X15_Y16_N1
+--operation mode is normal
+
+P1L05 = res_sel[0] & (res_sel[1]) # !res_sel[0] & (res_sel[1] & D1L82 # !res_sel[1] & (E1_offset[3]));
+
+
+--M1L2 is alu:inst13|add~1819 at LC_X13_Y11_N7
+--operation mode is arithmetic
+
+M1L2_carry_eqn = (!M1L21 & M1L6) # (M1L21 & M1L7);
+M1L2 = M1L03 $ M1L43 $ M1L2_carry_eqn;
+
+--M1L3 is alu:inst13|add~1821 at LC_X13_Y11_N7
+--operation mode is arithmetic
+
+M1L3_cout_0 = M1L03 & !M1L43 & !M1L6 # !M1L03 & (!M1L6 # !M1L43);
+M1L3 = CARRY(M1L3_cout_0);
+
+--M1L4 is alu:inst13|add~1821COUT1_1969 at LC_X13_Y11_N7
+--operation mode is arithmetic
+
+M1L4_cout_1 = M1L03 & !M1L43 & !M1L7 # !M1L03 & (!M1L7 # !M1L43);
+M1L4 = CARRY(M1L4_cout_1);
+
+
+--M1L011 is alu:inst13|alu_out[5]~4995 at LC_X14_Y11_N4
+--operation mode is normal
+
+M1L011 = E1_alu_func[2] & (!E1_alu_func[0]) # !E1_alu_func[1];
+
+
+--M1L111 is alu:inst13|alu_out[5]~4996 at LC_X14_Y16_N5
+--operation mode is normal
+
+M1L111 = E1_alu_func[1] & (E1_alu_func[2] # E1_alu_func[0]);
+
+
+--M1L611 is alu:inst13|alu_out[6]~4997 at LC_X14_Y11_N5
+--operation mode is normal
+
+M1L611 = M1L011 & (M1L111 & D1L53 # !M1L111 & (M1L2)) # !M1L011 & (!M1L111);
+
+
+--M1L711 is alu:inst13|alu_out[6]~4998 at LC_X14_Y11_N6
+--operation mode is normal
+
+M1L711 = M1L611 & (D1L82 & D1L85 # !M1L021) # !M1L611 & M1L021 & (D1L82 # D1L85);
+
+
+--D1L12 is bus_mux:inst5|alu_dr[5]~1124 at LC_X13_Y15_N9
+--operation mode is normal
+
+B3_q[5]_qfbk = B3_q[5];
+D1L12 = E1_dest_reg[1] & (B3_q[5]_qfbk # E1_dest_reg[0]) # !E1_dest_reg[1] & B1_q[5] & (!E1_dest_reg[0]);
+
+--B3_q[5] is reg:inst2|q[5] at LC_X13_Y15_N9
+--operation mode is normal
+
+B3_q[5] = DFFEAS(D1L12, GLOBAL(clk), reset, , C1L3, M1L511, , , VCC);
+
+
+--D1L22 is bus_mux:inst5|alu_dr[5]~1125 at LC_X16_Y14_N8
+--operation mode is normal
+
+B4_q[5]_qfbk = B4_q[5];
+D1L22 = E1_dest_reg[0] & (D1L12 & (B4_q[5]_qfbk) # !D1L12 & B2_q[5]) # !E1_dest_reg[0] & (D1L12);
+
+--B4_q[5] is reg:inst3|q[5] at LC_X16_Y14_N8
+--operation mode is normal
+
+B4_q[5] = DFFEAS(D1L22, GLOBAL(clk), reset, , C1L4, M1L511, , , VCC);
+
+
+--D1L32 is bus_mux:inst5|alu_dr[5]~1126 at LC_X15_Y13_N0
+--operation mode is normal
+
+K1_q[5]_qfbk = K1_q[5];
+D1L32 = D1L23 & D1L92 & (D1L22) # !D1L23 & (K1_q[5]_qfbk # D1L92 & D1L22);
+
+--K1_q[5] is pc:inst11|q[5] at LC_X15_Y13_N0
+--operation mode is normal
+
+K1_q[5] = DFFEAS(D1L32, GLOBAL(clk), reset, , E1L32, M1L511, , , VCC);
+
+
+--D1L42 is bus_mux:inst5|alu_dr[5]~1127 at LC_X13_Y12_N8
+--operation mode is normal
+
+D1L42 = D1L32 # D1L43 & R1_data[5]$latch;
+
+
+--M1L811 is alu:inst13|alu_out[6]~4999 at LC_X14_Y11_N3
+--operation mode is normal
+
+M1L811 = E1_alu_func[0] & D1L42 # !E1_alu_func[0] & (D1L85 $ D1L82);
+
+
+--M1L911 is alu:inst13|alu_out[6]~5000 at LC_X14_Y11_N7
+--operation mode is normal
+
+M1L911 = E1_alu_func[1] & M1L711 # !E1_alu_func[1] & (E1_alu_func[2] & (M1L811) # !E1_alu_func[2] & M1L711);
+
+--B3_q[6] is reg:inst2|q[6] at LC_X14_Y11_N7
+--operation mode is normal
+
+B3_q[6] = DFFEAS(M1L911, GLOBAL(clk), reset, , C1L3, , , , );
+
+
+--P1L15 is reg_out:inst15|reg_data2[6]~836 at LC_X15_Y16_N8
+--operation mode is normal
+
+P1L15 = res_sel[0] & (P1L05 & (M1L911) # !P1L05 & D1L85) # !res_sel[0] & (P1L05);
+
+
+--P1L25 is reg_out:inst15|reg_data2[6]~837 at LC_X16_Y14_N7
+--operation mode is normal
+
+P1L25 = res_sel[0] & (B2_q[6] # res_sel[1]) # !res_sel[0] & (B1_q[6] & !res_sel[1]);
+
+
+--P1L35 is reg_out:inst15|reg_data2[6]~838 at LC_X13_Y14_N6
+--operation mode is normal
+
+P1L35 = res_sel[1] & (P1L25 & (B4_q[6]) # !P1L25 & B3_q[6]) # !res_sel[1] & (P1L25);
+
+
+--P1L45 is reg_out:inst15|reg_data2[6]~839 at LC_X13_Y14_N2
+--operation mode is normal
+
+P1L45 = P1L16 & (P1L06) # !P1L16 & (P1L06 & (P1L15) # !P1L06 & P1L35);
+
+
+--P1L55 is reg_out:inst15|reg_data2[6]~840 at LC_X13_Y14_N9
+--operation mode is normal
+
+P1L55 = P1L16 & (P1L45 & (H1_q[6]) # !P1L45 & K1_q[6]) # !P1L16 & (P1L45);
+
+
+--P1L65 is reg_out:inst15|reg_data2[6]~841 at LC_X13_Y14_N1
+--operation mode is normal
+
+Q1_q2[6]_qfbk = Q1_q2[6];
+P1L65 = P1L55 & (P1L94 # Q1_q2[6]_qfbk & P1L75) # !P1L55 & (Q1_q2[6]_qfbk & P1L75);
+
+--Q1_q2[6] is reg_testa:inst16|q2[6] at LC_X13_Y14_N1
+--operation mode is normal
+
+Q1_q2[6] = DFFEAS(P1L65, GLOBAL(clk), reset, , , E1_alu_in_sel[2], , , VCC);
+
+
+--D1L35 is bus_mux:inst5|alu_sr[5]~528 at LC_X15_Y14_N5
+--operation mode is normal
+
+B1_q[5]_qfbk = B1_q[5];
+D1L35 = E1_sour_reg[0] & (E1_sour_reg[1] # B2_q[5]) # !E1_sour_reg[0] & !E1_sour_reg[1] & B1_q[5]_qfbk;
+
+--B1_q[5] is reg:inst|q[5] at LC_X15_Y14_N5
+--operation mode is normal
+
+B1_q[5] = DFFEAS(D1L35, GLOBAL(clk), reset, , C1L1, M1L511, , , VCC);
+
+
+--D1L45 is bus_mux:inst5|alu_sr[5]~529 at LC_X15_Y14_N2
+--operation mode is normal
+
+D1L45 = E1_sour_reg[1] & (D1L35 & B4_q[5] # !D1L35 & (B3_q[5])) # !E1_sour_reg[1] & (D1L35);
+
+
+--D1L55 is bus_mux:inst5|alu_sr[5]~530 at LC_X14_Y12_N0
+--operation mode is normal
+
+D1L55 = !E1_alu_in_sel[2] & (D1L06 # !E1_alu_in_sel[1] & D1L45);
+
+
+--P1L24 is reg_out:inst15|reg_data2[5]~842 at LC_X15_Y16_N9
+--operation mode is normal
+
+P1L24 = res_sel[0] & res_sel[1] # !res_sel[0] & (res_sel[1] & (D1L42) # !res_sel[1] & E1_offset[3]);
+
+
+--M1L5 is alu:inst13|add~1824 at LC_X13_Y11_N6
+--operation mode is arithmetic
+
+M1L5_carry_eqn = (!M1L21 & M1L9) # (M1L21 & M1L01);
+M1L5 = M1L53 $ M1L93 $ !M1L5_carry_eqn;
+
+--M1L6 is alu:inst13|add~1826 at LC_X13_Y11_N6
+--operation mode is arithmetic
+
+M1L6_cout_0 = M1L53 & (M1L93 # !M1L9) # !M1L53 & M1L93 & !M1L9;
+M1L6 = CARRY(M1L6_cout_0);
+
+--M1L7 is alu:inst13|add~1826COUT1_1968 at LC_X13_Y11_N6
+--operation mode is arithmetic
+
+M1L7_cout_1 = M1L53 & (M1L93 # !M1L01) # !M1L53 & M1L93 & !M1L01;
+M1L7 = CARRY(M1L7_cout_1);
+
+
+--M1L211 is alu:inst13|alu_out[5]~5001 at LC_X14_Y12_N4
+--operation mode is normal
+
+M1L211 = M1L011 & (M1L111 & (D1L82) # !M1L111 & M1L5) # !M1L011 & (!M1L111);
+
+
+--M1L311 is alu:inst13|alu_out[5]~5002 at LC_X14_Y12_N8
+--operation mode is normal
+
+M1L311 = M1L021 & (D1L42 & (D1L55 # !M1L211) # !D1L42 & !M1L211 & D1L55) # !M1L021 & (M1L211);
+
+
+--D1L71 is bus_mux:inst5|alu_dr[4]~1128 at LC_X14_Y13_N6
+--operation mode is normal
+
+B2_q[4]_qfbk = B2_q[4];
+D1L71 = E1_dest_reg[1] & (E1_dest_reg[0]) # !E1_dest_reg[1] & (E1_dest_reg[0] & (B2_q[4]_qfbk) # !E1_dest_reg[0] & B1_q[4]);
+
+--B2_q[4] is reg:inst1|q[4] at LC_X14_Y13_N6
+--operation mode is normal
+
+B2_q[4] = DFFEAS(D1L71, GLOBAL(clk), reset, , C1L2, M1L901, , , VCC);
+
+
+--D1L81 is bus_mux:inst5|alu_dr[4]~1129 at LC_X10_Y15_N5
+--operation mode is normal
+
+B4_q[4]_qfbk = B4_q[4];
+D1L81 = E1_dest_reg[1] & (D1L71 & (B4_q[4]_qfbk) # !D1L71 & B3_q[4]) # !E1_dest_reg[1] & (D1L71);
+
+--B4_q[4] is reg:inst3|q[4] at LC_X10_Y15_N5
+--operation mode is normal
+
+B4_q[4] = DFFEAS(D1L81, GLOBAL(clk), reset, , C1L4, M1L901, , , VCC);
+
+
+--D1L91 is bus_mux:inst5|alu_dr[4]~1130 at LC_X14_Y12_N6
+--operation mode is normal
+
+K1_q[4]_qfbk = K1_q[4];
+D1L91 = D1L92 & (D1L81 # K1_q[4]_qfbk & !D1L23) # !D1L92 & (K1_q[4]_qfbk & !D1L23);
+
+--K1_q[4] is pc:inst11|q[4] at LC_X14_Y12_N6
+--operation mode is normal
+
+K1_q[4] = DFFEAS(D1L91, GLOBAL(clk), reset, , E1L32, M1L901, , , VCC);
+
+
+--D1L02 is bus_mux:inst5|alu_dr[4]~1131 at LC_X13_Y12_N9
+--operation mode is normal
+
+D1L02 = D1L91 # D1L43 & R1_data[4]$latch;
+
+
+--M1L411 is alu:inst13|alu_out[5]~5003 at LC_X16_Y12_N3
+--operation mode is normal
+
+M1L411 = E1_alu_func[0] & D1L02 # !E1_alu_func[0] & (D1L42 $ D1L55);
+
+
+--M1L511 is alu:inst13|alu_out[5]~5004 at LC_X16_Y12_N0
+--operation mode is normal
+
+M1L511 = E1_alu_func[2] & (E1_alu_func[1] & (M1L311) # !E1_alu_func[1] & M1L411) # !E1_alu_func[2] & (M1L311);
+
+--B2_q[5] is reg:inst1|q[5] at LC_X16_Y12_N0
+--operation mode is normal
+
+B2_q[5] = DFFEAS(M1L511, GLOBAL(clk), reset, , C1L2, , , , );
+
+
+--P1L34 is reg_out:inst15|reg_data2[5]~843 at LC_X15_Y13_N8
+--operation mode is normal
+
+P1L34 = res_sel[0] & (P1L24 & (M1L511) # !P1L24 & D1L55) # !res_sel[0] & (P1L24);
+
+
+--P1L44 is reg_out:inst15|reg_data2[5]~844 at LC_X16_Y14_N6
+--operation mode is normal
+
+P1L44 = res_sel[0] & (B2_q[5] # res_sel[1]) # !res_sel[0] & (B1_q[5] & !res_sel[1]);
+
+
+--P1L54 is reg_out:inst15|reg_data2[5]~845 at LC_X16_Y14_N5
+--operation mode is normal
+
+P1L54 = res_sel[1] & (P1L44 & (B4_q[5]) # !P1L44 & B3_q[5]) # !res_sel[1] & (P1L44);
+
+
+--P1L64 is reg_out:inst15|reg_data2[5]~846 at LC_X15_Y13_N9
+--operation mode is normal
+
+P1L64 = P1L06 & (P1L16) # !P1L06 & (P1L16 & (K1_q[5]) # !P1L16 & P1L54);
+
+
+--P1L74 is reg_out:inst15|reg_data2[5]~847 at LC_X15_Y13_N4
+--operation mode is normal
+
+P1L74 = P1L64 & (H1_q[5] # !P1L06) # !P1L64 & P1L06 & P1L34;
+
+
+--P1L84 is reg_out:inst15|reg_data2[5]~848 at LC_X12_Y15_N4
+--operation mode is normal
+
+Q1_q2[5]_qfbk = Q1_q2[5];
+P1L84 = P1L75 & (Q1_q2[5]_qfbk # P1L94 & P1L74) # !P1L75 & P1L94 & (P1L74);
+
+--Q1_q2[5] is reg_testa:inst16|q2[5] at LC_X12_Y15_N4
+--operation mode is normal
+
+Q1_q2[5] = DFFEAS(P1L84, GLOBAL(clk), reset, , , E1_alu_in_sel[1], , , VCC);
+
+
+--D1L05 is bus_mux:inst5|alu_sr[4]~531 at LC_X15_Y14_N4
+--operation mode is normal
+
+B1_q[4]_qfbk = B1_q[4];
+D1L05 = E1_sour_reg[0] & (E1_sour_reg[1]) # !E1_sour_reg[0] & (E1_sour_reg[1] & B3_q[4] # !E1_sour_reg[1] & (B1_q[4]_qfbk));
+
+--B1_q[4] is reg:inst|q[4] at LC_X15_Y14_N4
+--operation mode is normal
+
+B1_q[4] = DFFEAS(D1L05, GLOBAL(clk), reset, , C1L1, M1L901, , , VCC);
+
+
+--D1L15 is bus_mux:inst5|alu_sr[4]~532 at LC_X15_Y14_N8
+--operation mode is normal
+
+D1L15 = D1L05 & (B4_q[4] # !E1_sour_reg[0]) # !D1L05 & B2_q[4] & E1_sour_reg[0];
+
+
+--D1L25 is bus_mux:inst5|alu_sr[4]~533 at LC_X14_Y14_N5
+--operation mode is normal
+
+D1L25 = !E1_alu_in_sel[2] & (D1L06 # D1L15 & !E1_alu_in_sel[1]);
+
+
+--P1L53 is reg_out:inst15|reg_data2[4]~849 at LC_X15_Y16_N7
+--operation mode is normal
+
+P1L53 = res_sel[0] & res_sel[1] # !res_sel[0] & (res_sel[1] & (D1L02) # !res_sel[1] & E1_offset[3]);
+
+
+--M1L8 is alu:inst13|add~1829 at LC_X13_Y11_N5
+--operation mode is arithmetic
+
+M1L8_carry_eqn = (!M1L21 & GND) # (M1L21 & VCC);
+M1L8 = M1L04 $ M1L54 $ M1L8_carry_eqn;
+
+--M1L9 is alu:inst13|add~1831 at LC_X13_Y11_N5
+--operation mode is arithmetic
+
+M1L9_cout_0 = M1L04 & !M1L54 & !M1L21 # !M1L04 & (!M1L21 # !M1L54);
+M1L9 = CARRY(M1L9_cout_0);
+
+--M1L01 is alu:inst13|add~1831COUT1_1967 at LC_X13_Y11_N5
+--operation mode is arithmetic
+
+M1L01_cout_1 = M1L04 & !M1L54 & !M1L21 # !M1L04 & (!M1L21 # !M1L54);
+M1L01 = CARRY(M1L01_cout_1);
+
+
+--M1L601 is alu:inst13|alu_out[4]~5005 at LC_X14_Y13_N2
+--operation mode is normal
+
+M1L601 = M1L011 & (M1L111 & D1L42 # !M1L111 & (M1L8)) # !M1L011 & (!M1L111);
+
+
+--M1L701 is alu:inst13|alu_out[4]~5006 at LC_X14_Y13_N7
+--operation mode is normal
+
+M1L701 = M1L601 & (D1L02 & D1L25 # !M1L021) # !M1L601 & M1L021 & (D1L02 # D1L25);
+
+
+--D1L31 is bus_mux:inst5|alu_dr[3]~1132 at LC_X13_Y15_N5
+--operation mode is normal
+
+B3_q[3]_qfbk = B3_q[3];
+D1L31 = E1_dest_reg[0] & E1_dest_reg[1] # !E1_dest_reg[0] & (E1_dest_reg[1] & B3_q[3]_qfbk # !E1_dest_reg[1] & (B1_q[3]));
+
+--B3_q[3] is reg:inst2|q[3] at LC_X13_Y15_N5
+--operation mode is normal
+
+B3_q[3] = DFFEAS(D1L31, GLOBAL(clk), reset, , C1L3, M1L501, , , VCC);
+
+
+--D1L41 is bus_mux:inst5|alu_dr[3]~1133 at LC_X14_Y16_N7
+--operation mode is normal
+
+B4_q[3]_qfbk = B4_q[3];
+D1L41 = D1L31 & (B4_q[3]_qfbk # !E1_dest_reg[0]) # !D1L31 & B2_q[3] & (E1_dest_reg[0]);
+
+--B4_q[3] is reg:inst3|q[3] at LC_X14_Y16_N7
+--operation mode is normal
+
+B4_q[3] = DFFEAS(D1L41, GLOBAL(clk), reset, , C1L4, M1L501, , , VCC);
+
+
+--D1L51 is bus_mux:inst5|alu_dr[3]~1134 at LC_X14_Y15_N8
+--operation mode is normal
+
+K1_q[3]_qfbk = K1_q[3];
+D1L51 = D1L92 & (D1L41 # !D1L23 & K1_q[3]_qfbk) # !D1L92 & !D1L23 & K1_q[3]_qfbk;
+
+--K1_q[3] is pc:inst11|q[3] at LC_X14_Y15_N8
+--operation mode is normal
+
+K1_q[3] = DFFEAS(D1L51, GLOBAL(clk), reset, , E1L32, M1L501, , , VCC);
+
+
+--D1L61 is bus_mux:inst5|alu_dr[3]~1135 at LC_X14_Y16_N1
+--operation mode is normal
+
+D1L61 = D1L51 # R1_data[3]$latch & D1L43;
+
+
+--M1L801 is alu:inst13|alu_out[4]~5007 at LC_X14_Y13_N5
+--operation mode is normal
+
+M1L801 = E1_alu_func[0] & (D1L61) # !E1_alu_func[0] & (D1L25 $ D1L02);
+
+
+--M1L901 is alu:inst13|alu_out[4]~5008 at LC_X14_Y13_N8
+--operation mode is normal
+
+M1L901 = E1_alu_func[1] & (M1L701) # !E1_alu_func[1] & (E1_alu_func[2] & M1L801 # !E1_alu_func[2] & (M1L701));
+
+--B3_q[4] is reg:inst2|q[4] at LC_X14_Y13_N8
+--operation mode is normal
+
+B3_q[4] = DFFEAS(M1L901, GLOBAL(clk), reset, , C1L3, , , , );
+
+
+--P1L63 is reg_out:inst15|reg_data2[4]~850 at LC_X12_Y15_N0
+--operation mode is normal
+
+P1L63 = P1L53 & (M1L901 # !res_sel[0]) # !P1L53 & (D1L25 & res_sel[0]);
+
+
+--P1L73 is reg_out:inst15|reg_data2[4]~851 at LC_X10_Y15_N6
+--operation mode is normal
+
+P1L73 = res_sel[0] & (res_sel[1] # B2_q[4]) # !res_sel[0] & !res_sel[1] & (B1_q[4]);
+
+
+--P1L83 is reg_out:inst15|reg_data2[4]~852 at LC_X10_Y15_N3
+--operation mode is normal
+
+P1L83 = P1L73 & (B4_q[4] # !res_sel[1]) # !P1L73 & res_sel[1] & B3_q[4];
+
+
+--P1L93 is reg_out:inst15|reg_data2[4]~853 at LC_X12_Y15_N2
+--operation mode is normal
+
+P1L93 = P1L16 & (P1L06) # !P1L16 & (P1L06 & P1L63 # !P1L06 & (P1L83));
+
+
+--P1L04 is reg_out:inst15|reg_data2[4]~854 at LC_X12_Y15_N3
+--operation mode is normal
+
+P1L04 = P1L16 & (P1L93 & H1_q[4] # !P1L93 & (K1_q[4])) # !P1L16 & (P1L93);
+
+
+--P1L14 is reg_out:inst15|reg_data2[4]~855 at LC_X12_Y15_N7
+--operation mode is normal
+
+P1L14 = P1L75 & (Q1_q2[4] # P1L94 & P1L04) # !P1L75 & P1L94 & (P1L04);
+
+
+--D1L74 is bus_mux:inst5|alu_sr[3]~534 at LC_X13_Y16_N3
+--operation mode is normal
+
+B1_q[3]_qfbk = B1_q[3];
+D1L74 = E1_sour_reg[1] & E1_sour_reg[0] # !E1_sour_reg[1] & (E1_sour_reg[0] & (B2_q[3]) # !E1_sour_reg[0] & B1_q[3]_qfbk);
+
+--B1_q[3] is reg:inst|q[3] at LC_X13_Y16_N3
+--operation mode is normal
+
+B1_q[3] = DFFEAS(D1L74, GLOBAL(clk), reset, , C1L1, M1L501, , , VCC);
+
+
+--D1L84 is bus_mux:inst5|alu_sr[3]~535 at LC_X13_Y15_N0
+--operation mode is normal
+
+D1L84 = D1L74 & (B4_q[3] # !E1_sour_reg[1]) # !D1L74 & B3_q[3] & E1_sour_reg[1];
+
+
+--D1L94 is bus_mux:inst5|alu_sr[3]~536 at LC_X13_Y15_N2
+--operation mode is normal
+
+D1L94 = !E1_alu_in_sel[2] & (D1L06 # !E1_alu_in_sel[1] & D1L84);
+
+
+--P1L82 is reg_out:inst15|reg_data2[3]~856 at LC_X15_Y16_N5
+--operation mode is normal
+
+P1L82 = res_sel[0] & res_sel[1] # !res_sel[0] & (res_sel[1] & (D1L61) # !res_sel[1] & E1_offset[3]);
+
+
+--M1L11 is alu:inst13|add~1834 at LC_X13_Y11_N4
+--operation mode is arithmetic
+
+M1L11 = M1L64 $ M1L05 $ !M1L61;
+
+--M1L21 is alu:inst13|add~1836 at LC_X13_Y11_N4
+--operation mode is arithmetic
+
+M1L21 = M1L31;
+
+
+--M1L201 is alu:inst13|alu_out[3]~5009 at LC_X14_Y16_N3
+--operation mode is normal
+
+M1L201 = M1L011 & (M1L111 & (D1L02) # !M1L111 & M1L11) # !M1L011 & (!M1L111);
+
+
+--M1L301 is alu:inst13|alu_out[3]~5010 at LC_X14_Y16_N4
+--operation mode is normal
+
+M1L301 = M1L021 & (D1L61 & (D1L94 # !M1L201) # !D1L61 & D1L94 & !M1L201) # !M1L021 & (M1L201);
+
+
+--D1L9 is bus_mux:inst5|alu_dr[2]~1136 at LC_X13_Y16_N2
+--operation mode is normal
+
+B2_q[2]_qfbk = B2_q[2];
+D1L9 = E1_dest_reg[0] & (E1_dest_reg[1] # B2_q[2]_qfbk) # !E1_dest_reg[0] & !E1_dest_reg[1] & (B1_q[2]);
+
+--B2_q[2] is reg:inst1|q[2] at LC_X13_Y16_N2
+--operation mode is normal
+
+B2_q[2] = DFFEAS(D1L9, GLOBAL(clk), reset, , C1L2, M1L101, , , VCC);
+
+
+--D1L01 is bus_mux:inst5|alu_dr[2]~1137 at LC_X10_Y15_N7
+--operation mode is normal
+
+B4_q[2]_qfbk = B4_q[2];
+D1L01 = D1L9 & (B4_q[2]_qfbk # !E1_dest_reg[1]) # !D1L9 & B3_q[2] & (E1_dest_reg[1]);
+
+--B4_q[2] is reg:inst3|q[2] at LC_X10_Y15_N7
+--operation mode is normal
+
+B4_q[2] = DFFEAS(D1L01, GLOBAL(clk), reset, , C1L4, M1L101, , , VCC);
+
+
+--D1L11 is bus_mux:inst5|alu_dr[2]~1138 at LC_X14_Y15_N5
+--operation mode is normal
+
+K1_q[2]_qfbk = K1_q[2];
+D1L11 = D1L92 & (D1L01 # K1_q[2]_qfbk & !D1L23) # !D1L92 & (K1_q[2]_qfbk & !D1L23);
+
+--K1_q[2] is pc:inst11|q[2] at LC_X14_Y15_N5
+--operation mode is normal
+
+K1_q[2] = DFFEAS(D1L11, GLOBAL(clk), reset, , E1L32, M1L101, , , VCC);
+
+
+--D1L21 is bus_mux:inst5|alu_dr[2]~1139 at LC_X14_Y15_N2
+--operation mode is normal
+
+D1L21 = D1L11 # R1_data[2]$latch & D1L43;
+
+
+--M1L401 is alu:inst13|alu_out[3]~5011 at LC_X14_Y16_N2
+--operation mode is normal
+
+M1L401 = E1_alu_func[0] & D1L21 # !E1_alu_func[0] & (D1L94 $ D1L61);
+
+
+--M1L501 is alu:inst13|alu_out[3]~5012 at LC_X14_Y16_N6
+--operation mode is normal
+
+M1L501 = E1_alu_func[2] & (E1_alu_func[1] & (M1L301) # !E1_alu_func[1] & M1L401) # !E1_alu_func[2] & (M1L301);
+
+--B2_q[3] is reg:inst1|q[3] at LC_X14_Y16_N6
+--operation mode is normal
+
+B2_q[3] = DFFEAS(M1L501, GLOBAL(clk), reset, , C1L2, , , , );
+
+
+--P1L92 is reg_out:inst15|reg_data2[3]~857 at LC_X15_Y16_N0
+--operation mode is normal
+
+P1L92 = res_sel[0] & (P1L82 & (M1L501) # !P1L82 & D1L94) # !res_sel[0] & (P1L82);
+
+
+--P1L03 is reg_out:inst15|reg_data2[3]~858 at LC_X11_Y16_N7
+--operation mode is normal
+
+P1L03 = res_sel[0] & (res_sel[1] # B2_q[3]) # !res_sel[0] & !res_sel[1] & (B1_q[3]);
+
+
+--P1L13 is reg_out:inst15|reg_data2[3]~859 at LC_X13_Y15_N3
+--operation mode is normal
+
+P1L13 = res_sel[1] & (P1L03 & (B4_q[3]) # !P1L03 & B3_q[3]) # !res_sel[1] & (P1L03);
+
+
+--P1L23 is reg_out:inst15|reg_data2[3]~860 at LC_X12_Y16_N6
+--operation mode is normal
+
+P1L23 = P1L16 & (P1L06 # K1_q[3]) # !P1L16 & P1L13 & !P1L06;
+
+
+--P1L33 is reg_out:inst15|reg_data2[3]~861 at LC_X15_Y16_N4
+--operation mode is normal
+
+P1L33 = P1L06 & (P1L23 & (H1_q[3]) # !P1L23 & P1L92) # !P1L06 & (P1L23);
+
+
+--P1L43 is reg_out:inst15|reg_data2[3]~862 at LC_X9_Y15_N7
+--operation mode is normal
+
+Q1_q2[3]_qfbk = Q1_q2[3];
+P1L43 = P1L75 & (Q1_q2[3]_qfbk # P1L94 & P1L33) # !P1L75 & P1L94 & (P1L33);
+
+--Q1_q2[3] is reg_testa:inst16|q2[3] at LC_X9_Y15_N7
+--operation mode is normal
+
+Q1_q2[3] = DFFEAS(P1L43, GLOBAL(clk), reset, , , E1_rec[1], , , VCC);
+
+
+--D1L95 is bus_mux:inst5|alu_sr[6]~537 at LC_X13_Y15_N1
+--operation mode is normal
+
+D1L95 = !E1_alu_in_sel[2] & !E1_alu_in_sel[1];
+
+
+--D1L34 is bus_mux:inst5|alu_sr[2]~538 at LC_X14_Y12_N5
+--operation mode is normal
+
+D1L34 = E1_alu_in_sel[1] & E1_alu_in_sel[0] & (!E1_alu_in_sel[2]);
+
+
+--D1L44 is bus_mux:inst5|alu_sr[2]~539 at LC_X13_Y16_N5
+--operation mode is normal
+
+B1_q[2]_qfbk = B1_q[2];
+D1L44 = E1_sour_reg[1] & (E1_sour_reg[0] # B3_q[2]) # !E1_sour_reg[1] & !E1_sour_reg[0] & B1_q[2]_qfbk;
+
+--B1_q[2] is reg:inst|q[2] at LC_X13_Y16_N5
+--operation mode is normal
+
+B1_q[2] = DFFEAS(D1L44, GLOBAL(clk), reset, , C1L1, M1L101, , , VCC);
+
+
+--D1L54 is bus_mux:inst5|alu_sr[2]~540 at LC_X13_Y16_N6
+--operation mode is normal
+
+D1L54 = E1_sour_reg[0] & (D1L44 & (B4_q[2]) # !D1L44 & B2_q[2]) # !E1_sour_reg[0] & (D1L44);
+
+
+--D1L64 is bus_mux:inst5|alu_sr[2]~541 at LC_X13_Y16_N7
+--operation mode is normal
+
+D1L64 = D1L54 & (D1L95 # D1L34 & E1_offset[2]) # !D1L54 & (D1L34 & E1_offset[2]);
+
+
+--P1L12 is reg_out:inst15|reg_data2[2]~863 at LC_X11_Y16_N5
+--operation mode is normal
+
+P1L12 = res_sel[0] & res_sel[1] # !res_sel[0] & (res_sel[1] & (D1L21) # !res_sel[1] & E1_offset[2]);
+
+
+--M1L51 is alu:inst13|add~1839 at LC_X13_Y11_N3
+--operation mode is arithmetic
+
+M1L51 = M1L55 $ M1L15 $ M1L91;
+
+--M1L61 is alu:inst13|add~1841 at LC_X13_Y11_N3
+--operation mode is arithmetic
+
+M1L61_cout_0 = M1L55 & !M1L15 & !M1L91 # !M1L55 & (!M1L91 # !M1L15);
+M1L61 = CARRY(M1L61_cout_0);
+
+--M1L71 is alu:inst13|add~1841COUT1 at LC_X13_Y11_N3
+--operation mode is arithmetic
+
+M1L71_cout_1 = M1L55 & !M1L15 & !M1L02 # !M1L55 & (!M1L02 # !M1L15);
+M1L71 = CARRY(M1L71_cout_1);
+
+
+--M1L89 is alu:inst13|alu_out[2]~5013 at LC_X14_Y15_N7
+--operation mode is normal
+
+M1L89 = M1L111 & D1L61 & M1L011 # !M1L111 & (M1L51 # !M1L011);
+
+
+--M1L99 is alu:inst13|alu_out[2]~5014 at LC_X14_Y15_N3
+--operation mode is normal
+
+M1L99 = M1L89 & (D1L64 & D1L21 # !M1L021) # !M1L89 & M1L021 & (D1L64 # D1L21);
+
+
+--D1L5 is bus_mux:inst5|alu_dr[1]~1140 at LC_X14_Y14_N7
+--operation mode is normal
+
+B3_q[1]_qfbk = B3_q[1];
+D1L5 = E1_dest_reg[0] & (E1_dest_reg[1]) # !E1_dest_reg[0] & (E1_dest_reg[1] & (B3_q[1]_qfbk) # !E1_dest_reg[1] & B1_q[1]);
+
+--B3_q[1] is reg:inst2|q[1] at LC_X14_Y14_N7
+--operation mode is normal
+
+B3_q[1] = DFFEAS(D1L5, GLOBAL(clk), reset, , C1L3, M1L79, , , VCC);
+
+
+--D1L6 is bus_mux:inst5|alu_dr[1]~1141 at LC_X12_Y16_N0
+--operation mode is normal
+
+B4_q[1]_qfbk = B4_q[1];
+D1L6 = E1_dest_reg[0] & (D1L5 & B4_q[1]_qfbk # !D1L5 & (B2_q[1])) # !E1_dest_reg[0] & D1L5;
+
+--B4_q[1] is reg:inst3|q[1] at LC_X12_Y16_N0
+--operation mode is normal
+
+B4_q[1] = DFFEAS(D1L6, GLOBAL(clk), reset, , C1L4, M1L79, , , VCC);
+
+
+--D1L7 is bus_mux:inst5|alu_dr[1]~1142 at LC_X12_Y16_N7
+--operation mode is normal
+
+K1_q[1]_qfbk = K1_q[1];
+D1L7 = D1L92 & (D1L6 # K1_q[1]_qfbk & !D1L23) # !D1L92 & (K1_q[1]_qfbk & !D1L23);
+
+--K1_q[1] is pc:inst11|q[1] at LC_X12_Y16_N7
+--operation mode is normal
+
+K1_q[1] = DFFEAS(D1L7, GLOBAL(clk), reset, , E1L32, M1L79, , , VCC);
+
+
+--D1L8 is bus_mux:inst5|alu_dr[1]~1143 at LC_X14_Y12_N3
+--operation mode is normal
+
+D1L8 = D1L7 # R1_data[1]$latch & D1L43;
+
+
+--M1L001 is alu:inst13|alu_out[2]~5015 at LC_X13_Y13_N2
+--operation mode is normal
+
+M1L001 = E1_alu_func[0] & D1L8 # !E1_alu_func[0] & (D1L21 $ D1L64);
+
+
+--M1L101 is alu:inst13|alu_out[2]~5016 at LC_X10_Y15_N9
+--operation mode is normal
+
+M1L101 = E1_alu_func[1] & M1L99 # !E1_alu_func[1] & (E1_alu_func[2] & (M1L001) # !E1_alu_func[2] & M1L99);
+
+--B3_q[2] is reg:inst2|q[2] at LC_X10_Y15_N9
+--operation mode is normal
+
+B3_q[2] = DFFEAS(M1L101, GLOBAL(clk), reset, , C1L3, , , , );
+
+
+--P1L22 is reg_out:inst15|reg_data2[2]~864 at LC_X11_Y16_N0
+--operation mode is normal
+
+P1L22 = res_sel[0] & (P1L12 & M1L101 # !P1L12 & (D1L64)) # !res_sel[0] & (P1L12);
+
+
+--P1L32 is reg_out:inst15|reg_data2[2]~865 at LC_X11_Y16_N1
+--operation mode is normal
+
+P1L32 = res_sel[0] & (res_sel[1] # B2_q[2]) # !res_sel[0] & !res_sel[1] & (B1_q[2]);
+
+
+--P1L42 is reg_out:inst15|reg_data2[2]~866 at LC_X11_Y16_N2
+--operation mode is normal
+
+P1L42 = res_sel[1] & (P1L32 & (B4_q[2]) # !P1L32 & B3_q[2]) # !res_sel[1] & (P1L32);
+
+
+--P1L52 is reg_out:inst15|reg_data2[2]~867 at LC_X11_Y16_N3
+--operation mode is normal
+
+P1L52 = P1L16 & (P1L06) # !P1L16 & (P1L06 & P1L22 # !P1L06 & (P1L42));
+
+
+--P1L62 is reg_out:inst15|reg_data2[2]~868 at LC_X11_Y16_N4
+--operation mode is normal
+
+P1L62 = P1L52 & (H1_q[2] # !P1L16) # !P1L52 & K1_q[2] & (P1L16);
+
+
+--P1L72 is reg_out:inst15|reg_data2[2]~869 at LC_X9_Y15_N8
+--operation mode is normal
+
+Q1_q2[2]_qfbk = Q1_q2[2];
+P1L72 = P1L62 & (P1L94 # Q1_q2[2]_qfbk & P1L75) # !P1L62 & (Q1_q2[2]_qfbk & P1L75);
+
+--Q1_q2[2] is reg_testa:inst16|q2[2] at LC_X9_Y15_N8
+--operation mode is normal
+
+Q1_q2[2] = DFFEAS(P1L72, GLOBAL(clk), reset, , , E1_rec[0], , , VCC);
+
+
+--D1L93 is bus_mux:inst5|alu_sr[1]~542 at LC_X14_Y14_N1
+--operation mode is normal
+
+B1_q[1]_qfbk = B1_q[1];
+D1L93 = E1_sour_reg[1] & (E1_sour_reg[0]) # !E1_sour_reg[1] & (E1_sour_reg[0] & B2_q[1] # !E1_sour_reg[0] & (B1_q[1]_qfbk));
+
+--B1_q[1] is reg:inst|q[1] at LC_X14_Y14_N1
+--operation mode is normal
+
+B1_q[1] = DFFEAS(D1L93, GLOBAL(clk), reset, , C1L1, M1L79, , , VCC);
+
+
+--D1L04 is bus_mux:inst5|alu_sr[1]~543 at LC_X14_Y14_N2
+--operation mode is normal
+
+D1L04 = E1_sour_reg[1] & (D1L93 & B4_q[1] # !D1L93 & (B3_q[1])) # !E1_sour_reg[1] & (D1L93);
+
+
+--D1L14 is bus_mux:inst5|alu_sr[1]~544 at LC_X14_Y14_N3
+--operation mode is normal
+
+D1L14 = E1_alu_in_sel[1] & E1_alu_in_sel[0] & (E1_offset[1]) # !E1_alu_in_sel[1] & (D1L04);
+
+
+--D1L24 is bus_mux:inst5|alu_sr[1]~545 at LC_X14_Y14_N4
+--operation mode is normal
+
+D1L24 = !E1_alu_in_sel[2] & D1L14;
+
+
+--P1L41 is reg_out:inst15|reg_data2[1]~870 at LC_X13_Y13_N8
+--operation mode is normal
+
+P1L41 = res_sel[1] & (res_sel[0] # D1L8) # !res_sel[1] & !res_sel[0] & (E1_offset[1]);
+
+
+--M1L81 is alu:inst13|add~1844 at LC_X13_Y11_N2
+--operation mode is arithmetic
+
+M1L81 = M1L06 $ M1L65 $ !M1L42;
+
+--M1L91 is alu:inst13|add~1846 at LC_X13_Y11_N2
+--operation mode is arithmetic
+
+M1L91_cout_0 = M1L06 & (M1L65 # !M1L42) # !M1L06 & M1L65 & !M1L42;
+M1L91 = CARRY(M1L91_cout_0);
+
+--M1L02 is alu:inst13|add~1846COUT1_1966 at LC_X13_Y11_N2
+--operation mode is arithmetic
+
+M1L02_cout_1 = M1L06 & (M1L65 # !M1L52) # !M1L06 & M1L65 & !M1L52;
+M1L02 = CARRY(M1L02_cout_1);
+
+
+--M1L49 is alu:inst13|alu_out[1]~5017 at LC_X16_Y12_N8
+--operation mode is normal
+
+M1L49 = M1L111 & D1L21 & M1L011 # !M1L111 & (M1L81 # !M1L011);
+
+
+--M1L59 is alu:inst13|alu_out[1]~5018 at LC_X16_Y12_N5
+--operation mode is normal
+
+M1L59 = M1L021 & (M1L49 & D1L24 & D1L8 # !M1L49 & (D1L24 # D1L8)) # !M1L021 & M1L49;
+
+
+--D1L1 is bus_mux:inst5|alu_dr[0]~1144 at LC_X11_Y13_N8
+--operation mode is normal
+
+B2_q[0]_qfbk = B2_q[0];
+D1L1 = E1_dest_reg[0] & (B2_q[0]_qfbk # E1_dest_reg[1]) # !E1_dest_reg[0] & B1_q[0] & (!E1_dest_reg[1]);
+
+--B2_q[0] is reg:inst1|q[0] at LC_X11_Y13_N8
+--operation mode is normal
+
+B2_q[0] = DFFEAS(D1L1, GLOBAL(clk), reset, , C1L2, M1L39, , , VCC);
+
+
+--D1L2 is bus_mux:inst5|alu_dr[0]~1145 at LC_X11_Y13_N9
+--operation mode is normal
+
+B4_q[0]_qfbk = B4_q[0];
+D1L2 = E1_dest_reg[1] & (D1L1 & B4_q[0]_qfbk # !D1L1 & (B3_q[0])) # !E1_dest_reg[1] & D1L1;
+
+--B4_q[0] is reg:inst3|q[0] at LC_X11_Y13_N9
+--operation mode is normal
+
+B4_q[0] = DFFEAS(D1L2, GLOBAL(clk), reset, , C1L4, M1L39, , , VCC);
+
+
+--D1L3 is bus_mux:inst5|alu_dr[0]~1146 at LC_X12_Y12_N7
+--operation mode is normal
+
+K1_q[0]_qfbk = K1_q[0];
+D1L3 = D1L92 & (D1L2 # K1_q[0]_qfbk & !D1L23) # !D1L92 & (K1_q[0]_qfbk & !D1L23);
+
+--K1_q[0] is pc:inst11|q[0] at LC_X12_Y12_N7
+--operation mode is normal
+
+K1_q[0] = DFFEAS(D1L3, GLOBAL(clk), reset, , E1L32, M1L39, , , VCC);
+
+
+--D1L4 is bus_mux:inst5|alu_dr[0]~1147 at LC_X12_Y12_N8
+--operation mode is normal
+
+D1L4 = D1L3 # D1L43 & R1_data[0]$latch;
+
+
+--M1L69 is alu:inst13|alu_out[1]~5019 at LC_X16_Y12_N9
+--operation mode is normal
+
+M1L69 = E1_alu_func[0] & D1L4 # !E1_alu_func[0] & (D1L24 $ D1L8);
+
+
+--M1L79 is alu:inst13|alu_out[1]~5020 at LC_X16_Y12_N2
+--operation mode is normal
+
+M1L79 = E1_alu_func[2] & (E1_alu_func[1] & (M1L59) # !E1_alu_func[1] & M1L69) # !E1_alu_func[2] & (M1L59);
+
+--B2_q[1] is reg:inst1|q[1] at LC_X16_Y12_N2
+--operation mode is normal
+
+B2_q[1] = DFFEAS(M1L79, GLOBAL(clk), reset, , C1L2, , , , );
+
+
+--P1L51 is reg_out:inst15|reg_data2[1]~871 at LC_X13_Y13_N9
+--operation mode is normal
+
+P1L51 = res_sel[0] & (P1L41 & M1L79 # !P1L41 & (D1L24)) # !res_sel[0] & (P1L41);
+
+
+--P1L61 is reg_out:inst15|reg_data2[1]~872 at LC_X13_Y13_N5
+--operation mode is normal
+
+P1L61 = res_sel[0] & (B2_q[1] # res_sel[1]) # !res_sel[0] & (B1_q[1] & !res_sel[1]);
+
+
+--P1L71 is reg_out:inst15|reg_data2[1]~873 at LC_X13_Y13_N4
+--operation mode is normal
+
+P1L71 = res_sel[1] & (P1L61 & (B4_q[1]) # !P1L61 & B3_q[1]) # !res_sel[1] & P1L61;
+
+
+--P1L81 is reg_out:inst15|reg_data2[1]~874 at LC_X12_Y16_N9
+--operation mode is normal
+
+P1L81 = P1L06 & (P1L16) # !P1L06 & (P1L16 & K1_q[1] # !P1L16 & (P1L71));
+
+
+--P1L91 is reg_out:inst15|reg_data2[1]~875 at LC_X12_Y16_N4
+--operation mode is normal
+
+P1L91 = P1L06 & (P1L81 & (H1_q[1]) # !P1L81 & P1L51) # !P1L06 & (P1L81);
+
+
+--P1L02 is reg_out:inst15|reg_data2[1]~876 at LC_X9_Y15_N6
+--operation mode is normal
+
+P1L02 = P1L91 & (P1L94 # Q1_q2[1] & P1L75) # !P1L91 & Q1_q2[1] & (P1L75);
+
+
+--D1L63 is bus_mux:inst5|alu_sr[0]~546 at LC_X12_Y14_N7
+--operation mode is normal
+
+B1_q[0]_qfbk = B1_q[0];
+D1L63 = E1_sour_reg[1] & E1_sour_reg[0] # !E1_sour_reg[1] & (E1_sour_reg[0] & (B2_q[0]) # !E1_sour_reg[0] & B1_q[0]_qfbk);
+
+--B1_q[0] is reg:inst|q[0] at LC_X12_Y14_N7
+--operation mode is normal
+
+B1_q[0] = DFFEAS(D1L63, GLOBAL(clk), reset, , C1L1, M1L39, , , VCC);
+
+
+--D1L73 is bus_mux:inst5|alu_sr[0]~547 at LC_X11_Y13_N7
+--operation mode is normal
+
+D1L73 = E1_sour_reg[1] & (D1L63 & B4_q[0] # !D1L63 & (B3_q[0])) # !E1_sour_reg[1] & (D1L63);
+
+
+--D1L83 is bus_mux:inst5|alu_sr[0]~548 at LC_X12_Y12_N5
+--operation mode is normal
+
+D1L83 = D1L34 & (E1_offset[0] # D1L95 & D1L73) # !D1L34 & D1L95 & D1L73;
+
+
+--P1L7 is reg_out:inst15|reg_data2[0]~877 at LC_X13_Y13_N7
+--operation mode is normal
+
+P1L7 = res_sel[1] & (res_sel[0] # D1L4) # !res_sel[1] & !res_sel[0] & (E1_offset[0]);
+
+
+--M1L12 is alu:inst13|add~1849 at LC_X12_Y12_N1
+--operation mode is normal
+
+M1L12 = !E1_alu_func[0] & (D1L4 $ D1L83);
+
+
+--M1L22 is alu:inst13|add~1850 at LC_X12_Y12_N6
+--operation mode is normal
+
+M1L22 = E1_alu_func[0] & (D1L4 # D1L83) # !E1_alu_func[0] & D1L4 & D1L83;
+
+
+--M1L32 is alu:inst13|add~1851 at LC_X13_Y11_N1
+--operation mode is arithmetic
+
+M1L32 = M1L16 $ M1L56 $ M1L76;
+
+--M1L42 is alu:inst13|add~1853 at LC_X13_Y11_N1
+--operation mode is arithmetic
+
+M1L42_cout_0 = M1L16 & !M1L56 & !M1L76 # !M1L16 & (!M1L76 # !M1L56);
+M1L42 = CARRY(M1L42_cout_0);
+
+--M1L52 is alu:inst13|add~1853COUT1_1965 at LC_X13_Y11_N1
+--operation mode is arithmetic
+
+M1L52_cout_1 = M1L16 & !M1L56 & !M1L86 # !M1L16 & (!M1L86 # !M1L56);
+M1L52 = CARRY(M1L52_cout_1);
+
+
+--M1L29 is alu:inst13|alu_out[0]~5021 at LC_X12_Y12_N3
+--operation mode is normal
+
+M1L29 = E1_alu_func[1] & (E1_alu_func[2] # M1L22) # !E1_alu_func[1] & M1L32 & !E1_alu_func[2];
+
+
+--M1L62 is alu:inst13|add~1856 at LC_X12_Y12_N2
+--operation mode is normal
+
+M1L62 = !E1_alu_func[0] & (D1L7 # R1_data[1]$latch & D1L43);
+
+
+--M1L39 is alu:inst13|alu_out[0]~5022 at LC_X12_Y12_N4
+--operation mode is normal
+
+M1L39 = E1_alu_func[2] & (M1L29 & M1L62 # !M1L29 & (M1L12)) # !E1_alu_func[2] & M1L29;
+
+--B3_q[0] is reg:inst2|q[0] at LC_X12_Y12_N4
+--operation mode is normal
+
+B3_q[0] = DFFEAS(M1L39, GLOBAL(clk), reset, , C1L3, , , , );
+
+
+--P1L8 is reg_out:inst15|reg_data2[0]~878 at LC_X11_Y14_N8
+--operation mode is normal
+
+P1L8 = res_sel[0] & (P1L7 & M1L39 # !P1L7 & (D1L83)) # !res_sel[0] & (P1L7);
+
+
+--P1L9 is reg_out:inst15|reg_data2[0]~879 at LC_X11_Y13_N5
+--operation mode is normal
+
+P1L9 = res_sel[1] & res_sel[0] # !res_sel[1] & (res_sel[0] & (B2_q[0]) # !res_sel[0] & B1_q[0]);
+
+
+--P1L01 is reg_out:inst15|reg_data2[0]~880 at LC_X11_Y13_N6
+--operation mode is normal
+
+P1L01 = res_sel[1] & (P1L9 & B4_q[0] # !P1L9 & (B3_q[0])) # !res_sel[1] & P1L9;
+
+
+--P1L11 is reg_out:inst15|reg_data2[0]~881 at LC_X11_Y13_N4
+--operation mode is normal
+
+P1L11 = P1L16 & (P1L06) # !P1L16 & (P1L06 & (P1L8) # !P1L06 & P1L01);
+
+
+--P1L21 is reg_out:inst15|reg_data2[0]~882 at LC_X11_Y11_N4
+--operation mode is normal
+
+P1L21 = P1L11 & (H1_q[0] # !P1L16) # !P1L11 & (K1_q[0] & P1L16);
+
+
+--P1L31 is reg_out:inst15|reg_data2[0]~883 at LC_X9_Y15_N2
+--operation mode is normal
+
+P1L31 = P1L21 & (P1L94 # Q1_q2[0] & P1L75) # !P1L21 & Q1_q2[0] & (P1L75);
+
+
+--M1L921 is alu:inst13|LessThan~210 at LC_X16_Y13_N7
+--operation mode is normal
+
+M1L921_carry_eqn = (!M1L441 & M1L231) # (M1L441 & M1L331);
+M1L921 = D1L36 & (M1L921_carry_eqn # !D1L53) # !D1L36 & !D1L53 & M1L921_carry_eqn;
+
+
+--M1L031 is alu:inst13|LessThan~215 at LC_X16_Y16_N7
+--operation mode is normal
+
+M1L031_carry_eqn = (!M1L841 & M1L531) # (M1L841 & M1L631);
+M1L031 = D1L36 & (M1L031_carry_eqn # !M1L96) # !D1L36 & (M1L031_carry_eqn & !M1L96);
+
+
+--M1L721 is alu:inst13|c~434 at LC_X8_Y14_N4
+--operation mode is normal
+
+M1L721 = E1_alu_func[0] & (M1L921) # !E1_alu_func[0] & M1L031;
+
+
+--M1L821 is alu:inst13|c~435 at LC_X11_Y11_N9
+--operation mode is normal
+
+M1L821 = E1_alu_func[2] & E1_alu_func[0] & D1L53 # !E1_alu_func[2] & (M1L721);
+
+
+--N1L5 is flag_reg:inst14|Mux~82 at LC_X15_Y14_N9
+--operation mode is normal
+
+N1L5 = !E1_sst[1] & (!E1_sst[0]);
+
+
+--M1L771 is alu:inst13|v~34 at LC_X14_Y16_N8
+--operation mode is normal
+
+M1L771 = E1_alu_func[1] # E1_alu_func[2];
+
+
+--M1L571 is alu:inst13|reduce_nor~67 at LC_X15_Y15_N0
+--operation mode is normal
+
+M1L571 = M1L521 # M1L911 # M1L39;
+
+
+--M1L671 is alu:inst13|reduce_nor~68 at LC_X14_Y15_N6
+--operation mode is normal
+
+M1L671 = M1L501 # M1L101 # M1L79;
+
+
+--G1_state.s4 is timer:inst8|state.s4 at LC_X8_Y12_N6
+--operation mode is normal
+
+G1_state.s4_lut_out = R1_data[7]$latch & G1_state.s2 & R1_data[6]$latch;
+G1_state.s4 = DFFEAS(G1_state.s4_lut_out, GLOBAL(clk), reset, , , , , , );
+
+
+--G1_state.s0 is timer:inst8|state.s0 at LC_X15_Y14_N7
+--operation mode is normal
+
+G1_state.s0_lut_out = VCC;
+G1_state.s0 = DFFEAS(G1_state.s0_lut_out, GLOBAL(clk), reset, , , , , , );
+
+
+--G1_output[2] is timer:inst8|output[2] at LC_X12_Y14_N8
+--operation mode is normal
+
+G1_output[2] = G1_state.s4 # G1_state.s5 # !G1_state.s0;
+
+
+--G1_state.s3 is timer:inst8|state.s3 at LC_X8_Y12_N9
+--operation mode is normal
+
+G1_state.s3_lut_out = G1_state.s2 & (!R1_data[6]$latch # !R1_data[7]$latch);
+G1_state.s3 = DFFEAS(G1_state.s3_lut_out, GLOBAL(clk), reset, , , , , , );
+
+
+--G1L2 is timer:inst8|output[1]~90 at LC_X13_Y15_N6
+--operation mode is normal
+
+G1_state.s5_qfbk = G1_state.s5;
+G1L2 = !G1_state.s5_qfbk & !G1_state.s3;
+
+--G1_state.s5 is timer:inst8|state.s5 at LC_X13_Y15_N6
+--operation mode is normal
+
+G1_state.s5 = DFFEAS(G1L2, GLOBAL(clk), reset, , , G1_state.s4, , , VCC);
+
+
+--G1_state.s1 is timer:inst8|state.s1 at LC_X10_Y12_N8
+--operation mode is normal
+
+G1_state.s1_lut_out = G1_state.s3 # G1_state.s5 # !G1_state.s0;
+G1_state.s1 = DFFEAS(G1_state.s1_lut_out, GLOBAL(clk), reset, , , , , , );
+
+
+--G1L4 is timer:inst8|output~1 at LC_X11_Y14_N4
+--operation mode is normal
+
+G1L4 = G1_state.s1 # !G1_state.s0;
+
+
+--E1L03 is controller:inst6|Mux~4954 at LC_X10_Y12_N4
+--operation mode is normal
+
+E1L03 = !G1_state.s4 & !G1_state.s5 & G1_state.s3 & G1_state.s0;
+
+
+--E1L13 is controller:inst6|Mux~4955 at LC_X10_Y12_N3
+--operation mode is normal
+
+E1L13 = H1_q[4] & H1_q[5];
+
+
+--E1L23 is controller:inst6|Mux~4956 at LC_X10_Y12_N5
+--operation mode is normal
+
+E1L23 = E1L03 & (H1_q[6] & (E1L13) # !H1_q[6] & H1_q[7]);
+
+
+--E1L33 is controller:inst6|Mux~4957 at LC_X12_Y13_N0
+--operation mode is normal
+
+H1_q[7]_qfbk = H1_q[7];
+E1L33 = H1_q[7]_qfbk & H1_q[6];
+
+--H1_q[7] is ir:inst9|q[7] at LC_X12_Y13_N0
+--operation mode is normal
+
+H1_q[7] = DFFEAS(E1L33, GLOBAL(clk), reset, , H1L1, R1_data[7]$latch, , , VCC);
+
+
+--E1L43 is controller:inst6|Mux~4958 at LC_X12_Y14_N0
+--operation mode is normal
+
+E1L43 = G1L2 # !G1L4 & (G1_output[2] # !E1L33);
+
+
+--E1_offset[3] is controller:inst6|offset[3] at LC_X15_Y12_N1
+--operation mode is normal
+
+E1_offset[3] = GLOBAL(E1L43) & (H1_q[3] & E1L23) # !GLOBAL(E1L43) & E1_offset[3];
+
+
+--E1L53 is controller:inst6|Mux~4959 at LC_X15_Y13_N3
+--operation mode is normal
+
+H1_q[5]_qfbk = H1_q[5];
+E1L53 = H1_q[4] & (!H1_q[5]_qfbk);
+
+--H1_q[5] is ir:inst9|q[5] at LC_X15_Y13_N3
+--operation mode is normal
+
+H1_q[5] = DFFEAS(E1L53, GLOBAL(clk), reset, , H1L1, R1_data[5]$latch, , , VCC);
+
+
+--E1L63 is controller:inst6|Mux~4960 at LC_X10_Y12_N7
+--operation mode is normal
+
+E1L63 = G1_output[2] & (G1L2 & (E1L53) # !G1L2 & H1_q[6]);
+
+
+--E1L51 is controller:inst6|en_pc~1202 at LC_X15_Y13_N5
+--operation mode is normal
+
+E1L51 = H1_q[5] & H1_q[4] & !H1_q[7];
+
+
+--E1L73 is controller:inst6|Mux~4961 at LC_X12_Y13_N9
+--operation mode is normal
+
+E1L73 = !H1_q[5] & (H1_q[7]);
+
+
+--E1L83 is controller:inst6|Mux~4962 at LC_X10_Y12_N6
+--operation mode is normal
+
+E1L83 = E1L63 # E1L03 & (E1L73 # E1L51);
+
+
+--E1L93 is controller:inst6|Mux~4963 at LC_X12_Y14_N5
+--operation mode is normal
+
+E1L93 = G1L4 & G1L2 # !G1L4 & (G1_output[2] & (E1L33) # !G1_output[2] & (G1L2 # !E1L33));
+
+
+--E1_alu_in_sel[0] is controller:inst6|alu_in_sel[0] at LC_X9_Y15_N5
+--operation mode is normal
+
+E1_alu_in_sel[0] = E1L93 & !G1L4 & E1L83 # !E1L93 & (E1_alu_in_sel[0]);
+
+--Q1_q2[4] is reg_testa:inst16|q2[4] at LC_X9_Y15_N5
+--operation mode is normal
+
+Q1_q2[4] = DFFEAS(E1_alu_in_sel[0], GLOBAL(clk), reset, , , , , , );
+
+
+--E1L04 is controller:inst6|Mux~4964 at LC_X12_Y13_N1
+--operation mode is normal
+
+E1L04 = H1_q[5] & H1_q[6] & H1_q[4] & !H1_q[7] # !H1_q[5] & (H1_q[6] $ (H1_q[7]));
+
+
+--E1L14 is controller:inst6|Mux~4965 at LC_X15_Y13_N7
+--operation mode is normal
+
+H1_q[4]_qfbk = H1_q[4];
+E1L14 = H1_q[4]_qfbk # !H1_q[5];
+
+--H1_q[4] is ir:inst9|q[4] at LC_X15_Y13_N7
+--operation mode is normal
+
+H1_q[4] = DFFEAS(E1L14, GLOBAL(clk), reset, , H1L1, R1_data[4]$latch, , , VCC);
+
+
+--E1L24 is controller:inst6|Mux~4966 at LC_X12_Y13_N2
+--operation mode is normal
+
+E1L24 = G1_output[2] & (!E1L14 & !G1L4) # !G1_output[2] & E1L04;
+
+
+--E1L34 is controller:inst6|Mux~4967 at LC_X10_Y12_N0
+--operation mode is normal
+
+E1L34 = !G1_state.s5 & (G1_state.s3 $ (G1_state.s4 # !G1_state.s0));
+
+
+--E1_alu_in_sel[1] is controller:inst6|alu_in_sel[1] at LC_X15_Y12_N2
+--operation mode is normal
+
+E1_alu_in_sel[1] = E1L93 & (E1L24 & E1L34) # !E1L93 & E1_alu_in_sel[1];
+
+
+--E1L42 is controller:inst6|en_reg~849 at LC_X10_Y13_N7
+--operation mode is normal
+
+E1L42 = !G1L4 & !G1L2 & E1L33 & H1_q[4];
+
+
+--E1L52 is controller:inst6|en_reg~850 at LC_X10_Y13_N5
+--operation mode is normal
+
+E1L52 = G1_output[2] & (E1L42 # E1L92 & E1_alu_out_sel[0]);
+
+
+--E1L62 is controller:inst6|en_reg~851 at LC_X10_Y13_N4
+--operation mode is normal
+
+E1L62 = H1_q[6] $ H1_q[4] # !H1_q[5];
+
+
+--E1L72 is controller:inst6|en_reg~852 at LC_X10_Y13_N0
+--operation mode is normal
+
+E1L72 = H1_q[7] & H1_q[6] & (E1_alu_out_sel[0]) # !H1_q[7] & (E1L62);
+
+
+--E1L82 is controller:inst6|en_reg~853 at LC_X9_Y15_N4
+--operation mode is normal
+
+E1L82 = E1L52 # E1L03 & !G1L4 & E1L72;
+
+--Q1_q2[0] is reg_testa:inst16|q2[0] at LC_X9_Y15_N4
+--operation mode is normal
+
+Q1_q2[0] = DFFEAS(E1L82, GLOBAL(clk), reset, , , , , , );
+
+
+--C1L2 is reg_mux:inst4|en_1~104 at LC_X13_Y15_N8
+--operation mode is normal
+
+C1L2 = !E1_dest_reg[1] & E1L82 & E1_dest_reg[0];
+
+
+--E1L44 is controller:inst6|Mux~4968 at LC_X12_Y13_N3
+--operation mode is normal
+
+H1_q[6]_qfbk = H1_q[6];
+E1L44 = H1_q[6]_qfbk & (!H1_q[5] # !H1_q[4]) # !H1_q[6]_qfbk & (!H1_q[7]);
+
+--H1_q[6] is ir:inst9|q[6] at LC_X12_Y13_N3
+--operation mode is normal
+
+H1_q[6] = DFFEAS(E1L44, GLOBAL(clk), reset, , H1L1, R1_data[6]$latch, , , VCC);
+
+
+--E1L54 is controller:inst6|Mux~4969 at LC_X12_Y14_N3
+--operation mode is normal
+
+E1L54 = !G1L4 & (G1_output[2] # !G1L2 & E1L44);
+
+
+--E1_sour_reg[0] is controller:inst6|sour_reg[0] at LC_X12_Y14_N4
+--operation mode is normal
+
+H1_q[0]_qfbk = H1_q[0];
+E1_sour_reg[0] = GLOBAL(E1L43) & E1L54 & (H1_q[0]_qfbk) # !GLOBAL(E1L43) & (E1_sour_reg[0]);
+
+--H1_q[0] is ir:inst9|q[0] at LC_X12_Y14_N4
+--operation mode is normal
+
+H1_q[0] = DFFEAS(E1_sour_reg[0], GLOBAL(clk), reset, , H1L1, R1_data[0]$latch, , , VCC);
+
+
+--C1L3 is reg_mux:inst4|en_2~104 at LC_X13_Y15_N7
+--operation mode is normal
+
+C1L3 = E1_dest_reg[1] & E1L82 & !E1_dest_reg[0];
+
+
+--E1_sour_reg[1] is controller:inst6|sour_reg[1] at LC_X12_Y14_N2
+--operation mode is normal
+
+H1_q[1]_qfbk = H1_q[1];
+E1_sour_reg[1] = GLOBAL(E1L43) & (E1L54 & H1_q[1]_qfbk) # !GLOBAL(E1L43) & E1_sour_reg[1];
+
+--H1_q[1] is ir:inst9|q[1] at LC_X12_Y14_N2
+--operation mode is normal
+
+H1_q[1] = DFFEAS(E1_sour_reg[1], GLOBAL(clk), reset, , H1L1, R1_data[1]$latch, , , VCC);
+
+
+--C1L1 is reg_mux:inst4|en_0~100 at LC_X14_Y14_N8
+--operation mode is normal
+
+C1L1 = !E1_dest_reg[0] & !E1_dest_reg[1] & E1L82;
+
+
+--C1L4 is reg_mux:inst4|en_3~103 at LC_X14_Y14_N6
+--operation mode is normal
+
+C1L4 = E1_dest_reg[0] & E1_dest_reg[1] & E1L82;
+
+
+--E1L64 is controller:inst6|Mux~4970 at LC_X15_Y12_N3
+--operation mode is normal
+
+E1L64 = G1L4 & (!G1_output[2]) # !G1L4 & G1_output[2] & (H1_q[4] $ !H1_q[5]);
+
+
+--E1L74 is controller:inst6|Mux~4971 at LC_X15_Y12_N0
+--operation mode is normal
+
+E1L74 = G1L2 & (E1L64) # !G1L2 & G1_output[2] & E1L14;
+
+
+--E1_alu_in_sel[2] is controller:inst6|alu_in_sel[2] at LC_X15_Y12_N9
+--operation mode is normal
+
+E1_alu_in_sel[2] = E1L93 & (E1L74) # !E1L93 & E1_alu_in_sel[2];
+
+
+--E1_dest_reg[0] is controller:inst6|dest_reg[0] at LC_X12_Y14_N9
+--operation mode is normal
+
+H1_q[2]_qfbk = H1_q[2];
+E1_dest_reg[0] = GLOBAL(E1L43) & (E1L54 & H1_q[2]_qfbk) # !GLOBAL(E1L43) & E1_dest_reg[0];
+
+--H1_q[2] is ir:inst9|q[2] at LC_X12_Y14_N9
+--operation mode is normal
+
+H1_q[2] = DFFEAS(E1_dest_reg[0], GLOBAL(clk), reset, , H1L1, R1_data[2]$latch, , , VCC);
+
+
+--E1_dest_reg[1] is controller:inst6|dest_reg[1] at LC_X12_Y14_N1
+--operation mode is normal
+
+H1_q[3]_qfbk = H1_q[3];
+E1_dest_reg[1] = GLOBAL(E1L43) & (E1L54 & H1_q[3]_qfbk) # !GLOBAL(E1L43) & E1_dest_reg[1];
+
+--H1_q[3] is ir:inst9|q[3] at LC_X12_Y14_N1
+--operation mode is normal
+
+H1_q[3] = DFFEAS(E1_dest_reg[1], GLOBAL(clk), reset, , H1L1, R1_data[3]$latch, , , VCC);
+
+
+--E1L61 is controller:inst6|en_pc~1203 at LC_X10_Y11_N7
+--operation mode is normal
+
+E1L61 = H1_q[7] & (E1_alu_out_sel[1]) # !H1_q[7] & H1_q[4] & H1_q[5];
+
+
+--E1L71 is controller:inst6|en_pc~1204 at LC_X10_Y11_N1
+--operation mode is normal
+
+E1L71 = H1_q[4] & !N1_flag_z # !H1_q[4] & (N1_flag_c);
+
+
+--E1L81 is controller:inst6|en_pc~1205 at LC_X10_Y11_N3
+--operation mode is normal
+
+E1L81 = H1_q[6] & E1L61 # !H1_q[6] & (E1L73 & E1L71);
+
+
+--E1L91 is controller:inst6|en_pc~1206 at LC_X15_Y12_N4
+--operation mode is normal
+
+E1L91 = !G1_output[2] & (G1L4 & (G1L2) # !G1L4 & E1L81 & !G1L2);
+
+
+--E1L02 is controller:inst6|en_pc~1207 at LC_X10_Y11_N4
+--operation mode is normal
+
+E1L02 = !G1L2 & E1_alu_out_sel[1] & (G1_state.s1 # !G1_state.s0);
+
+
+--E1L12 is controller:inst6|en_pc~1208 at LC_X10_Y12_N1
+--operation mode is normal
+
+E1L12 = H1_q[5] & !G1_state.s3 & H1_q[4] & !G1_state.s5 # !H1_q[5] & (!H1_q[4]);
+
+
+--E1L22 is controller:inst6|en_pc~1209 at LC_X10_Y13_N6
+--operation mode is normal
+
+E1L22 = !G1L4 & (E1L33 & E1L12 # !E1L33 & (E1_alu_out_sel[1]));
+
+
+--E1L32 is controller:inst6|en_pc~1210 at LC_X10_Y13_N8
+--operation mode is normal
+
+E1L32 = E1L91 # G1_output[2] & (E1L02 # E1L22);
+
+--Q1_q2[1] is reg_testa:inst16|q2[1] at LC_X10_Y13_N8
+--operation mode is normal
+
+Q1_q2[1] = DFFEAS(E1L32, GLOBAL(clk), reset, , , , , , );
+
+
+--J1_q[0] is ar:inst10|q[0] at LC_X8_Y15_N2
+--operation mode is normal
+
+J1_q[0]_lut_out = E1_rec[1] & M1L39;
+J1_q[0] = DFFEAS(J1_q[0]_lut_out, GLOBAL(clk), reset, , E1_rec[0], , , , );
+
+
+--J1_q[2] is ar:inst10|q[2] at LC_X8_Y15_N6
+--operation mode is normal
+
+J1_q[2]_lut_out = E1_rec[1] & (M1L101);
+J1_q[2] = DFFEAS(J1_q[2]_lut_out, GLOBAL(clk), reset, , E1_rec[0], , , , );
+
+
+--J1_q[1] is ar:inst10|q[1] at LC_X8_Y15_N5
+--operation mode is normal
+
+J1_q[1]_lut_out = E1_rec[1] & M1L79;
+J1_q[1] = DFFEAS(J1_q[1]_lut_out, GLOBAL(clk), reset, , E1_rec[0], , , , );
+
+
+--J1_q[3] is ar:inst10|q[3] at LC_X8_Y15_N0
+--operation mode is normal
+
+J1_q[3]_lut_out = E1_rec[1] & (M1L501);
+J1_q[3] = DFFEAS(J1_q[3]_lut_out, GLOBAL(clk), reset, , E1_rec[0], , , , );
+
+
+--R1L921 is dram1:inst17|Mux~1877 at LC_X8_Y15_N4
+--operation mode is normal
+
+R1L921 = J1_q[0] & (J1_q[2] # J1_q[3] # J1_q[1]);
+
+
+--R1L031 is dram1:inst17|Mux~1878 at LC_X8_Y15_N9
+--operation mode is normal
+
+R1L031 = J1_q[1] & (J1_q[2] # J1_q[3]);
+
+
+--R1L131 is dram1:inst17|Mux~1879 at LC_X8_Y15_N3
+--operation mode is normal
+
+R1L131 = J1_q[2] # !J1_q[1];
+
+
+--R1L231 is dram1:inst17|Mux~1880 at LC_X11_Y14_N2
+--operation mode is normal
+
+R1L231 = R1L131 & (R1_mem[4][7] # R1L031) # !R1L131 & (!R1L031 & R1_mem[2][7]);
+
+
+--R1L331 is dram1:inst17|Mux~1881 at LC_X11_Y14_N3
+--operation mode is normal
+
+R1L331 = R1L231 & (R1_mem[6][7] # !R1L031) # !R1L231 & R1L031 & (R1_mem[10][7]);
+
+
+--R1L431 is dram1:inst17|Mux~1882 at LC_X8_Y15_N8
+--operation mode is normal
+
+R1L431 = J1_q[2] # J1_q[1] # !J1_q[0];
+
+
+--R1L531 is dram1:inst17|Mux~1883 at LC_X8_Y15_N1
+--operation mode is normal
+
+R1L531 = R1L431 & (R1L331 # R1L921) # !R1L431 & (!R1L921 & R1_mem[1][7]);
+
+
+--R1L631 is dram1:inst17|Mux~1884 at LC_X8_Y12_N4
+--operation mode is normal
+
+R1L631 = R1L131 & R1L031 # !R1L131 & (R1L031 & (R1_mem[11][7]) # !R1L031 & R1_mem[3][7]);
+
+
+--R1L731 is dram1:inst17|Mux~1885 at LC_X8_Y12_N3
+--operation mode is normal
+
+R1L731 = R1L131 & (R1L631 & R1_mem[7][7] # !R1L631 & (R1_mem[5][7])) # !R1L131 & R1L631;
+
+
+--R1L831 is dram1:inst17|Mux~1886 at LC_X8_Y12_N2
+--operation mode is normal
+
+R1L831 = R1L921 & (R1L531 & (R1L731) # !R1L531 & R1_mem[9][7]) # !R1L921 & (R1L531);
+
+
+--R1L931 is dram1:inst17|Mux~1887 at LC_X8_Y12_N1
+--operation mode is normal
+
+R1L931 = J1_q[3] & R1_mem[8][7] # !J1_q[3] & (R1_mem[0][7]);
+
+
+--R1L041 is dram1:inst17|Mux~1888 at LC_X8_Y14_N9
+--operation mode is normal
+
+R1L041 = !J1_q[2] & !J1_q[1];
+
+
+--R1L141 is dram1:inst17|Mux~1889 at LC_X8_Y12_N8
+--operation mode is normal
+
+R1L141 = J1_q[0] & R1L831 # !J1_q[0] & (R1L041 & (R1L931) # !R1L041 & R1L831);
+
+
+--R1_data[7]$latch is dram1:inst17|data[7]$latch at LC_X8_Y12_N0
+--operation mode is normal
+
+R1_data[7]$latch = GLOBAL(E1_wr) & R1L141 # !GLOBAL(E1_wr) & (R1_data[7]$latch);
+
+
+--E1L84 is controller:inst6|Mux~4972 at LC_X10_Y12_N2
+--operation mode is normal
+
+E1L84 = !H1_q[6] & E1L03 & !H1_q[7] & E1L53;
+
+
+--E1_alu_func[1] is controller:inst6|alu_func[1] at LC_X12_Y11_N4
+--operation mode is normal
+
+E1_alu_func[1] = GLOBAL(E1L43) & E1L84 # !GLOBAL(E1L43) & (E1_alu_func[1]);
+
+
+--E1_alu_func[2] is controller:inst6|alu_func[2] at LC_X12_Y11_N6
+--operation mode is normal
+
+E1_alu_func[2] = GLOBAL(E1L43) & (E1L56) # !GLOBAL(E1L43) & E1_alu_func[2];
+
+
+--E1L94 is controller:inst6|Mux~4973 at LC_X12_Y13_N5
+--operation mode is normal
+
+E1L94 = !H1_q[7] & (H1_q[5] & !H1_q[6] & !H1_q[4] # !H1_q[5] & H1_q[6]);
+
+
+--E1_alu_func[0] is controller:inst6|alu_func[0] at LC_X12_Y13_N8
+--operation mode is normal
+
+E1_alu_func[0] = GLOBAL(E1L43) & E1L03 & E1L94 # !GLOBAL(E1L43) & (E1_alu_func[0]);
+
+
+--M1L72 is alu:inst13|add~1857 at LC_X16_Y13_N9
+--operation mode is normal
+
+M1L72 = D1L36 # E1_alu_func[0];
+
+
+--M1L82 is alu:inst13|add~1858 at LC_X13_Y12_N7
+--operation mode is normal
+
+M1L82_carry_eqn = (!M1L24 & M1L23) # (M1L24 & M1L33);
+M1L82 = D1L36 $ M1L82_carry_eqn $ !D1L53;
+
+
+--M1L92 is alu:inst13|add~1863 at LC_X12_Y11_N7
+--operation mode is normal
+
+M1L92 = E1_alu_func[0] & M1L82 # !E1_alu_func[0] & (D1L53);
+
+
+--R1L241 is dram1:inst17|Mux~1890 at LC_X11_Y14_N9
+--operation mode is normal
+
+R1L241 = R1L131 & (R1L031 # R1_mem[4][6]) # !R1L131 & !R1L031 & (R1_mem[2][6]);
+
+
+--R1L341 is dram1:inst17|Mux~1891 at LC_X11_Y14_N6
+--operation mode is normal
+
+R1L341 = R1L031 & (R1L241 & (R1_mem[6][6]) # !R1L241 & R1_mem[10][6]) # !R1L031 & (R1L241);
+
+
+--R1L441 is dram1:inst17|Mux~1892 at LC_X8_Y14_N3
+--operation mode is normal
+
+R1L441 = R1L431 & (R1L921) # !R1L431 & (R1L921 & (R1_mem[9][6]) # !R1L921 & R1_mem[1][6]);
+
+
+--R1L541 is dram1:inst17|Mux~1893 at LC_X11_Y14_N5
+--operation mode is normal
+
+R1L541 = R1L131 & (R1L031) # !R1L131 & (R1L031 & R1_mem[11][6] # !R1L031 & (R1_mem[3][6]));
+
+
+--R1L641 is dram1:inst17|Mux~1894 at LC_X8_Y14_N5
+--operation mode is normal
+
+R1L641 = R1L131 & (R1L541 & (R1_mem[7][6]) # !R1L541 & R1_mem[5][6]) # !R1L131 & (R1L541);
+
+
+--R1L741 is dram1:inst17|Mux~1895 at LC_X8_Y14_N7
+--operation mode is normal
+
+R1L741 = R1L441 & (R1L641 # !R1L431) # !R1L441 & R1L341 & R1L431;
+
+
+--R1L841 is dram1:inst17|Mux~1896 at LC_X8_Y14_N0
+--operation mode is normal
+
+R1L841 = J1_q[3] & R1_mem[8][6] # !J1_q[3] & (R1_mem[0][6]);
+
+
+--R1L941 is dram1:inst17|Mux~1897 at LC_X8_Y14_N6
+--operation mode is normal
+
+R1L941 = J1_q[0] & R1L741 # !J1_q[0] & (R1L041 & (R1L841) # !R1L041 & R1L741);
+
+
+--R1_data[6]$latch is dram1:inst17|data[6]$latch at LC_X8_Y12_N5
+--operation mode is normal
+
+R1_data[6]$latch = GLOBAL(E1_wr) & R1L941 # !GLOBAL(E1_wr) & (R1_data[6]$latch);
+
+
+--H1L1 is ir:inst9|Mux~71 at LC_X9_Y15_N9
+--operation mode is normal
+
+H1L1 = !E1_rec[0] & E1_rec[1];
+
+
+--F1L1 is t1:inst7|alu_cin~53 at LC_X12_Y11_N5
+--operation mode is normal
+
+F1L1 = E1_sci[0] & (E1_sci[1]) # !E1_sci[0] & (!N1_flag_c # !E1_sci[1]);
+
+
+--M1L03 is alu:inst13|add~1864 at LC_X12_Y13_N7
+--operation mode is normal
+
+M1L03 = D1L85 # E1_alu_func[0];
+
+
+--M1L13 is alu:inst13|add~1865 at LC_X13_Y12_N6
+--operation mode is arithmetic
+
+M1L13_carry_eqn = (!M1L24 & M1L73) # (M1L24 & M1L83);
+M1L13 = D1L82 $ D1L85 $ M1L13_carry_eqn;
+
+--M1L23 is alu:inst13|add~1867 at LC_X13_Y12_N6
+--operation mode is arithmetic
+
+M1L23_cout_0 = D1L82 & (!M1L73 # !D1L85) # !D1L82 & !D1L85 & !M1L73;
+M1L23 = CARRY(M1L23_cout_0);
+
+--M1L33 is alu:inst13|add~1867COUT1_1963 at LC_X13_Y12_N6
+--operation mode is arithmetic
+
+M1L33_cout_1 = D1L82 & (!M1L83 # !D1L85) # !D1L82 & !D1L85 & !M1L83;
+M1L33 = CARRY(M1L33_cout_1);
+
+
+--M1L43 is alu:inst13|add~1870 at LC_X12_Y13_N4
+--operation mode is normal
+
+M1L43 = E1_alu_func[0] & (M1L13) # !E1_alu_func[0] & D1L82;
+
+
+--R1L051 is dram1:inst17|Mux~1898 at LC_X9_Y12_N3
+--operation mode is normal
+
+R1L051 = R1L131 & (R1_mem[4][5] # R1L031) # !R1L131 & (R1_mem[2][5] & !R1L031);
+
+
+--R1L151 is dram1:inst17|Mux~1899 at LC_X9_Y12_N4
+--operation mode is normal
+
+R1L151 = R1L031 & (R1L051 & (R1_mem[6][5]) # !R1L051 & R1_mem[10][5]) # !R1L031 & (R1L051);
+
+
+--R1L251 is dram1:inst17|Mux~1900 at LC_X9_Y12_N7
+--operation mode is normal
+
+R1L251 = R1L431 & (R1L151 # R1L921) # !R1L431 & (!R1L921 & R1_mem[1][5]);
+
+
+--R1L351 is dram1:inst17|Mux~1901 at LC_X9_Y12_N9
+--operation mode is normal
+
+R1L351 = R1L131 & R1L031 # !R1L131 & (R1L031 & R1_mem[11][5] # !R1L031 & (R1_mem[3][5]));
+
+
+--R1L451 is dram1:inst17|Mux~1902 at LC_X9_Y12_N5
+--operation mode is normal
+
+R1L451 = R1L131 & (R1L351 & R1_mem[7][5] # !R1L351 & (R1_mem[5][5])) # !R1L131 & (R1L351);
+
+
+--R1L551 is dram1:inst17|Mux~1903 at LC_X9_Y12_N2
+--operation mode is normal
+
+R1L551 = R1L251 & (R1L451 # !R1L921) # !R1L251 & R1_mem[9][5] & R1L921;
+
+
+--R1L651 is dram1:inst17|Mux~1904 at LC_X11_Y11_N6
+--operation mode is normal
+
+R1L651 = J1_q[3] & R1_mem[8][5] # !J1_q[3] & (R1_mem[0][5]);
+
+
+--R1L751 is dram1:inst17|Mux~1905 at LC_X9_Y12_N6
+--operation mode is normal
+
+R1L751 = J1_q[0] & R1L551 # !J1_q[0] & (R1L041 & (R1L651) # !R1L041 & R1L551);
+
+
+--R1_data[5]$latch is dram1:inst17|data[5]$latch at LC_X9_Y12_N8
+--operation mode is normal
+
+R1_data[5]$latch = GLOBAL(E1_wr) & (R1L751) # !GLOBAL(E1_wr) & R1_data[5]$latch;
+
+
+--M1L53 is alu:inst13|add~1871 at LC_X16_Y12_N4
+--operation mode is normal
+
+M1L53 = E1_alu_func[0] # D1L55;
+
+
+--M1L63 is alu:inst13|add~1872 at LC_X13_Y12_N5
+--operation mode is arithmetic
+
+M1L63_carry_eqn = (!M1L24 & GND) # (M1L24 & VCC);
+M1L63 = D1L42 $ D1L55 $ !M1L63_carry_eqn;
+
+--M1L73 is alu:inst13|add~1874 at LC_X13_Y12_N5
+--operation mode is arithmetic
+
+M1L73_cout_0 = D1L42 & D1L55 & !M1L24 # !D1L42 & (D1L55 # !M1L24);
+M1L73 = CARRY(M1L73_cout_0);
+
+--M1L83 is alu:inst13|add~1874COUT1_1962 at LC_X13_Y12_N5
+--operation mode is arithmetic
+
+M1L83_cout_1 = D1L42 & D1L55 & !M1L24 # !D1L42 & (D1L55 # !M1L24);
+M1L83 = CARRY(M1L83_cout_1);
+
+
+--M1L93 is alu:inst13|add~1877 at LC_X12_Y13_N6
+--operation mode is normal
+
+M1L93 = E1_alu_func[0] & (M1L63) # !E1_alu_func[0] & D1L42;
+
+
+--R1L851 is dram1:inst17|Mux~1906 at LC_X17_Y13_N1
+--operation mode is normal
+
+R1L851 = R1L131 & (R1_mem[4][4] # R1L031) # !R1L131 & R1_mem[2][4] & (!R1L031);
+
+
+--R1L951 is dram1:inst17|Mux~1907 at LC_X17_Y13_N2
+--operation mode is normal
+
+R1L951 = R1L031 & (R1L851 & (R1_mem[6][4]) # !R1L851 & R1_mem[10][4]) # !R1L031 & (R1L851);
+
+
+--R1L061 is dram1:inst17|Mux~1908 at LC_X17_Y13_N8
+--operation mode is normal
+
+R1L061 = R1L921 & (R1L431 # R1_mem[9][4]) # !R1L921 & !R1L431 & (R1_mem[1][4]);
+
+
+--R1L161 is dram1:inst17|Mux~1909 at LC_X17_Y16_N4
+--operation mode is normal
+
+R1L161 = R1L031 & (R1_mem[11][4] # R1L131) # !R1L031 & (!R1L131 & R1_mem[3][4]);
+
+
+--R1L261 is dram1:inst17|Mux~1910 at LC_X17_Y16_N6
+--operation mode is normal
+
+R1L261 = R1L131 & (R1L161 & R1_mem[7][4] # !R1L161 & (R1_mem[5][4])) # !R1L131 & R1L161;
+
+
+--R1L361 is dram1:inst17|Mux~1911 at LC_X17_Y13_N9
+--operation mode is normal
+
+R1L361 = R1L431 & (R1L061 & (R1L261) # !R1L061 & R1L951) # !R1L431 & (R1L061);
+
+
+--R1L461 is dram1:inst17|Mux~1912 at LC_X11_Y11_N7
+--operation mode is normal
+
+R1L461 = J1_q[3] & R1_mem[8][4] # !J1_q[3] & (R1_mem[0][4]);
+
+
+--R1L561 is dram1:inst17|Mux~1913 at LC_X11_Y11_N2
+--operation mode is normal
+
+R1L561 = J1_q[0] & (R1L361) # !J1_q[0] & (R1L041 & R1L461 # !R1L041 & (R1L361));
+
+
+--R1_data[4]$latch is dram1:inst17|data[4]$latch at LC_X11_Y11_N3
+--operation mode is normal
+
+R1_data[4]$latch = GLOBAL(E1_wr) & (R1L561) # !GLOBAL(E1_wr) & R1_data[4]$latch;
+
+
+--M1L04 is alu:inst13|add~1878 at LC_X14_Y13_N4
+--operation mode is normal
+
+M1L04 = D1L25 # E1_alu_func[0];
+
+
+--M1L14 is alu:inst13|add~1879 at LC_X13_Y12_N4
+--operation mode is arithmetic
+
+M1L14 = D1L25 $ D1L02 $ M1L84;
+
+--M1L24 is alu:inst13|add~1881 at LC_X13_Y12_N4
+--operation mode is arithmetic
+
+M1L24 = M1L34;
+
+
+--M1L54 is alu:inst13|add~1884 at LC_X14_Y11_N9
+--operation mode is normal
+
+M1L54 = E1_alu_func[0] & M1L14 # !E1_alu_func[0] & (D1L02);
+
+
+--R1L661 is dram1:inst17|Mux~1914 at LC_X9_Y12_N1
+--operation mode is normal
+
+R1L661 = R1L131 & (R1_mem[4][3] # R1L031) # !R1L131 & (!R1L031 & R1_mem[2][3]);
+
+
+--R1L761 is dram1:inst17|Mux~1915 at LC_X17_Y13_N7
+--operation mode is normal
+
+R1L761 = R1L031 & (R1L661 & R1_mem[6][3] # !R1L661 & (R1_mem[10][3])) # !R1L031 & (R1L661);
+
+
+--R1L861 is dram1:inst17|Mux~1916 at LC_X17_Y13_N6
+--operation mode is normal
+
+R1L861 = R1L921 & R1L431 # !R1L921 & (R1L431 & R1L761 # !R1L431 & (R1_mem[1][3]));
+
+
+--R1L961 is dram1:inst17|Mux~1917 at LC_X17_Y13_N5
+--operation mode is normal
+
+R1L961 = R1L131 & (R1L031) # !R1L131 & (R1L031 & (R1_mem[11][3]) # !R1L031 & R1_mem[3][3]);
+
+
+--R1L071 is dram1:inst17|Mux~1918 at LC_X17_Y13_N3
+--operation mode is normal
+
+R1L071 = R1L131 & (R1L961 & R1_mem[7][3] # !R1L961 & (R1_mem[5][3])) # !R1L131 & R1L961;
+
+
+--R1L171 is dram1:inst17|Mux~1919 at LC_X17_Y13_N4
+--operation mode is normal
+
+R1L171 = R1L861 & (R1L071 # !R1L921) # !R1L861 & R1_mem[9][3] & R1L921;
+
+
+--R1L271 is dram1:inst17|Mux~1920 at LC_X11_Y11_N5
+--operation mode is normal
+
+R1L271 = J1_q[3] & (R1_mem[8][3]) # !J1_q[3] & (R1_mem[0][3]);
+
+
+--R1L371 is dram1:inst17|Mux~1921 at LC_X11_Y11_N8
+--operation mode is normal
+
+R1L371 = J1_q[0] & (R1L171) # !J1_q[0] & (R1L041 & R1L271 # !R1L041 & (R1L171));
+
+
+--R1_data[3]$latch is dram1:inst17|data[3]$latch at LC_X12_Y16_N8
+--operation mode is normal
+
+R1_data[3]$latch = GLOBAL(E1_wr) & R1L371 # !GLOBAL(E1_wr) & (R1_data[3]$latch);
+
+
+--M1L64 is alu:inst13|add~1885 at LC_X16_Y16_N8
+--operation mode is normal
+
+M1L64 = E1_alu_func[0] # D1L94;
+
+
+--M1L74 is alu:inst13|add~1886 at LC_X13_Y12_N3
+--operation mode is arithmetic
+
+M1L74 = D1L61 $ D1L94 $ !M1L35;
+
+--M1L84 is alu:inst13|add~1888 at LC_X13_Y12_N3
+--operation mode is arithmetic
+
+M1L84_cout_0 = D1L61 & D1L94 & !M1L35 # !D1L61 & (D1L94 # !M1L35);
+M1L84 = CARRY(M1L84_cout_0);
+
+--M1L94 is alu:inst13|add~1888COUT1 at LC_X13_Y12_N3
+--operation mode is arithmetic
+
+M1L94_cout_1 = D1L61 & D1L94 & !M1L45 # !D1L61 & (D1L94 # !M1L45);
+M1L94 = CARRY(M1L94_cout_1);
+
+
+--M1L05 is alu:inst13|add~1891 at LC_X12_Y11_N2
+--operation mode is normal
+
+M1L05 = E1_alu_func[0] & (M1L74) # !E1_alu_func[0] & D1L61;
+
+
+--R1L471 is dram1:inst17|Mux~1922 at LC_X17_Y16_N9
+--operation mode is normal
+
+R1L471 = R1L031 & (R1L131) # !R1L031 & (R1L131 & R1_mem[4][2] # !R1L131 & (R1_mem[2][2]));
+
+
+--R1L571 is dram1:inst17|Mux~1923 at LC_X17_Y16_N0
+--operation mode is normal
+
+R1L571 = R1L471 & (R1_mem[6][2] # !R1L031) # !R1L471 & R1L031 & R1_mem[10][2];
+
+
+--R1L671 is dram1:inst17|Mux~1924 at LC_X11_Y12_N4
+--operation mode is normal
+
+R1L671 = R1L921 & (R1L431 # R1_mem[9][2]) # !R1L921 & !R1L431 & R1_mem[1][2];
+
+
+--R1L771 is dram1:inst17|Mux~1925 at LC_X17_Y16_N8
+--operation mode is normal
+
+R1L771 = R1L031 & (R1L131 # R1_mem[11][2]) # !R1L031 & R1_mem[3][2] & !R1L131;
+
+
+--R1L871 is dram1:inst17|Mux~1926 at LC_X17_Y16_N2
+--operation mode is normal
+
+R1L871 = R1L131 & (R1L771 & (R1_mem[7][2]) # !R1L771 & R1_mem[5][2]) # !R1L131 & R1L771;
+
+
+--R1L971 is dram1:inst17|Mux~1927 at LC_X17_Y16_N7
+--operation mode is normal
+
+R1L971 = R1L431 & (R1L671 & R1L871 # !R1L671 & (R1L571)) # !R1L431 & (R1L671);
+
+
+--R1L081 is dram1:inst17|Mux~1928 at LC_X11_Y15_N0
+--operation mode is normal
+
+R1L081 = J1_q[3] & R1_mem[8][2] # !J1_q[3] & (R1_mem[0][2]);
+
+
+--R1L181 is dram1:inst17|Mux~1929 at LC_X11_Y15_N4
+--operation mode is normal
+
+R1L181 = J1_q[0] & R1L971 # !J1_q[0] & (R1L041 & (R1L081) # !R1L041 & R1L971);
+
+
+--R1_data[2]$latch is dram1:inst17|data[2]$latch at LC_X11_Y15_N7
+--operation mode is normal
+
+R1_data[2]$latch = GLOBAL(E1_wr) & (R1L181) # !GLOBAL(E1_wr) & R1_data[2]$latch;
+
+
+--E1_offset[2] is controller:inst6|offset[2] at LC_X11_Y16_N8
+--operation mode is normal
+
+E1_offset[2] = GLOBAL(E1L43) & H1_q[2] & E1L23 # !GLOBAL(E1L43) & (E1_offset[2]);
+
+
+--M1L15 is alu:inst13|add~1892 at LC_X13_Y16_N8
+--operation mode is normal
+
+M1L15 = E1_alu_func[0] # D1L64;
+
+
+--M1L25 is alu:inst13|add~1893 at LC_X13_Y12_N2
+--operation mode is arithmetic
+
+M1L25 = D1L64 $ D1L21 $ M1L85;
+
+--M1L35 is alu:inst13|add~1895 at LC_X13_Y12_N2
+--operation mode is arithmetic
+
+M1L35_cout_0 = D1L64 & D1L21 & !M1L85 # !D1L64 & (D1L21 # !M1L85);
+M1L35 = CARRY(M1L35_cout_0);
+
+--M1L45 is alu:inst13|add~1895COUT1_1961 at LC_X13_Y12_N2
+--operation mode is arithmetic
+
+M1L45_cout_1 = D1L64 & D1L21 & !M1L95 # !D1L64 & (D1L21 # !M1L95);
+M1L45 = CARRY(M1L45_cout_1);
+
+
+--M1L55 is alu:inst13|add~1898 at LC_X12_Y11_N3
+--operation mode is normal
+
+M1L55 = E1_alu_func[0] & (M1L25) # !E1_alu_func[0] & D1L21;
+
+
+--R1L281 is dram1:inst17|Mux~1930 at LC_X11_Y13_N2
+--operation mode is normal
+
+R1L281 = R1L031 & (R1L131) # !R1L031 & (R1L131 & (R1_mem[4][1]) # !R1L131 & R1_mem[2][1]);
+
+
+--R1L381 is dram1:inst17|Mux~1931 at LC_X9_Y15_N3
+--operation mode is normal
+
+R1L381 = R1L281 & (R1_mem[6][1] # !R1L031) # !R1L281 & R1L031 & (R1_mem[10][1]);
+
+
+--R1L481 is dram1:inst17|Mux~1932 at LC_X13_Y13_N6
+--operation mode is normal
+
+R1L481 = R1L921 & (R1L431) # !R1L921 & (R1L431 & (R1L381) # !R1L431 & R1_mem[1][1]);
+
+
+--R1L581 is dram1:inst17|Mux~1933 at LC_X11_Y14_N7
+--operation mode is normal
+
+R1L581 = R1L031 & (R1_mem[11][1] # R1L131) # !R1L031 & (!R1L131 & R1_mem[3][1]);
+
+
+--R1L681 is dram1:inst17|Mux~1934 at LC_X12_Y14_N6
+--operation mode is normal
+
+R1L681 = R1L131 & (R1L581 & (R1_mem[7][1]) # !R1L581 & R1_mem[5][1]) # !R1L131 & (R1L581);
+
+
+--R1L781 is dram1:inst17|Mux~1935 at LC_X8_Y15_N7
+--operation mode is normal
+
+R1L781 = R1L921 & (R1L481 & (R1L681) # !R1L481 & R1_mem[9][1]) # !R1L921 & (R1L481);
+
+
+--R1L881 is dram1:inst17|Mux~1936 at LC_X8_Y12_N7
+--operation mode is normal
+
+R1L881 = J1_q[3] & R1_mem[8][1] # !J1_q[3] & (R1_mem[0][1]);
+
+
+--R1L981 is dram1:inst17|Mux~1937 at LC_X8_Y14_N8
+--operation mode is normal
+
+R1L981 = J1_q[0] & R1L781 # !J1_q[0] & (R1L041 & (R1L881) # !R1L041 & R1L781);
+
+
+--R1_data[1]$latch is dram1:inst17|data[1]$latch at LC_X15_Y14_N6
+--operation mode is normal
+
+R1_data[1]$latch = GLOBAL(E1_wr) & (R1L981) # !GLOBAL(E1_wr) & R1_data[1]$latch;
+
+
+--E1_offset[1] is controller:inst6|offset[1] at LC_X15_Y12_N5
+--operation mode is normal
+
+E1_offset[1] = GLOBAL(E1L43) & H1_q[1] & (E1L23) # !GLOBAL(E1L43) & (E1_offset[1]);
+
+
+--M1L65 is alu:inst13|add~1899 at LC_X15_Y12_N8
+--operation mode is normal
+
+M1L65 = E1_alu_func[0] # !E1_alu_in_sel[2] & D1L14;
+
+
+--M1L75 is alu:inst13|add~1900 at LC_X13_Y12_N1
+--operation mode is arithmetic
+
+M1L75 = D1L24 $ D1L8 $ !M1L36;
+
+--M1L85 is alu:inst13|add~1902 at LC_X13_Y12_N1
+--operation mode is arithmetic
+
+M1L85_cout_0 = D1L24 & (!M1L36 # !D1L8) # !D1L24 & !D1L8 & !M1L36;
+M1L85 = CARRY(M1L85_cout_0);
+
+--M1L95 is alu:inst13|add~1902COUT1_1960 at LC_X13_Y12_N1
+--operation mode is arithmetic
+
+M1L95_cout_1 = D1L24 & (!M1L46 # !D1L8) # !D1L24 & !D1L8 & !M1L46;
+M1L95 = CARRY(M1L95_cout_1);
+
+
+--M1L06 is alu:inst13|add~1905 at LC_X13_Y13_N3
+--operation mode is normal
+
+M1L06 = E1_alu_func[0] & M1L75 # !E1_alu_func[0] & (D1L8);
+
+
+--R1L091 is dram1:inst17|Mux~1938 at LC_X11_Y12_N3
+--operation mode is normal
+
+R1L091 = R1L031 & (R1L131) # !R1L031 & (R1L131 & (R1_mem[4][0]) # !R1L131 & R1_mem[2][0]);
+
+
+--R1L191 is dram1:inst17|Mux~1939 at LC_X11_Y12_N8
+--operation mode is normal
+
+R1L191 = R1L031 & (R1L091 & (R1_mem[6][0]) # !R1L091 & R1_mem[10][0]) # !R1L031 & R1L091;
+
+
+--R1L291 is dram1:inst17|Mux~1940 at LC_X11_Y12_N9
+--operation mode is normal
+
+R1L291 = R1L431 & (R1L921) # !R1L431 & (R1L921 & R1_mem[9][0] # !R1L921 & (R1_mem[1][0]));
+
+
+--R1L391 is dram1:inst17|Mux~1941 at LC_X11_Y12_N1
+--operation mode is normal
+
+R1L391 = R1L031 & (R1L131 # R1_mem[11][0]) # !R1L031 & !R1L131 & R1_mem[3][0];
+
+
+--R1L491 is dram1:inst17|Mux~1942 at LC_X11_Y12_N0
+--operation mode is normal
+
+R1L491 = R1L391 & (R1_mem[7][0] # !R1L131) # !R1L391 & (R1L131 & R1_mem[5][0]);
+
+
+--R1L591 is dram1:inst17|Mux~1943 at LC_X11_Y12_N6
+--operation mode is normal
+
+R1L591 = R1L291 & (R1L491 # !R1L431) # !R1L291 & R1L191 & R1L431;
+
+
+--R1L691 is dram1:inst17|Mux~1944 at LC_X11_Y15_N1
+--operation mode is normal
+
+R1L691 = J1_q[3] & (R1_mem[8][0]) # !J1_q[3] & (R1_mem[0][0]);
+
+
+--R1L791 is dram1:inst17|Mux~1945 at LC_X11_Y15_N9
+--operation mode is normal
+
+R1L791 = J1_q[0] & (R1L591) # !J1_q[0] & (R1L041 & R1L691 # !R1L041 & (R1L591));
+
+
+--R1_data[0]$latch is dram1:inst17|data[0]$latch at LC_X11_Y12_N2
+--operation mode is normal
+
+R1_data[0]$latch = GLOBAL(E1_wr) & (R1L791) # !GLOBAL(E1_wr) & R1_data[0]$latch;
+
+
+--E1_offset[0] is controller:inst6|offset[0] at LC_X15_Y12_N7
+--operation mode is normal
+
+E1_offset[0] = GLOBAL(E1L43) & E1L23 & H1_q[0] # !GLOBAL(E1L43) & (E1_offset[0]);
+
+
+--M1L16 is alu:inst13|add~1906 at LC_X12_Y11_N8
+--operation mode is normal
+
+M1L16 = E1_alu_func[0] & F1L1 # !E1_alu_func[0] & (D1L83);
+
+
+--M1L26 is alu:inst13|add~1907 at LC_X13_Y12_N0
+--operation mode is arithmetic
+
+M1L26 = D1L4 $ D1L83;
+
+--M1L36 is alu:inst13|add~1909 at LC_X13_Y12_N0
+--operation mode is arithmetic
+
+M1L36_cout_0 = D1L4 # !D1L83;
+M1L36 = CARRY(M1L36_cout_0);
+
+--M1L46 is alu:inst13|add~1909COUT1_1959 at LC_X13_Y12_N0
+--operation mode is arithmetic
+
+M1L46_cout_1 = D1L4 # !D1L83;
+M1L46 = CARRY(M1L46_cout_1);
+
+
+--M1L56 is alu:inst13|add~1912 at LC_X12_Y11_N1
+--operation mode is normal
+
+M1L56 = E1_alu_func[0] & (M1L26) # !E1_alu_func[0] & D1L4;
+
+
+--M1L76 is alu:inst13|add~1915 at LC_X13_Y11_N0
+--operation mode is arithmetic
+
+M1L76_cout_0 = E1_alu_func[0] # !F1L1;
+M1L76 = CARRY(M1L76_cout_0);
+
+--M1L86 is alu:inst13|add~1915COUT1_1964 at LC_X13_Y11_N0
+--operation mode is arithmetic
+
+M1L86_cout_1 = E1_alu_func[0] # !F1L1;
+M1L86 = CARRY(M1L86_cout_1);
+
+
+--M1L231 is alu:inst13|LessThan~222 at LC_X16_Y13_N6
+--operation mode is arithmetic
+
+M1L231_cout_0 = D1L82 & D1L85 & !M1L831 # !D1L82 & (D1L85 # !M1L831);
+M1L231 = CARRY(M1L231_cout_0);
+
+--M1L331 is alu:inst13|LessThan~222COUT1_295 at LC_X16_Y13_N6
+--operation mode is arithmetic
+
+M1L331_cout_1 = D1L82 & D1L85 & !M1L931 # !D1L82 & (D1L85 # !M1L931);
+M1L331 = CARRY(M1L331_cout_1);
+
+
+--M1L96 is alu:inst13|add~1918 at LC_X16_Y15_N7
+--operation mode is normal
+
+M1L96_carry_eqn = (!M1L77 & M1L17) # (M1L77 & M1L27);
+M1L96 = D1L53 $ M1L96_carry_eqn;
+
+
+--M1L531 is alu:inst13|LessThan~227 at LC_X16_Y16_N6
+--operation mode is arithmetic
+
+M1L531_cout_0 = D1L85 & (!M1L141 # !M1L07) # !D1L85 & !M1L07 & !M1L141;
+M1L531 = CARRY(M1L531_cout_0);
+
+--M1L631 is alu:inst13|LessThan~227COUT1_300 at LC_X16_Y16_N6
+--operation mode is arithmetic
+
+M1L631_cout_1 = D1L85 & (!M1L241 # !M1L07) # !D1L85 & !M1L07 & !M1L241;
+M1L631 = CARRY(M1L631_cout_1);
+
+
+--E1L05 is controller:inst6|Mux~4974 at LC_X10_Y11_N8
+--operation mode is normal
+
+E1L05 = H1_q[5] & H1_q[4] # !H1_q[5] & (H1_q[7]);
+
+
+--E1_sst[1] is controller:inst6|sst[1] at LC_X9_Y11_N4
+--operation mode is normal
+
+E1_sst[1] = GLOBAL(E1L43) & (E1L05 # !E1L03) # !GLOBAL(E1L43) & (E1_sst[1]);
+
+
+--E1L15 is controller:inst6|Mux~4975 at LC_X10_Y11_N9
+--operation mode is normal
+
+E1L15 = H1_q[7] $ (H1_q[4] & H1_q[5]);
+
+
+--E1_sst[0] is controller:inst6|sst[0] at LC_X9_Y11_N7
+--operation mode is normal
+
+E1_sst[0] = GLOBAL(E1L43) & (E1L15 # !E1L03) # !GLOBAL(E1L43) & (E1_sst[0]);
+
+
+--G1_state.s2 is timer:inst8|state.s2 at LC_X16_Y15_N8
+--operation mode is normal
+
+G1_state.s2_lut_out = GND;
+G1_state.s2 = DFFEAS(G1_state.s2_lut_out, GLOBAL(clk), reset, , , G1_state.s1, , , VCC);
+
+
+--E1L25 is controller:inst6|Mux~4976 at LC_X10_Y13_N2
+--operation mode is normal
+
+E1L25 = H1_q[7] # H1_q[5] & (H1_q[4] $ !H1_q[6]);
+
+
+--E1L35 is controller:inst6|Mux~4977 at LC_X10_Y13_N1
+--operation mode is normal
+
+E1L35 = G1_output[2] & H1_q[4] # !G1_output[2] & (!E1L25);
+
+
+--E1_alu_out_sel[0] is controller:inst6|alu_out_sel[0] at LC_X10_Y13_N3
+--operation mode is normal
+
+E1_alu_out_sel[0] = E1L93 & E1L35 & !G1L2 # !E1L93 & (E1_alu_out_sel[0]);
+
+
+--E1L45 is controller:inst6|Mux~4978 at LC_X10_Y11_N6
+--operation mode is normal
+
+E1L45 = H1_q[6] & E1L51 # !H1_q[6] & (E1L73 & E1L71);
+
+
+--E1L55 is controller:inst6|Mux~4979 at LC_X10_Y11_N2
+--operation mode is normal
+
+E1L55 = G1_output[2] & !H1_q[4] & !H1_q[5] # !G1_output[2] & (E1L45);
+
+
+--E1_alu_out_sel[1] is controller:inst6|alu_out_sel[1] at LC_X10_Y11_N5
+--operation mode is normal
+
+E1_alu_out_sel[1] = E1L93 & E1L66 # !E1L93 & (E1_alu_out_sel[1]);
+
+
+--R1L9 is dram1:inst17|Decoder~169 at LC_X8_Y14_N1
+--operation mode is normal
+
+R1L9 = J1_q[3] & J1_q[0] & !J1_q[2] & !J1_q[1];
+
+
+--R1L891 is dram1:inst17|process0~900 at LC_X8_Y13_N0
+--operation mode is normal
+
+R1L891 = R1L9 & !E1_wr;
+
+
+--R1L991 is dram1:inst17|process0~901 at LC_X8_Y13_N9
+--operation mode is normal
+
+R1L991 = !E1_wr & R1L9 # !reset;
+
+
+--R1_mem[9][7] is dram1:inst17|mem[9][7] at LC_X8_Y13_N6
+--operation mode is normal
+
+R1_mem[9][7] = GLOBAL(R1L991) & R1_data[7]$latch & R1L891 # !GLOBAL(R1L991) & (R1_mem[9][7]);
+
+
+--R1L01 is dram1:inst17|Decoder~170 at LC_X8_Y14_N2
+--operation mode is normal
+
+R1L01 = J1_q[3] & !J1_q[0] & !J1_q[2] & J1_q[1];
+
+
+--R1L002 is dram1:inst17|process0~902 at LC_X8_Y13_N4
+--operation mode is normal
+
+R1L002 = !E1_wr & R1L01;
+
+
+--R1L102 is dram1:inst17|process0~903 at LC_X8_Y13_N8
+--operation mode is normal
+
+R1L102 = !E1_wr & R1L01 # !reset;
+
+
+--R1_mem[10][7] is dram1:inst17|mem[10][7] at LC_X8_Y13_N2
+--operation mode is normal
+
+R1_mem[10][7] = GLOBAL(R1L102) & R1_data[7]$latch & R1L002 # !GLOBAL(R1L102) & (R1_mem[10][7]);
+
+
+--R1L11 is dram1:inst17|Decoder~171 at LC_X17_Y14_N8
+--operation mode is normal
+
+R1L11 = !J1_q[0] & !J1_q[1] & J1_q[2] & !J1_q[3];
+
+
+--R1L202 is dram1:inst17|process0~904 at LC_X16_Y14_N9
+--operation mode is normal
+
+R1L202 = !E1_wr & (R1L11);
+
+
+--R1L302 is dram1:inst17|process0~905 at LC_X16_Y14_N4
+--operation mode is normal
+
+R1L302 = R1L11 & (!E1_wr) # !reset;
+
+
+--R1_mem[4][7] is dram1:inst17|mem[4][7] at LC_X9_Y14_N0
+--operation mode is normal
+
+R1_mem[4][7] = GLOBAL(R1L302) & (R1_data[7]$latch # !R1L202) # !GLOBAL(R1L302) & (R1_mem[4][7]);
+
+
+--R1L21 is dram1:inst17|Decoder~172 at LC_X17_Y14_N6
+--operation mode is normal
+
+R1L21 = !J1_q[0] & J1_q[1] & !J1_q[2] & !J1_q[3];
+
+
+--R1L402 is dram1:inst17|process0~906 at LC_X17_Y14_N0
+--operation mode is normal
+
+R1L402 = !E1_wr & (R1L21);
+
+
+--R1L502 is dram1:inst17|process0~907 at LC_X17_Y14_N4
+--operation mode is normal
+
+R1L502 = R1L21 & (!E1_wr) # !reset;
+
+
+--R1_mem[2][7] is dram1:inst17|mem[2][7] at LC_X9_Y14_N6
+--operation mode is normal
+
+R1_mem[2][7] = GLOBAL(R1L502) & (R1_data[7]$latch # !R1L402) # !GLOBAL(R1L502) & R1_mem[2][7];
+
+
+--R1L31 is dram1:inst17|Decoder~173 at LC_X17_Y14_N1
+--operation mode is normal
+
+R1L31 = !J1_q[0] & J1_q[1] & J1_q[2] & !J1_q[3];
+
+
+--R1L602 is dram1:inst17|process0~908 at LC_X17_Y12_N0
+--operation mode is normal
+
+R1L602 = R1L31 & (!E1_wr);
+
+
+--R1L702 is dram1:inst17|process0~909 at LC_X17_Y12_N2
+--operation mode is normal
+
+R1L702 = R1L31 & !E1_wr # !reset;
+
+
+--R1_mem[6][7] is dram1:inst17|mem[6][7] at LC_X17_Y12_N7
+--operation mode is normal
+
+R1_mem[6][7] = GLOBAL(R1L702) & (R1_data[7]$latch # !R1L602) # !GLOBAL(R1L702) & R1_mem[6][7];
+
+
+--R1L41 is dram1:inst17|Decoder~174 at LC_X11_Y15_N5
+--operation mode is normal
+
+R1L41 = !J1_q[2] & J1_q[0] & !J1_q[1] & !J1_q[3];
+
+
+--R1L802 is dram1:inst17|process0~910 at LC_X11_Y15_N8
+--operation mode is normal
+
+R1L802 = !E1_wr & R1L41;
+
+
+--R1L902 is dram1:inst17|process0~911 at LC_X11_Y15_N6
+--operation mode is normal
+
+R1L902 = !E1_wr & R1L41 # !reset;
+
+
+--R1_mem[1][7] is dram1:inst17|mem[1][7] at LC_X9_Y14_N9
+--operation mode is normal
+
+R1_mem[1][7] = R1L902 & R1_data[7]$latch & (R1L802) # !R1L902 & (R1_mem[1][7]);
+
+
+--R1L51 is dram1:inst17|Decoder~175 at LC_X9_Y14_N1
+--operation mode is normal
+
+R1L51 = J1_q[2] & !J1_q[3] & J1_q[0] & !J1_q[1];
+
+
+--R1L012 is dram1:inst17|process0~912 at LC_X9_Y14_N5
+--operation mode is normal
+
+R1L012 = !E1_wr & R1L51;
+
+
+--R1L112 is dram1:inst17|process0~913 at LC_X17_Y12_N1
+--operation mode is normal
+
+R1L112 = !E1_wr & R1L51 # !reset;
+
+
+--R1_mem[5][7] is dram1:inst17|mem[5][7] at LC_X9_Y14_N4
+--operation mode is normal
+
+R1_mem[5][7] = R1L112 & R1L012 & (R1_data[7]$latch) # !R1L112 & (R1_mem[5][7]);
+
+
+--R1L61 is dram1:inst17|Decoder~176 at LC_X10_Y14_N9
+--operation mode is normal
+
+R1L61 = !J1_q[2] & J1_q[0] & J1_q[3] & J1_q[1];
+
+
+--R1L212 is dram1:inst17|process0~914 at LC_X10_Y14_N1
+--operation mode is normal
+
+R1L212 = R1L61 & !E1_wr;
+
+
+--R1L312 is dram1:inst17|process0~915 at LC_X10_Y14_N3
+--operation mode is normal
+
+R1L312 = R1L61 & !E1_wr # !reset;
+
+
+--R1_mem[11][7] is dram1:inst17|mem[11][7] at LC_X10_Y16_N7
+--operation mode is normal
+
+R1_mem[11][7] = R1L312 & (R1_data[7]$latch # !R1L212) # !R1L312 & (R1_mem[11][7]);
+
+
+--R1L71 is dram1:inst17|Decoder~177 at LC_X10_Y14_N2
+--operation mode is normal
+
+R1L71 = !J1_q[2] & J1_q[0] & !J1_q[3] & J1_q[1];
+
+
+--R1L412 is dram1:inst17|process0~916 at LC_X10_Y14_N8
+--operation mode is normal
+
+R1L412 = R1L71 & !E1_wr;
+
+
+--R1L512 is dram1:inst17|process0~917 at LC_X10_Y14_N4
+--operation mode is normal
+
+R1L512 = R1L71 & !E1_wr # !reset;
+
+
+--R1_mem[3][7] is dram1:inst17|mem[3][7] at LC_X10_Y14_N7
+--operation mode is normal
+
+R1_mem[3][7] = R1L512 & (R1L412 & R1_data[7]$latch) # !R1L512 & R1_mem[3][7];
+
+
+--R1L81 is dram1:inst17|Decoder~178 at LC_X9_Y16_N4
+--operation mode is normal
+
+R1L81 = J1_q[2] & J1_q[0] & J1_q[1] & !J1_q[3];
+
+
+--R1L612 is dram1:inst17|process0~918 at LC_X9_Y16_N2
+--operation mode is normal
 
---A1L14 is Mux~4469 at LC_X10_Y16_N3
+R1L612 = !E1_wr & R1L81;
+
+
+--R1L712 is dram1:inst17|process0~919 at LC_X9_Y16_N0
+--operation mode is normal
+
+R1L712 = !E1_wr & R1L81 # !reset;
+
+
+--R1_mem[7][7] is dram1:inst17|mem[7][7] at LC_X9_Y16_N9
+--operation mode is normal
+
+R1_mem[7][7] = R1L712 & (R1_data[7]$latch & R1L612) # !R1L712 & R1_mem[7][7];
+
+
+--R1L91 is dram1:inst17|Decoder~179 at LC_X17_Y14_N2
+--operation mode is normal
+
+R1L91 = !J1_q[0] & !J1_q[1] & !J1_q[2] & J1_q[3];
+
+
+--R1L812 is dram1:inst17|process0~920 at LC_X17_Y14_N9
+--operation mode is normal
+
+R1L812 = R1L91 & !E1_wr;
+
+
+--R1L912 is dram1:inst17|process0~921 at LC_X17_Y14_N7
+--operation mode is normal
+
+R1L912 = R1L91 & !E1_wr # !reset;
+
+
+--R1_mem[8][7] is dram1:inst17|mem[8][7] at LC_X17_Y14_N3
+--operation mode is normal
+
+R1_mem[8][7] = R1L912 & R1L812 & R1_data[7]$latch # !R1L912 & (R1_mem[8][7]);
+
+
+--R1L02 is dram1:inst17|Decoder~180 at LC_X9_Y16_N1
+--operation mode is normal
+
+R1L02 = !J1_q[2] & !J1_q[0] & !J1_q[1] & !J1_q[3];
+
+
+--R1L022 is dram1:inst17|process0~922 at LC_X12_Y16_N5
+--operation mode is normal
+
+R1L022 = R1L02 & (!E1_wr);
+
+
+--R1L122 is dram1:inst17|process0~923 at LC_X12_Y16_N1
+--operation mode is normal
+
+R1L122 = R1L02 & !E1_wr # !reset;
+
+
+--R1_mem[0][7] is dram1:inst17|mem[0][7] at LC_X10_Y16_N9
+--operation mode is normal
+
+R1_mem[0][7] = R1L122 & (R1_data[7]$latch # !R1L022) # !R1L122 & (R1_mem[0][7]);
+
+
+--E1L65 is controller:inst6|Mux~4980 at LC_X12_Y15_N8
+--operation mode is normal
+
+E1L65 = G1L2 # !G1L4 & E1L14 # !G1_output[2];
+
+
+--E1L75 is controller:inst6|Mux~4981 at LC_X11_Y15_N2
+--operation mode is normal
+
+E1L75 = G1L2 # !G1L4 & (E1L33 # !G1_output[2]);
+
+
+--E1_wr is controller:inst6|wr at LC_X13_Y14_N7
+--operation mode is normal
+
+E1_wr = E1L75 & (E1L65) # !E1L75 & E1_wr;
+
+
+--R1_mem[10][6] is dram1:inst17|mem[10][6] at LC_X8_Y13_N7
+--operation mode is normal
+
+R1_mem[10][6] = GLOBAL(R1L102) & (R1L002 & R1_data[6]$latch) # !GLOBAL(R1L102) & R1_mem[10][6];
+
+
+--R1_mem[4][6] is dram1:inst17|mem[4][6] at LC_X8_Y13_N1
+--operation mode is normal
+
+R1_mem[4][6] = GLOBAL(R1L302) & (R1_data[6]$latch # !R1L202) # !GLOBAL(R1L302) & (R1_mem[4][6]);
+
+
+--R1_mem[2][6] is dram1:inst17|mem[2][6] at LC_X9_Y14_N7
+--operation mode is normal
+
+R1_mem[2][6] = GLOBAL(R1L502) & (R1_data[6]$latch # !R1L402) # !GLOBAL(R1L502) & R1_mem[2][6];
+
+
+--R1_mem[6][6] is dram1:inst17|mem[6][6] at LC_X17_Y12_N9
+--operation mode is normal
+
+R1_mem[6][6] = GLOBAL(R1L702) & (R1_data[6]$latch # !R1L602) # !GLOBAL(R1L702) & R1_mem[6][6];
+
+
+--R1_mem[9][6] is dram1:inst17|mem[9][6] at LC_X8_Y13_N5
+--operation mode is normal
+
+R1_mem[9][6] = GLOBAL(R1L991) & (R1_data[6]$latch # !R1L891) # !GLOBAL(R1L991) & (R1_mem[9][6]);
+
+
+--R1_mem[1][6] is dram1:inst17|mem[1][6] at LC_X11_Y15_N3
+--operation mode is normal
+
+R1_mem[1][6] = R1L902 & R1L802 & R1_data[6]$latch # !R1L902 & (R1_mem[1][6]);
+
+
+--R1_mem[5][6] is dram1:inst17|mem[5][6] at LC_X17_Y12_N8
+--operation mode is normal
+
+R1_mem[5][6] = R1L112 & R1L012 & (R1_data[6]$latch) # !R1L112 & (R1_mem[5][6]);
+
+
+--R1_mem[11][6] is dram1:inst17|mem[11][6] at LC_X10_Y14_N0
+--operation mode is normal
+
+R1_mem[11][6] = R1L312 & R1_data[6]$latch & (R1L212) # !R1L312 & (R1_mem[11][6]);
+
+
+--R1_mem[3][6] is dram1:inst17|mem[3][6] at LC_X10_Y14_N6
+--operation mode is normal
+
+R1_mem[3][6] = R1L512 & R1_data[6]$latch & R1L412 # !R1L512 & (R1_mem[3][6]);
+
+
+--R1_mem[7][6] is dram1:inst17|mem[7][6] at LC_X9_Y16_N7
+--operation mode is normal
+
+R1_mem[7][6] = R1L712 & R1L612 & (R1_data[6]$latch) # !R1L712 & (R1_mem[7][6]);
+
+
+--R1_mem[8][6] is dram1:inst17|mem[8][6] at LC_X10_Y16_N1
+--operation mode is normal
+
+R1_mem[8][6] = R1L912 & R1L812 & R1_data[6]$latch # !R1L912 & (R1_mem[8][6]);
+
+
+--R1_mem[0][6] is dram1:inst17|mem[0][6] at LC_X10_Y16_N6
+--operation mode is normal
+
+R1_mem[0][6] = R1L122 & (R1_data[6]$latch # !R1L022) # !R1L122 & (R1_mem[0][6]);
+
+
+--E1L85 is controller:inst6|Mux~4982 at LC_X9_Y13_N4
+--operation mode is normal
+
+E1L85 = H1_q[4] $ (H1_q[5]);
+
+
+--E1L95 is controller:inst6|Mux~4983 at LC_X9_Y13_N5
+--operation mode is normal
+
+E1L95 = G1L2 & !G1L4 & (E1L85 # !G1_output[2]);
+
+
+--E1L06 is controller:inst6|Mux~4984 at LC_X9_Y13_N0
+--operation mode is normal
+
+E1L06 = G1L4 & (G1L2) # !G1L4 & (E1L33 # !G1_output[2] # !G1L2);
+
+
+--E1_rec[1] is controller:inst6|rec[1] at LC_X9_Y13_N9
+--operation mode is normal
+
+E1_rec[1] = E1L06 & E1L95 # !E1L06 & (E1_rec[1]);
+
+
+--E1_rec[0] is controller:inst6|rec[0] at LC_X9_Y13_N7
+--operation mode is normal
+
+E1_rec[0] = E1L06 & (G1L2 & E1L76) # !E1L06 & E1_rec[0];
+
+
+--E1L16 is controller:inst6|Mux~4985 at LC_X9_Y11_N1
+--operation mode is normal
+
+E1L16 = H1_q[6] & !H1_q[4] & H1_q[5] & E1L03;
+
+
+--E1L26 is controller:inst6|Mux~4986 at LC_X9_Y11_N0
+--operation mode is normal
+
+E1L26 = G1L2 & (G1L4 # E1L33 # !G1_output[2]) # !G1L2 & !G1L4 & (G1_output[2] # !E1L33);
+
+
+--E1_sci[1] is controller:inst6|sci[1] at LC_X9_Y11_N2
+--operation mode is normal
+
+E1_sci[1] = E1L26 & (E1L16) # !E1L26 & E1_sci[1];
+
+
+--E1L36 is controller:inst6|Mux~4987 at LC_X9_Y13_N3
+--operation mode is normal
+
+E1L36 = !H1_q[4] & H1_q[6] & (E1L03);
+
+
+--E1L46 is controller:inst6|Mux~4988 at LC_X9_Y13_N2
+--operation mode is normal
+
+E1L46 = G1L2 & (E1L64 # !H1_q[5] & E1L36) # !G1L2 & (!H1_q[5] & E1L36);
+
+
+--E1_sci[0] is controller:inst6|sci[0] at LC_X12_Y11_N9
+--operation mode is normal
+
+E1_sci[0] = E1L26 & E1L46 # !E1L26 & (E1_sci[0]);
+
+
+--R1_mem[9][5] is dram1:inst17|mem[9][5] at LC_X8_Y13_N3
+--operation mode is normal
+
+R1_mem[9][5] = GLOBAL(R1L991) & R1_data[5]$latch & R1L891 # !GLOBAL(R1L991) & (R1_mem[9][5]);
+
+
+--R1_mem[10][5] is dram1:inst17|mem[10][5] at LC_X9_Y14_N3
+--operation mode is normal
+
+R1_mem[10][5] = GLOBAL(R1L102) & (R1_data[5]$latch # !R1L002) # !GLOBAL(R1L102) & (R1_mem[10][5]);
+
+
+--R1_mem[4][5] is dram1:inst17|mem[4][5] at LC_X9_Y14_N2
 --operation mode is normal
 
-A1L14 = !instruction[7] & (instruction[4] $ instruction[6] # !instruction[5]);
+R1_mem[4][5] = GLOBAL(R1L302) & (R1_data[5]$latch # !R1L202) # !GLOBAL(R1L302) & (R1_mem[4][5]);
 
 
---A1L24 is Mux~4470 at LC_X10_Y13_N0
+--R1_mem[2][5] is dram1:inst17|mem[2][5] at LC_X9_Y14_N8
 --operation mode is normal
 
-A1L24 = !timer[2] & timer[0] & timer[1];
+R1_mem[2][5] = GLOBAL(R1L502) & (R1_data[5]$latch # !R1L402) # !GLOBAL(R1L502) & (R1_mem[2][5]);
 
 
---A1L34 is Mux~4471 at LC_X10_Y13_N7
+--R1_mem[6][5] is dram1:inst17|mem[6][5] at LC_X17_Y12_N4
 --operation mode is normal
 
-A1L34 = A1L04 # A1L83 # A1L24 & A1L14;
+R1_mem[6][5] = GLOBAL(R1L702) & (R1_data[5]$latch # !R1L602) # !GLOBAL(R1L702) & (R1_mem[6][5]);
 
 
---A1L44 is Mux~4472 at LC_X10_Y13_N6
+--R1_mem[1][5] is dram1:inst17|mem[1][5] at LC_X17_Y12_N5
 --operation mode is normal
 
-A1L44 = !timer[0] & (timer[1] & (alu_out_sel[1]) # !timer[1] & !timer[2]);
+R1_mem[1][5] = R1L902 & R1_data[5]$latch & R1L802 # !R1L902 & (R1_mem[1][5]);
 
 
---A1L54 is Mux~4473 at LC_X10_Y13_N2
+--R1_mem[5][5] is dram1:inst17|mem[5][5] at LC_X17_Y12_N3
 --operation mode is normal
 
-A1L54 = instruction[4] & !timer[1] & instruction[5] # !instruction[4] & (!instruction[5]);
+R1_mem[5][5] = R1L112 & R1L012 & (R1_data[5]$latch) # !R1L112 & (R1_mem[5][5]);
 
 
---A1L64 is Mux~4474 at LC_X10_Y13_N9
+--R1_mem[11][5] is dram1:inst17|mem[11][5] at LC_X17_Y12_N6
 --operation mode is normal
 
-A1L64 = A1L44 # A1L53 & A1L54 & A1L73;
+R1_mem[11][5] = R1L312 & R1_data[5]$latch & R1L212 # !R1L312 & (R1_mem[11][5]);
 
 
---A1L74 is Mux~4475 at LC_X10_Y12_N4
+--R1_mem[3][5] is dram1:inst17|mem[3][5] at LC_X10_Y14_N5
 --operation mode is normal
 
-A1L74 = !timer[2] & (timer[1]);
+R1_mem[3][5] = R1L512 & R1_data[5]$latch & R1L412 # !R1L512 & (R1_mem[3][5]);
 
 
---A1L84 is Mux~4476 at LC_X10_Y11_N2
+--R1_mem[7][5] is dram1:inst17|mem[7][5] at LC_X9_Y16_N5
 --operation mode is normal
 
-A1L84 = instruction[4] & (!z) # !instruction[4] & c;
+R1_mem[7][5] = R1L712 & R1_data[5]$latch & R1L612 # !R1L712 & (R1_mem[7][5]);
 
 
---A1L94 is Mux~4477 at LC_X9_Y13_N6
+--R1_mem[8][5] is dram1:inst17|mem[8][5] at LC_X9_Y16_N6
 --operation mode is normal
 
-A1L94 = instruction[7] & !instruction[6] & A1L84 & !instruction[5];
+R1_mem[8][5] = R1L912 & R1_data[5]$latch & R1L812 # !R1L912 & (R1_mem[8][5]);
 
 
---A1L05 is Mux~4478 at LC_X9_Y13_N2
+--R1_mem[0][5] is dram1:inst17|mem[0][5] at LC_X10_Y16_N0
 --operation mode is normal
 
-A1L05 = !instruction[7] & (instruction[4] & instruction[5]);
+R1_mem[0][5] = R1L122 & (R1_data[5]$latch # !R1L022) # !R1L122 & (R1_mem[0][5]);
 
 
---A1L15 is Mux~4479 at LC_X9_Y13_N5
+--R1_mem[10][4] is dram1:inst17|mem[10][4] at LC_X17_Y15_N5
 --operation mode is normal
 
-A1L15 = instruction[7] & (alu_out_sel[1] # timer[0] & A1L05) # !instruction[7] & timer[0] & A1L05;
+R1_mem[10][4] = GLOBAL(R1L102) & R1L002 & R1_data[4]$latch # !GLOBAL(R1L102) & (R1_mem[10][4]);
 
 
---A1L25 is Mux~4480 at LC_X9_Y13_N4
+--R1_mem[4][4] is dram1:inst17|mem[4][4] at LC_X17_Y15_N7
 --operation mode is normal
 
-A1L25 = A1L94 & (timer[0] # instruction[6] & A1L15) # !A1L94 & (instruction[6] & A1L15);
+R1_mem[4][4] = GLOBAL(R1L302) & (R1_data[4]$latch # !R1L202) # !GLOBAL(R1L302) & R1_mem[4][4];
 
 
---A1L35 is Mux~4481 at LC_X9_Y13_N7
+--R1_mem[2][4] is dram1:inst17|mem[2][4] at LC_X17_Y15_N9
 --operation mode is normal
 
-A1L35 = A1L64 # A1L98 # A1L74 & A1L25;
+R1_mem[2][4] = GLOBAL(R1L502) & (R1_data[4]$latch # !R1L402) # !GLOBAL(R1L502) & R1_mem[2][4];
 
 
---A1L45 is Mux~4482 at LC_X7_Y12_N7
+--R1_mem[6][4] is dram1:inst17|mem[6][4] at LC_X17_Y11_N5
 --operation mode is normal
 
-A1L45 = !instruction[7] & (!instruction[6]);
+R1_mem[6][4] = GLOBAL(R1L702) & (R1_data[4]$latch # !R1L602) # !GLOBAL(R1L702) & R1_mem[6][4];
 
 
---A1L55 is Mux~4483 at LC_X7_Y12_N3
+--R1_mem[9][4] is dram1:inst17|mem[9][4] at LC_X17_Y11_N4
 --operation mode is normal
 
-A1L55 = timer[2] & (timer[0] # timer[1]) # !timer[2] & (A1L45 & timer[1]);
+R1_mem[9][4] = GLOBAL(R1L991) & (R1_data[4]$latch & R1L891) # !GLOBAL(R1L991) & R1_mem[9][4];
 
 
---A1L65 is Mux~4484 at LC_X10_Y11_N4
+--R1_mem[1][4] is dram1:inst17|mem[1][4] at LC_X9_Y11_N8
 --operation mode is normal
 
-A1L65 = instruction[4] & (instruction[5]);
+R1_mem[1][4] = R1L902 & R1_data[4]$latch & R1L802 # !R1L902 & (R1_mem[1][4]);
 
 
---A1L75 is Mux~4485 at LC_X7_Y12_N4
+--R1_mem[5][4] is dram1:inst17|mem[5][4] at LC_X9_Y11_N6
 --operation mode is normal
 
-A1L75 = A1L55 # timer[1] & !A1L65 & instruction[6];
+R1_mem[5][4] = R1L112 & R1_data[4]$latch & R1L012 # !R1L112 & (R1_mem[5][4]);
 
 
---A1L85 is Mux~4486 at LC_X8_Y13_N1
+--R1_mem[11][4] is dram1:inst17|mem[11][4] at LC_X17_Y16_N1
 --operation mode is normal
 
-A1L85 = timer[0] & (timer[2] # !A1L73) # !timer[1];
+R1_mem[11][4] = R1L312 & (R1_data[4]$latch # !R1L212) # !R1L312 & (R1_mem[11][4]);
 
 
---dest_reg[0]$latch is dest_reg[0]$latch at LC_X1_Y4_N5
+--R1_mem[3][4] is dram1:inst17|mem[3][4] at LC_X17_Y16_N3
 --operation mode is normal
 
-dest_reg[0]$latch = GLOBAL(A1L85) & A1L75 & (instruction[2]) # !GLOBAL(A1L85) & (dest_reg[0]$latch);
+R1_mem[3][4] = R1L512 & (R1_data[4]$latch # !R1L412) # !R1L512 & (R1_mem[3][4]);
 
 
---dest_reg[1]$latch is dest_reg[1]$latch at LC_X1_Y4_N8
+--R1_mem[7][4] is dram1:inst17|mem[7][4] at LC_X9_Y16_N8
 --operation mode is normal
 
-dest_reg[1]$latch = GLOBAL(A1L85) & A1L75 & instruction[3] # !GLOBAL(A1L85) & (dest_reg[1]$latch);
+R1_mem[7][4] = R1L712 & R1L612 & (R1_data[4]$latch) # !R1L712 & (R1_mem[7][4]);
 
 
---sour_reg[0]$latch is sour_reg[0]$latch at LC_X7_Y12_N8
+--R1_mem[8][4] is dram1:inst17|mem[8][4] at LC_X17_Y11_N0
 --operation mode is normal
 
-sour_reg[0]$latch = GLOBAL(A1L85) & (instruction[0] & A1L75) # !GLOBAL(A1L85) & sour_reg[0]$latch;
+R1_mem[8][4] = R1L912 & (R1_data[4]$latch & R1L812) # !R1L912 & R1_mem[8][4];
 
 
---sour_reg[1]$latch is sour_reg[1]$latch at LC_X1_Y4_N4
+--R1_mem[0][4] is dram1:inst17|mem[0][4] at LC_X10_Y16_N5
 --operation mode is normal
 
-sour_reg[1]$latch = GLOBAL(A1L85) & A1L75 & instruction[1] # !GLOBAL(A1L85) & (sour_reg[1]$latch);
+R1_mem[0][4] = R1L122 & (R1_data[4]$latch # !R1L022) # !R1L122 & (R1_mem[0][4]);
 
 
---A1L95 is Mux~4487 at LC_X7_Y12_N2
+--R1_mem[9][3] is dram1:inst17|mem[9][3] at LC_X16_Y13_N8
 --operation mode is normal
 
-A1L95 = A1L24 & (instruction[6] & (A1L65) # !instruction[6] & instruction[7]);
+R1_mem[9][3] = GLOBAL(R1L991) & (R1_data[3]$latch # !R1L891) # !GLOBAL(R1L991) & R1_mem[9][3];
 
 
---offset[0]$latch is offset[0]$latch at LC_X7_Y12_N0
+--R1_mem[10][3] is dram1:inst17|mem[10][3] at LC_X16_Y16_N9
 --operation mode is normal
 
-offset[0]$latch = GLOBAL(A1L85) & A1L95 & (instruction[0]) # !GLOBAL(A1L85) & (offset[0]$latch);
+R1_mem[10][3] = GLOBAL(R1L102) & (R1_data[3]$latch # !R1L002) # !GLOBAL(R1L102) & (R1_mem[10][3]);
 
 
---offset[1]$latch is offset[1]$latch at LC_X1_Y4_N9
+--R1_mem[4][3] is dram1:inst17|mem[4][3] at LC_X16_Y14_N0
 --operation mode is normal
 
-offset[1]$latch = GLOBAL(A1L85) & A1L95 & instruction[1] # !GLOBAL(A1L85) & (offset[1]$latch);
+R1_mem[4][3] = GLOBAL(R1L302) & (R1_data[3]$latch # !R1L202) # !GLOBAL(R1L302) & (R1_mem[4][3]);
 
 
---offset[2]$latch is offset[2]$latch at LC_X1_Y4_N2
+--R1_mem[2][3] is dram1:inst17|mem[2][3] at LC_X10_Y12_N9
 --operation mode is normal
 
-offset[2]$latch = GLOBAL(A1L85) & A1L95 & instruction[2] # !GLOBAL(A1L85) & (offset[2]$latch);
+R1_mem[2][3] = GLOBAL(R1L502) & R1_data[3]$latch & R1L402 # !GLOBAL(R1L502) & (R1_mem[2][3]);
 
 
---offset[3]$latch is offset[3]$latch at LC_X1_Y4_N6
+--R1_mem[6][3] is dram1:inst17|mem[6][3] at LC_X15_Y12_N6
 --operation mode is normal
 
-offset[3]$latch = GLOBAL(A1L85) & (instruction[3] & A1L95) # !GLOBAL(A1L85) & offset[3]$latch;
+R1_mem[6][3] = GLOBAL(R1L702) & (R1_data[3]$latch # !R1L602) # !GLOBAL(R1L702) & R1_mem[6][3];
 
 
---A1L06 is Mux~4488 at LC_X10_Y16_N6
+--R1_mem[1][3] is dram1:inst17|mem[1][3] at LC_X10_Y13_N9
 --operation mode is normal
 
-A1L06 = instruction[7] $ (instruction[4] & instruction[5]);
+R1_mem[1][3] = R1L902 & R1_data[3]$latch & (R1L802) # !R1L902 & (R1_mem[1][3]);
 
 
---sst[0]$latch is sst[0]$latch at LC_X10_Y16_N4
+--R1_mem[5][3] is dram1:inst17|mem[5][3] at LC_X10_Y11_N0
 --operation mode is normal
 
-sst[0]$latch = GLOBAL(A1L85) & (A1L06 # !A1L74) # !GLOBAL(A1L85) & (sst[0]$latch);
+R1_mem[5][3] = R1L112 & R1_data[3]$latch & R1L012 # !R1L112 & (R1_mem[5][3]);
 
 
---A1L16 is Mux~4489 at LC_X10_Y16_N2
+--R1_mem[11][3] is dram1:inst17|mem[11][3] at LC_X12_Y11_N0
 --operation mode is normal
 
-A1L16 = instruction[5] & instruction[4] # !instruction[5] & (instruction[7]);
+R1_mem[11][3] = R1L312 & (R1_data[3]$latch # !R1L212) # !R1L312 & (R1_mem[11][3]);
 
 
---sst[1]$latch is sst[1]$latch at LC_X10_Y16_N7
+--R1_mem[3][3] is dram1:inst17|mem[3][3] at LC_X17_Y16_N5
 --operation mode is normal
 
-sst[1]$latch = GLOBAL(A1L85) & (A1L16 # !A1L74) # !GLOBAL(A1L85) & (sst[1]$latch);
+R1_mem[3][3] = R1L512 & R1L412 & R1_data[3]$latch # !R1L512 & (R1_mem[3][3]);
 
 
---A1L26 is Mux~4490 at LC_X8_Y16_N0
+--R1_mem[7][3] is dram1:inst17|mem[7][3] at LC_X11_Y12_N7
 --operation mode is normal
 
-A1L26 = instruction[4] $ (instruction[5]);
+R1_mem[7][3] = R1L712 & R1L612 & (R1_data[3]$latch) # !R1L712 & (R1_mem[7][3]);
 
 
---A1L36 is Mux~4491 at LC_X8_Y16_N6
+--R1_mem[8][3] is dram1:inst17|mem[8][3] at LC_X17_Y14_N5
 --operation mode is normal
 
-A1L36 = !timer[1] & (timer[0] & timer[2] & !A1L26 # !timer[0] & !timer[2]);
+R1_mem[8][3] = R1L912 & (R1L812 & R1_data[3]$latch) # !R1L912 & R1_mem[8][3];
 
 
---A1L46 is Mux~4492 at LC_X8_Y16_N4
+--R1_mem[0][3] is dram1:inst17|mem[0][3] at LC_X12_Y16_N3
 --operation mode is normal
 
-A1L46 = timer[1] & !timer[2] & instruction[6] & !instruction[4];
+R1_mem[0][3] = R1L122 & R1L022 & R1_data[3]$latch # !R1L122 & (R1_mem[0][3]);
 
 
---A1L56 is Mux~4493 at LC_X8_Y16_N8
+--R1_mem[10][2] is dram1:inst17|mem[10][2] at LC_X17_Y15_N0
 --operation mode is normal
 
-A1L56 = A1L36 # !instruction[5] & A1L46;
+R1_mem[10][2] = GLOBAL(R1L102) & (R1_data[2]$latch # !R1L002) # !GLOBAL(R1L102) & (R1_mem[10][2]);
 
 
---A1L66 is Mux~4494 at LC_X8_Y13_N5
+--R1_mem[4][2] is dram1:inst17|mem[4][2] at LC_X17_Y15_N8
 --operation mode is normal
 
-A1L66 = timer[0] & (timer[1] & (timer[2] # !A1L73) # !timer[1] & (A1L73 # !timer[2])) # !timer[0] & !timer[1];
+R1_mem[4][2] = GLOBAL(R1L302) & R1L202 & R1_data[2]$latch # !GLOBAL(R1L302) & (R1_mem[4][2]);
 
 
---sci[0]$latch is sci[0]$latch at LC_X8_Y16_N9
+--R1_mem[2][2] is dram1:inst17|mem[2][2] at LC_X17_Y15_N4
 --operation mode is normal
 
-sci[0]$latch = GLOBAL(A1L66) & A1L56 # !GLOBAL(A1L66) & (sci[0]$latch);
+R1_mem[2][2] = GLOBAL(R1L502) & (R1_data[2]$latch # !R1L402) # !GLOBAL(R1L502) & (R1_mem[2][2]);
 
 
---A1L76 is Mux~4495 at LC_X8_Y16_N7
+--R1_mem[6][2] is dram1:inst17|mem[6][2] at LC_X17_Y11_N6
 --operation mode is normal
 
-A1L76 = instruction[5] & A1L46;
+R1_mem[6][2] = GLOBAL(R1L702) & (R1_data[2]$latch # !R1L602) # !GLOBAL(R1L702) & (R1_mem[6][2]);
 
 
---sci[1]$latch is sci[1]$latch at LC_X5_Y19_N2
+--R1_mem[9][2] is dram1:inst17|mem[9][2] at LC_X17_Y11_N8
 --operation mode is normal
 
-sci[1]$latch = GLOBAL(A1L66) & (A1L76) # !GLOBAL(A1L66) & sci[1]$latch;
+R1_mem[9][2] = GLOBAL(R1L991) & (R1_data[2]$latch # !R1L891) # !GLOBAL(R1L991) & (R1_mem[9][2]);
 
 
---A1L86 is Mux~4496 at LC_X10_Y12_N5
+--R1_mem[1][2] is dram1:inst17|mem[1][2] at LC_X9_Y11_N3
 --operation mode is normal
 
-A1L86 = timer[0] & (instruction[6] & timer[2]) # !timer[0] & (!timer[2]);
+R1_mem[1][2] = R1L902 & (R1_data[2]$latch # !R1L802) # !R1L902 & (R1_mem[1][2]);
 
 
---A1L96 is Mux~4497 at LC_X8_Y13_N6
+--R1_mem[5][2] is dram1:inst17|mem[5][2] at LC_X9_Y11_N5
 --operation mode is normal
 
-A1L96 = timer[0] & (timer[1] # A1L73 # !timer[2]) # !timer[0] & !timer[1];
+R1_mem[5][2] = R1L112 & R1_data[2]$latch & R1L012 # !R1L112 & (R1_mem[5][2]);
 
 
---rec[0]$latch is rec[0]$latch at LC_X10_Y12_N2
+--R1_mem[11][2] is dram1:inst17|mem[11][2] at LC_X10_Y16_N8
 --operation mode is normal
 
-rec[0]$latch = GLOBAL(A1L96) & !timer[1] & A1L86 # !GLOBAL(A1L96) & (rec[0]$latch);
+R1_mem[11][2] = R1L312 & (R1_data[2]$latch # !R1L212) # !R1L312 & (R1_mem[11][2]);
 
 
---A1L07 is Mux~4498 at LC_X8_Y16_N1
+--R1_mem[3][2] is dram1:inst17|mem[3][2] at LC_X14_Y15_N4
 --operation mode is normal
 
-A1L07 = !timer[1] & timer[0] & (A1L26 # !timer[2]);
+R1_mem[3][2] = R1L512 & R1_data[2]$latch & R1L412 # !R1L512 & (R1_mem[3][2]);
 
 
---rec[1]$latch is rec[1]$latch at LC_X7_Y19_N2
+--R1_mem[7][2] is dram1:inst17|mem[7][2] at LC_X9_Y16_N3
 --operation mode is normal
 
-rec[1]$latch = GLOBAL(A1L96) & A1L07 # !GLOBAL(A1L96) & (rec[1]$latch);
+R1_mem[7][2] = R1L712 & (R1_data[2]$latch # !R1L612) # !R1L712 & (R1_mem[7][2]);
 
 
---A1L17 is Mux~4499 at LC_X10_Y16_N1
+--R1_mem[8][2] is dram1:inst17|mem[8][2] at LC_X17_Y11_N9
 --operation mode is normal
 
-A1L17 = !instruction[7] & (instruction[6] & (!instruction[5]) # !instruction[6] & !instruction[4] & instruction[5]);
+R1_mem[8][2] = R1L912 & (R1_data[2]$latch # !R1L812) # !R1L912 & R1_mem[8][2];
 
 
---alu_func[0]$latch is alu_func[0]$latch at LC_X10_Y16_N0
+--R1_mem[0][2] is dram1:inst17|mem[0][2] at LC_X10_Y16_N4
 --operation mode is normal
 
-alu_func[0]$latch = GLOBAL(A1L85) & A1L17 & (A1L74) # !GLOBAL(A1L85) & (alu_func[0]$latch);
+R1_mem[0][2] = R1L122 & R1_data[2]$latch & (R1L022) # !R1L122 & (R1_mem[0][2]);
 
 
---A1L27 is Mux~4500 at LC_X7_Y12_N5
+--R1_mem[9][1] is dram1:inst17|mem[9][1] at LC_X15_Y16_N3
 --operation mode is normal
 
-A1L27 = !instruction[5] & (instruction[4]);
+R1_mem[9][1] = GLOBAL(R1L991) & R1L891 & (R1_data[1]$latch) # !GLOBAL(R1L991) & (R1_mem[9][1]);
 
 
---alu_func[1]$latch is alu_func[1]$latch at LC_X4_Y11_N2
+--R1_mem[10][1] is dram1:inst17|mem[10][1] at LC_X14_Y16_N0
 --operation mode is normal
 
-alu_func[1]$latch = GLOBAL(A1L85) & A1L09 # !GLOBAL(A1L85) & (alu_func[1]$latch);
+R1_mem[10][1] = GLOBAL(R1L102) & (R1_data[1]$latch # !R1L002) # !GLOBAL(R1L102) & (R1_mem[10][1]);
 
 
---alu_func[2]$latch is alu_func[2]$latch at LC_X7_Y18_N2
+--R1_mem[4][1] is dram1:inst17|mem[4][1] at LC_X16_Y14_N3
 --operation mode is normal
 
-alu_func[2]$latch = GLOBAL(A1L85) & A1L19 # !GLOBAL(A1L85) & (alu_func[2]$latch);
+R1_mem[4][1] = GLOBAL(R1L302) & R1_data[1]$latch & (R1L202) # !GLOBAL(R1L302) & (R1_mem[4][1]);
 
 
---A1L37 is Mux~4501 at LC_X7_Y12_N1
+--R1_mem[2][1] is dram1:inst17|mem[2][1] at LC_X14_Y13_N9
 --operation mode is normal
 
-A1L37 = timer[2] & (timer[1] & instruction[6] # !timer[1] & (A1L27));
+R1_mem[2][1] = GLOBAL(R1L502) & (R1L402 & R1_data[1]$latch) # !GLOBAL(R1L502) & R1_mem[2][1];
 
 
---A1L47 is Mux~4502 at LC_X9_Y13_N8
+--R1_mem[6][1] is dram1:inst17|mem[6][1] at LC_X10_Y15_N2
 --operation mode is normal
 
-A1L47 = instruction[7] & (!instruction[5]);
+R1_mem[6][1] = GLOBAL(R1L702) & R1L602 & R1_data[1]$latch # !GLOBAL(R1L702) & (R1_mem[6][1]);
 
 
---A1L57 is Mux~4503 at LC_X9_Y13_N9
+--R1_mem[1][1] is dram1:inst17|mem[1][1] at LC_X16_Y12_N6
 --operation mode is normal
 
-A1L57 = A1L37 # A1L74 & (A1L05 # A1L47);
+R1_mem[1][1] = R1L902 & R1L802 & R1_data[1]$latch # !R1L902 & (R1_mem[1][1]);
 
 
---A1L67 is Mux~4504 at LC_X8_Y13_N0
+--R1_mem[5][1] is dram1:inst17|mem[5][1] at LC_X12_Y12_N0
 --operation mode is normal
 
-A1L67 = timer[0] & (A1L73 & (timer[2] # !timer[1]) # !A1L73 & (!timer[2])) # !timer[0] & !timer[1];
+R1_mem[5][1] = R1L112 & (R1_data[1]$latch & R1L012) # !R1L112 & R1_mem[5][1];
 
 
---alu_in_sel[0]$latch is alu_in_sel[0]$latch at LC_X8_Y13_N9
+--R1_mem[11][1] is dram1:inst17|mem[11][1] at LC_X14_Y14_N9
 --operation mode is normal
 
-alu_in_sel[0]$latch = GLOBAL(A1L67) & timer[0] & A1L57 # !GLOBAL(A1L67) & (alu_in_sel[0]$latch);
+R1_mem[11][1] = R1L312 & R1L212 & (R1_data[1]$latch) # !R1L312 & (R1_mem[11][1]);
 
 
---A1L77 is Mux~4505 at LC_X8_Y13_N7
+--R1_mem[3][1] is dram1:inst17|mem[3][1] at LC_X14_Y15_N9
 --operation mode is normal
 
-A1L77 = timer[2] $ (!timer[1]) # !timer[0];
+R1_mem[3][1] = R1L512 & (R1_data[1]$latch # !R1L412) # !R1L512 & R1_mem[3][1];
 
 
---A1L87 is Mux~4506 at LC_X8_Y16_N5
+--R1_mem[7][1] is dram1:inst17|mem[7][1] at LC_X13_Y16_N4
 --operation mode is normal
 
-A1L87 = instruction[4] # !instruction[5];
+R1_mem[7][1] = R1L712 & R1L612 & (R1_data[1]$latch) # !R1L712 & (R1_mem[7][1]);
 
 
---A1L97 is Mux~4507 at LC_X10_Y16_N5
+--R1_mem[8][1] is dram1:inst17|mem[8][1] at LC_X11_Y16_N9
 --operation mode is normal
 
-A1L97 = instruction[6] & !instruction[7] & (instruction[4] # !instruction[5]) # !instruction[6] & (!instruction[5] & instruction[7]);
+R1_mem[8][1] = R1L912 & R1L812 & R1_data[1]$latch # !R1L912 & (R1_mem[8][1]);
 
 
---A1L08 is Mux~4508 at LC_X8_Y16_N2
+--R1_mem[0][1] is dram1:inst17|mem[0][1] at LC_X12_Y16_N2
 --operation mode is normal
 
-A1L08 = A1L77 # timer[2] & (A1L87) # !timer[2] & !A1L97;
+R1_mem[0][1] = R1L122 & R1L022 & (R1_data[1]$latch) # !R1L122 & (R1_mem[0][1]);
 
 
---alu_in_sel[1]$latch is alu_in_sel[1]$latch at LC_X8_Y21_N2
+--R1_mem[10][0] is dram1:inst17|mem[10][0] at LC_X17_Y15_N3
 --operation mode is normal
 
-alu_in_sel[1]$latch = GLOBAL(A1L67) & (!A1L08) # !GLOBAL(A1L67) & alu_in_sel[1]$latch;
+R1_mem[10][0] = GLOBAL(R1L102) & R1L002 & (R1_data[0]$latch) # !GLOBAL(R1L102) & (R1_mem[10][0]);
 
 
---A1L18 is Mux~4509 at LC_X8_Y16_N3
+--R1_mem[4][0] is dram1:inst17|mem[4][0] at LC_X17_Y15_N6
 --operation mode is normal
 
-A1L18 = A1L36 # timer[2] & timer[1] & A1L87;
+R1_mem[4][0] = GLOBAL(R1L302) & (R1L202 & R1_data[0]$latch) # !GLOBAL(R1L302) & R1_mem[4][0];
 
 
---alu_in_sel[2]$latch is alu_in_sel[2]$latch at LC_X7_Y25_N2
+--R1_mem[2][0] is dram1:inst17|mem[2][0] at LC_X17_Y15_N1
 --operation mode is normal
 
-alu_in_sel[2]$latch = GLOBAL(A1L67) & A1L18 # !GLOBAL(A1L67) & (alu_in_sel[2]$latch);
+R1_mem[2][0] = GLOBAL(R1L502) & (R1L402 & R1_data[0]$latch) # !GLOBAL(R1L502) & R1_mem[2][0];
 
 
---A1L28 is Mux~4510 at LC_X10_Y16_N8
+--R1_mem[6][0] is dram1:inst17|mem[6][0] at LC_X17_Y11_N1
 --operation mode is normal
 
-A1L28 = instruction[7] # instruction[5] & (instruction[4] $ !instruction[6]);
+R1_mem[6][0] = GLOBAL(R1L702) & R1_data[0]$latch & R1L602 # !GLOBAL(R1L702) & (R1_mem[6][0]);
 
 
---A1L38 is Mux~4511 at LC_X10_Y16_N9
+--R1_mem[9][0] is dram1:inst17|mem[9][0] at LC_X17_Y11_N2
 --operation mode is normal
 
-A1L38 = timer[2] & instruction[4] # !timer[2] & (!A1L28);
+R1_mem[9][0] = GLOBAL(R1L991) & (R1L891 & R1_data[0]$latch) # !GLOBAL(R1L991) & R1_mem[9][0];
 
 
---alu_out_sel[0] is alu_out_sel[0] at LC_X10_Y13_N3
+--R1_mem[1][0] is dram1:inst17|mem[1][0] at LC_X17_Y15_N2
 --operation mode is normal
 
-alu_out_sel[0] = GLOBAL(A1L67) & timer[1] & (A1L38) # !GLOBAL(A1L67) & (alu_out_sel[0]);
+R1_mem[1][0] = R1L902 & (R1_data[0]$latch # !R1L802) # !R1L902 & (R1_mem[1][0]);
 
 
---A1L48 is Mux~4512 at LC_X8_Y13_N8
+--R1_mem[5][0] is dram1:inst17|mem[5][0] at LC_X12_Y12_N9
 --operation mode is normal
 
-A1L48 = !instruction[4] & timer[2] & timer[1] & !instruction[5];
+R1_mem[5][0] = R1L112 & (R1_data[0]$latch & R1L012) # !R1L112 & R1_mem[5][0];
 
 
---A1L58 is Mux~4513 at LC_X9_Y13_N3
+--R1_mem[11][0] is dram1:inst17|mem[11][0] at LC_X10_Y16_N2
 --operation mode is normal
 
-A1L58 = instruction[6] & (A1L05) # !instruction[6] & A1L84 & A1L47;
+R1_mem[11][0] = R1L312 & (R1_data[0]$latch # !R1L212) # !R1L312 & (R1_mem[11][0]);
 
 
---A1L68 is Mux~4514 at LC_X9_Y13_N0
+--R1_mem[3][0] is dram1:inst17|mem[3][0] at LC_X17_Y11_N7
 --operation mode is normal
 
-A1L68 = A1L48 # A1L36 # A1L74 & A1L58;
+R1_mem[3][0] = R1L512 & (R1_data[0]$latch # !R1L412) # !R1L512 & (R1_mem[3][0]);
 
 
---alu_out_sel[1] is alu_out_sel[1] at LC_X9_Y12_N2
+--R1_mem[7][0] is dram1:inst17|mem[7][0] at LC_X11_Y12_N5
 --operation mode is normal
 
-alu_out_sel[1] = GLOBAL(A1L67) & A1L68 # !GLOBAL(A1L67) & (alu_out_sel[1]);
+R1_mem[7][0] = R1L712 & R1L612 & R1_data[0]$latch # !R1L712 & (R1_mem[7][0]);
 
 
---A1L78 is Mux~4515 at LC_X8_Y13_N4
+--R1_mem[8][0] is dram1:inst17|mem[8][0] at LC_X17_Y11_N3
 --operation mode is normal
 
-A1L78 = timer[0] & (instruction[4] # !instruction[5] # !timer[2]);
+R1_mem[8][0] = R1L912 & R1_data[0]$latch & R1L812 # !R1L912 & (R1_mem[8][0]);
 
 
---A1L88 is Mux~4516 at LC_X8_Y13_N2
+--R1_mem[0][0] is dram1:inst17|mem[0][0] at LC_X10_Y16_N3
 --operation mode is normal
+
+R1_mem[0][0] = R1L122 & R1L022 & R1_data[0]$latch # !R1L122 & (R1_mem[0][0]);
+
+
+--M1L831 is alu:inst13|LessThan~232 at LC_X16_Y13_N5
+--operation mode is arithmetic
+
+M1L831_cout_0 = D1L42 & (!M1L441 # !D1L55) # !D1L42 & !D1L55 & !M1L441;
+M1L831 = CARRY(M1L831_cout_0);
+
+--M1L931 is alu:inst13|LessThan~232COUT1_294 at LC_X16_Y13_N5
+--operation mode is arithmetic
+
+M1L931_cout_1 = D1L42 & (!M1L441 # !D1L55) # !D1L42 & !D1L55 & !M1L441;
+M1L931 = CARRY(M1L931_cout_1);
+
+
+--M1L07 is alu:inst13|add~1923 at LC_X16_Y15_N6
+--operation mode is arithmetic
+
+M1L07_carry_eqn = (!M1L77 & M1L47) # (M1L77 & M1L57);
+M1L07 = D1L82 $ (!M1L07_carry_eqn);
+
+--M1L17 is alu:inst13|add~1925 at LC_X16_Y15_N6
+--operation mode is arithmetic
+
+M1L17_cout_0 = !M1L47 # !D1L82;
+M1L17 = CARRY(M1L17_cout_0);
+
+--M1L27 is alu:inst13|add~1925COUT1_1974 at LC_X16_Y15_N6
+--operation mode is arithmetic
+
+M1L27_cout_1 = !M1L57 # !D1L82;
+M1L27 = CARRY(M1L27_cout_1);
+
+
+--M1L141 is alu:inst13|LessThan~237 at LC_X16_Y16_N5
+--operation mode is arithmetic
+
+M1L141_cout_0 = D1L55 & M1L37 & !M1L841 # !D1L55 & (M1L37 # !M1L841);
+M1L141 = CARRY(M1L141_cout_0);
+
+--M1L241 is alu:inst13|LessThan~237COUT1_299 at LC_X16_Y16_N5
+--operation mode is arithmetic
+
+M1L241_cout_1 = D1L55 & M1L37 & !M1L841 # !D1L55 & (M1L37 # !M1L841);
+M1L241 = CARRY(M1L241_cout_1);
+
+
+--M1L441 is alu:inst13|LessThan~242 at LC_X16_Y13_N4
+--operation mode is arithmetic
+
+M1L441 = M1L541;
+
+
+--M1L37 is alu:inst13|add~1928 at LC_X16_Y15_N5
+--operation mode is arithmetic
+
+M1L37_carry_eqn = (!M1L77 & GND) # (M1L77 & VCC);
+M1L37 = D1L42 $ M1L37_carry_eqn;
+
+--M1L47 is alu:inst13|add~1930 at LC_X16_Y15_N5
+--operation mode is arithmetic
+
+M1L47_cout_0 = D1L42 & !M1L77;
+M1L47 = CARRY(M1L47_cout_0);
+
+--M1L57 is alu:inst13|add~1930COUT1_1973 at LC_X16_Y15_N5
+--operation mode is arithmetic
+
+M1L57_cout_1 = D1L42 & !M1L77;
+M1L57 = CARRY(M1L57_cout_1);
+
+
+--M1L841 is alu:inst13|LessThan~247 at LC_X16_Y16_N4
+--operation mode is arithmetic
+
+M1L841 = M1L941;
+
+
+--M1L251 is alu:inst13|LessThan~252 at LC_X16_Y13_N3
+--operation mode is arithmetic
+
+M1L251_cout_0 = D1L94 & D1L61 & !M1L851 # !D1L94 & (D1L61 # !M1L851);
+M1L251 = CARRY(M1L251_cout_0);
+
+--M1L351 is alu:inst13|LessThan~252COUT1 at LC_X16_Y13_N3
+--operation mode is arithmetic
+
+M1L351_cout_1 = D1L94 & D1L61 & !M1L951 # !D1L94 & (D1L61 # !M1L951);
+M1L351 = CARRY(M1L351_cout_1);
+
+
+--M1L67 is alu:inst13|add~1933 at LC_X16_Y15_N4
+--operation mode is arithmetic
+
+M1L67 = D1L02 $ (!M1L18);
+
+--M1L77 is alu:inst13|add~1935 at LC_X16_Y15_N4
+--operation mode is arithmetic
+
+M1L77 = M1L87;
+
+
+--M1L551 is alu:inst13|LessThan~257 at LC_X16_Y16_N3
+--operation mode is arithmetic
+
+M1L551_cout_0 = D1L94 & M1L08 & !M1L161 # !D1L94 & (M1L08 # !M1L161);
+M1L551 = CARRY(M1L551_cout_0);
+
+--M1L651 is alu:inst13|LessThan~257COUT1 at LC_X16_Y16_N3
+--operation mode is arithmetic
+
+M1L651_cout_1 = D1L94 & M1L08 & !M1L261 # !D1L94 & (M1L08 # !M1L261);
+M1L651 = CARRY(M1L651_cout_1);
+
+
+--M1L851 is alu:inst13|LessThan~262 at LC_X16_Y13_N2
+--operation mode is arithmetic
+
+M1L851_cout_0 = D1L21 & D1L64 & !M1L461 # !D1L21 & (D1L64 # !M1L461);
+M1L851 = CARRY(M1L851_cout_0);
+
+--M1L951 is alu:inst13|LessThan~262COUT1_293 at LC_X16_Y13_N2
+--operation mode is arithmetic
+
+M1L951_cout_1 = D1L21 & D1L64 & !M1L561 # !D1L21 & (D1L64 # !M1L561);
+M1L951 = CARRY(M1L951_cout_1);
+
+
+--M1L08 is alu:inst13|add~1938 at LC_X16_Y15_N3
+--operation mode is arithmetic
+
+M1L08 = D1L61 $ M1L48;
+
+--M1L18 is alu:inst13|add~1940 at LC_X16_Y15_N3
+--operation mode is arithmetic
+
+M1L18_cout_0 = D1L61 & !M1L48;
+M1L18 = CARRY(M1L18_cout_0);
+
+--M1L28 is alu:inst13|add~1940COUT1 at LC_X16_Y15_N3
+--operation mode is arithmetic
+
+M1L28_cout_1 = D1L61 & !M1L58;
+M1L28 = CARRY(M1L28_cout_1);
+
+
+--M1L161 is alu:inst13|LessThan~267 at LC_X16_Y16_N2
+--operation mode is arithmetic
+
+M1L161_cout_0 = D1L64 & (!M1L761 # !M1L38) # !D1L64 & !M1L38 & !M1L761;
+M1L161 = CARRY(M1L161_cout_0);
+
+--M1L261 is alu:inst13|LessThan~267COUT1_298 at LC_X16_Y16_N2
+--operation mode is arithmetic
+
+M1L261_cout_1 = D1L64 & (!M1L861 # !M1L38) # !D1L64 & !M1L38 & !M1L861;
+M1L261 = CARRY(M1L261_cout_1);
+
+
+--M1L461 is alu:inst13|LessThan~272 at LC_X16_Y13_N1
+--operation mode is arithmetic
+
+M1L461_cout_0 = D1L24 & D1L8 & !M1L071 # !D1L24 & (D1L8 # !M1L071);
+M1L461 = CARRY(M1L461_cout_0);
+
+--M1L561 is alu:inst13|LessThan~272COUT1_292 at LC_X16_Y13_N1
+--operation mode is arithmetic
+
+M1L561_cout_1 = D1L24 & D1L8 & !M1L171 # !D1L24 & (D1L8 # !M1L171);
+M1L561 = CARRY(M1L561_cout_1);
+
+
+--M1L38 is alu:inst13|add~1943 at LC_X16_Y15_N2
+--operation mode is arithmetic
+
+M1L38 = D1L21 $ !M1L78;
+
+--M1L48 is alu:inst13|add~1945 at LC_X16_Y15_N2
+--operation mode is arithmetic
+
+M1L48_cout_0 = !M1L78 # !D1L21;
+M1L48 = CARRY(M1L48_cout_0);
+
+--M1L58 is alu:inst13|add~1945COUT1_1972 at LC_X16_Y15_N2
+--operation mode is arithmetic
+
+M1L58_cout_1 = !M1L88 # !D1L21;
+M1L58 = CARRY(M1L58_cout_1);
+
+
+--M1L761 is alu:inst13|LessThan~277 at LC_X16_Y16_N1
+--operation mode is arithmetic
+
+M1L761_cout_0 = D1L24 & M1L68 & !M1L371 # !D1L24 & (M1L68 # !M1L371);
+M1L761 = CARRY(M1L761_cout_0);
+
+--M1L861 is alu:inst13|LessThan~277COUT1_297 at LC_X16_Y16_N1
+--operation mode is arithmetic
+
+M1L861_cout_1 = D1L24 & M1L68 & !M1L471 # !D1L24 & (M1L68 # !M1L471);
+M1L861 = CARRY(M1L861_cout_1);
+
+
+--M1L071 is alu:inst13|LessThan~282 at LC_X16_Y13_N0
+--operation mode is arithmetic
+
+M1L071_cout_0 = !D1L4 & D1L83;
+M1L071 = CARRY(M1L071_cout_0);
+
+--M1L171 is alu:inst13|LessThan~282COUT1_291 at LC_X16_Y13_N0
+--operation mode is arithmetic
+
+M1L171_cout_1 = !D1L4 & D1L83;
+M1L171 = CARRY(M1L171_cout_1);
+
+
+--M1L68 is alu:inst13|add~1948 at LC_X16_Y15_N1
+--operation mode is arithmetic
+
+M1L68 = D1L8 $ (M1L09);
+
+--M1L78 is alu:inst13|add~1950 at LC_X16_Y15_N1
+--operation mode is arithmetic
+
+M1L78_cout_0 = D1L8 & (!M1L09);
+M1L78 = CARRY(M1L78_cout_0);
+
+--M1L88 is alu:inst13|add~1950COUT1_1971 at LC_X16_Y15_N1
+--operation mode is arithmetic
+
+M1L88_cout_1 = D1L8 & (!M1L19);
+M1L88 = CARRY(M1L88_cout_1);
+
+
+--M1L371 is alu:inst13|LessThan~287 at LC_X16_Y16_N0
+--operation mode is arithmetic
+
+M1L371_cout_0 = D1L83 & !M1L98;
+M1L371 = CARRY(M1L371_cout_0);
+
+--M1L471 is alu:inst13|LessThan~287COUT1_296 at LC_X16_Y16_N0
+--operation mode is arithmetic
+
+M1L471_cout_1 = D1L83 & !M1L98;
+M1L471 = CARRY(M1L471_cout_1);
+
+
+--M1L98 is alu:inst13|add~1953 at LC_X16_Y15_N0
+--operation mode is arithmetic
+
+M1L98 = D1L4 $ F1L1;
+
+--M1L09 is alu:inst13|add~1955 at LC_X16_Y15_N0
+--operation mode is arithmetic
+
+M1L09_cout_0 = F1L1 # !D1L4;
+M1L09 = CARRY(M1L09_cout_0);
+
+--M1L19 is alu:inst13|add~1955COUT1_1970 at LC_X16_Y15_N0
+--operation mode is arithmetic
 
-A1L88 = timer[0] & (A1L73 # !timer[2]) # !timer[1];
+M1L19_cout_1 = F1L1 # !D1L4;
+M1L19 = CARRY(M1L19_cout_1);
 
 
---wr$latch is wr$latch at LC_X8_Y13_N3
+--E1L92 is controller:inst6|en_reg~854 at LC_X16_Y15_N9
 --operation mode is normal
 
-wr$latch = A1L88 & (A1L78 # !timer[1]) # !A1L88 & (wr$latch);
+E1L92 = G1_state.s1 & (!G1L2) # !G1_state.s1 & (G1_state.s0 & !E1L33 # !G1_state.s0 & (!G1L2));
 
 
---A1L98 is Mux~4517 at LC_X9_Y13_N1
+--E1L56 is controller:inst6|Mux~4989 at LC_X9_Y11_N9
 --operation mode is normal
 
-A1L98 = !A1L73 & timer[0] & timer[2] & alu_out_sel[1];
+E1L56 = H1_q[6] & H1_q[4] & !H1_q[5] & E1L03;
 
 
---A1L09 is Mux~4518 at LC_X7_Y12_N9
+--E1L66 is controller:inst6|Mux~4990 at LC_X9_Y13_N8
 --operation mode is normal
 
-A1L09 = A1L45 & timer[1] & !timer[2] & A1L27;
+E1L66 = G1_state.s5 & (E1L55) # !G1_state.s5 & (G1_state.s3 & (E1L55) # !G1_state.s3 & E1L64);
 
 
---A1L19 is Mux~4519 at LC_X7_Y12_N6
+--E1L76 is controller:inst6|Mux~4991 at LC_X9_Y13_N6
 --operation mode is normal
 
-A1L19 = !timer[2] & timer[1] & instruction[6] & A1L27;
+E1L76 = G1_state.s1 & !G1_output[2] # !G1_state.s1 & (G1_output[2] & G1_state.s0 & H1_q[6] # !G1_output[2] & !G1_state.s0);
 
 
---v is v at PIN_84
+--sel[1] is sel[1] at PIN_17
 --operation mode is input
 
-v = INPUT();
+sel[1] = INPUT();
+
+
+--sel[0] is sel[0] at PIN_16
+--operation mode is input
+
+sel[0] = INPUT();
+
+
+--res_sel[1] is res_sel[1] at PIN_214
+--operation mode is input
+
+res_sel[1] = INPUT();
+
+
+--res_sel[0] is res_sel[0] at PIN_216
+--operation mode is input
+
+res_sel[0] = INPUT();
+
+
+--clk is clk at PIN_29
+--operation mode is input
+
+clk = INPUT();
+
+
+--reset is reset at PIN_240
+--operation mode is input
+
+reset = INPUT();
 
 
 --s is s at PIN_83
---operation mode is input
+--operation mode is output
 
-s = INPUT();
-
-
---timer[0] is timer[0] at PIN_20
---operation mode is input
-
-timer[0] = INPUT();
+s = OUTPUT(N1_flag_s);
 
 
---timer[2] is timer[2] at PIN_23
---operation mode is input
+--v is v at PIN_84
+--operation mode is output
 
-timer[2] = INPUT();
-
-
---instruction[4] is instruction[4] at PIN_39
---operation mode is input
-
-instruction[4] = INPUT();
-
-
---timer[1] is timer[1] at PIN_21
---operation mode is input
-
-timer[1] = INPUT();
-
-
---instruction[6] is instruction[6] at PIN_19
---operation mode is input
-
-instruction[6] = INPUT();
-
-
---instruction[7] is instruction[7] at PIN_226
---operation mode is input
-
-instruction[7] = INPUT();
-
-
---instruction[5] is instruction[5] at PIN_38
---operation mode is input
-
-instruction[5] = INPUT();
-
-
---c is c at PIN_86
---operation mode is input
-
-c = INPUT();
+v = OUTPUT(N1_flag_v);
 
 
 --z is z at PIN_85
---operation mode is input
-
-z = INPUT();
-
-
---instruction[2] is instruction[2] at PIN_47
---operation mode is input
-
-instruction[2] = INPUT();
-
-
---instruction[3] is instruction[3] at PIN_45
---operation mode is input
-
-instruction[3] = INPUT();
-
-
---instruction[0] is instruction[0] at PIN_66
---operation mode is input
-
-instruction[0] = INPUT();
-
-
---instruction[1] is instruction[1] at PIN_55
---operation mode is input
-
-instruction[1] = INPUT();
-
-
---dest_reg[0] is dest_reg[0] at PIN_46
 --operation mode is output
 
-dest_reg[0] = OUTPUT(dest_reg[0]$latch);
+z = OUTPUT(N1_flag_z);
 
 
---dest_reg[1] is dest_reg[1] at PIN_49
+--c is c at PIN_86
 --operation mode is output
 
-dest_reg[1] = OUTPUT(dest_reg[1]$latch);
+c = OUTPUT(N1_flag_c);
 
 
---sour_reg[0] is sour_reg[0] at PIN_43
+--reg_data1[7] is reg_data1[7] at PIN_56
 --operation mode is output
 
-sour_reg[0] = OUTPUT(sour_reg[0]$latch);
+reg_data1[7] = OUTPUT(GND);
 
 
---sour_reg[1] is sour_reg[1] at PIN_53
+--reg_data1[6] is reg_data1[6] at PIN_79
 --operation mode is output
 
-sour_reg[1] = OUTPUT(sour_reg[1]$latch);
+reg_data1[6] = OUTPUT(P1L6);
 
 
---offset[0] is offset[0] at PIN_67
+--reg_data1[5] is reg_data1[5] at PIN_223
 --operation mode is output
 
-offset[0] = OUTPUT(offset[0]$latch);
+reg_data1[5] = OUTPUT(P1L5);
 
 
---offset[1] is offset[1] at PIN_48
+--reg_data1[4] is reg_data1[4] at PIN_222
 --operation mode is output
 
-offset[1] = OUTPUT(offset[1]$latch);
+reg_data1[4] = OUTPUT(P1L4);
 
 
---offset[2] is offset[2] at PIN_50
+--reg_data1[3] is reg_data1[3] at PIN_135
 --operation mode is output
 
-offset[2] = OUTPUT(offset[2]$latch);
+reg_data1[3] = OUTPUT(GND);
 
 
---offset[3] is offset[3] at PIN_54
+--reg_data1[2] is reg_data1[2] at PIN_87
 --operation mode is output
 
-offset[3] = OUTPUT(offset[3]$latch);
+reg_data1[2] = OUTPUT(P1L3);
 
 
---sst[0] is sst[0] at PIN_224
+--reg_data1[1] is reg_data1[1] at PIN_78
 --operation mode is output
 
-sst[0] = OUTPUT(sst[0]$latch);
+reg_data1[1] = OUTPUT(P1L2);
 
 
---sst[1] is sst[1] at PIN_225
+--reg_data1[0] is reg_data1[0] at PIN_82
 --operation mode is output
 
-sst[1] = OUTPUT(sst[1]$latch);
+reg_data1[0] = OUTPUT(P1L1);
 
 
---sci[0] is sci[0] at PIN_228
+--reg_data2[7] is reg_data2[7] at PIN_219
 --operation mode is output
 
-sci[0] = OUTPUT(sci[0]$latch);
+reg_data2[7] = OUTPUT(P1L66);
 
 
---sci[1] is sci[1] at PIN_18
+--reg_data2[6] is reg_data2[6] at PIN_218
 --operation mode is output
 
-sci[1] = OUTPUT(sci[1]$latch);
+reg_data2[6] = OUTPUT(P1L65);
 
 
---rec[0] is rec[0] at PIN_76
+--reg_data2[5] is reg_data2[5] at PIN_217
 --operation mode is output
 
-rec[0] = OUTPUT(rec[0]$latch);
+reg_data2[5] = OUTPUT(P1L84);
 
 
---rec[1] is rec[1] at PIN_17
+--reg_data2[4] is reg_data2[4] at PIN_225
 --operation mode is output
 
-rec[1] = OUTPUT(rec[1]$latch);
+reg_data2[4] = OUTPUT(P1L14);
 
 
---alu_func[0] is alu_func[0] at PIN_222
+--reg_data2[3] is reg_data2[3] at PIN_23
 --operation mode is output
 
-alu_func[0] = OUTPUT(alu_func[0]$latch);
+reg_data2[3] = OUTPUT(P1L43);
 
 
---alu_func[1] is alu_func[1] at PIN_41
+--reg_data2[2] is reg_data2[2] at PIN_224
 --operation mode is output
 
-alu_func[1] = OUTPUT(alu_func[1]$latch);
+reg_data2[2] = OUTPUT(P1L72);
 
 
---alu_func[2] is alu_func[2] at PIN_234
+--reg_data2[1] is reg_data2[1] at PIN_39
 --operation mode is output
 
-alu_func[2] = OUTPUT(alu_func[2]$latch);
+reg_data2[1] = OUTPUT(P1L02);
 
 
---alu_in_sel[0] is alu_in_sel[0] at PIN_73
+--reg_data2[0] is reg_data2[0] at PIN_226
 --operation mode is output
 
-alu_in_sel[0] = OUTPUT(alu_in_sel[0]$latch);
-
-
---alu_in_sel[1] is alu_in_sel[1] at PIN_227
---operation mode is output
-
-alu_in_sel[1] = OUTPUT(alu_in_sel[1]$latch);
-
-
---alu_in_sel[2] is alu_in_sel[2] at PIN_233
---operation mode is output
-
-alu_in_sel[2] = OUTPUT(alu_in_sel[2]$latch);
-
-
---en_reg is en_reg at PIN_77
---operation mode is output
-
-en_reg = OUTPUT(A1L34);
-
-
---en_pc is en_pc at PIN_79
---operation mode is output
-
-en_pc = OUTPUT(A1L35);
-
-
---wr is wr at PIN_75
---operation mode is output
-
-wr = OUTPUT(wr$latch);
+reg_data2[0] = OUTPUT(P1L31);
 
 
 

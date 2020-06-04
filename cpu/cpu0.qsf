@@ -51,6 +51,8 @@ set_global_assignment -name VECTOR_WAVEFORM_FILE ../cpu0.vwf
 set_global_assignment -name BDF_FILE cpu1.bdf
 set_global_assignment -name VHDL_FILE controllertest.vhd
 set_global_assignment -name BDF_FILE backups.bdf
+set_global_assignment -name VHDL_FILE dram1.vhd
+set_global_assignment -name VECTOR_WAVEFORM_FILE cpu1.vwf
 
 # Pin & Location Assignments
 # ==========================
@@ -119,7 +121,7 @@ set_location_assignment PIN_237 -to data_bus[15]
 # Analysis & Synthesis Assignments
 # ================================
 set_global_assignment -name FAMILY Cyclone
-set_global_assignment -name TOP_LEVEL_ENTITY controller
+set_global_assignment -name TOP_LEVEL_ENTITY cpu1
 
 # Fitter Assignments
 # ==================
@@ -136,8 +138,8 @@ set_global_assignment -name VECTOR_INPUT_SOURCE ../cpu0.vwf
 # ============================
 set_global_assignment -name LOGICLOCK_INCREMENTAL_COMPILE_ASSIGNMENT OFF
 
-# ------------------------
-# start ENTITY(controller)
+# ------------------
+# start ENTITY(cpu1)
 
 
 	# -------------------------------------
@@ -169,5 +171,5 @@ set_global_assignment -name LOGICLOCK_INCREMENTAL_COMPILE_ASSIGNMENT OFF
 	# end LOGICLOCK_REGION(controller)
 	# --------------------------------
 
-# end ENTITY(controller)
-# ----------------------
+# end ENTITY(cpu1)
+# ----------------

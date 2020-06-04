@@ -1,5 +1,5 @@
 Analysis & Synthesis report for cpu0
-Wed Jun 03 12:19:44 2020
+Thu Jun 04 17:24:37 2020
 Version 5.0 Build 148 04/26/2005 SJ Full Version
 
 
@@ -12,11 +12,12 @@ Version 5.0 Build 148 04/26/2005 SJ Full Version
   4. Analysis & Synthesis Source Files Read
   5. Analysis & Synthesis Resource Usage Summary
   6. Analysis & Synthesis Resource Utilization by Entity
-  7. User-Specified and Inferred Latches
-  8. General Register Statistics
-  9. Multiplexer Restructuring Statistics (Restructuring Performed)
- 10. Analysis & Synthesis Equations
- 11. Analysis & Synthesis Messages
+  7. State Machine - |cpu1|timer:inst8|state
+  8. User-Specified and Inferred Latches
+  9. General Register Statistics
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Analysis & Synthesis Equations
+ 12. Analysis & Synthesis Messages
 
 
 
@@ -42,13 +43,13 @@ applicable agreement for further details.
 +------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                           ;
 +-----------------------------+------------------------------------------+
-; Analysis & Synthesis Status ; Successful - Wed Jun 03 12:19:44 2020    ;
+; Analysis & Synthesis Status ; Successful - Thu Jun 04 17:24:37 2020    ;
 ; Quartus II Version          ; 5.0 Build 148 04/26/2005 SJ Full Version ;
 ; Revision Name               ; cpu0                                     ;
-; Top-level Entity Name       ; controller                               ;
+; Top-level Entity Name       ; cpu1                                     ;
 ; Family                      ; Cyclone                                  ;
-; Total logic elements        ; 80                                       ;
-; Total pins                  ; 38                                       ;
+; Total logic elements        ; 600                                      ;
+; Total pins                  ; 26                                       ;
 ; Total virtual pins          ; 0                                        ;
 ; Total memory bits           ; 0                                        ;
 ; Total PLLs                  ; 0                                        ;
@@ -61,7 +62,7 @@ applicable agreement for further details.
 ; Option                                                             ; Setting      ; Default Value ;
 +--------------------------------------------------------------------+--------------+---------------+
 ; Device                                                             ; EP1C12Q240C8 ;               ;
-; Top-level entity name                                              ; controller   ; cpu0          ;
+; Top-level entity name                                              ; cpu1         ; cpu0          ;
 ; Family name                                                        ; Cyclone      ; Stratix       ;
 ; Use smart compilation                                              ; Off          ; Off           ;
 ; Restructure Multiplexers                                           ; Auto         ; Auto          ;
@@ -111,78 +112,203 @@ applicable agreement for further details.
 +--------------------------------------------------------------------+--------------+---------------+
 
 
-+------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                           ;
-+----------------------------------+-----------------+-----------------+-------------------------------------------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path              ;
-+----------------------------------+-----------------+-----------------+-------------------------------------------+
-; controller.vhd                   ; yes             ; User VHDL File  ; E:/Quartus5/file/week9/cpu/controller.vhd ;
-+----------------------------------+-----------------+-----------------+-------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                              ;
++----------------------------------+-----------------+------------------------------------+-------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path              ;
++----------------------------------+-----------------+------------------------------------+-------------------------------------------+
+; alu.vhd                          ; yes             ; User VHDL File                     ; E:/Quartus5/file/week9/cpu/alu.vhd        ;
+; ar.vhd                           ; yes             ; User VHDL File                     ; E:/Quartus5/file/week9/cpu/ar.vhd         ;
+; bus_mux.vhd                      ; yes             ; User VHDL File                     ; E:/Quartus5/file/week9/cpu/bus_mux.vhd    ;
+; controller.vhd                   ; yes             ; User VHDL File                     ; E:/Quartus5/file/week9/cpu/controller.vhd ;
+; flag_reg.vhd                     ; yes             ; User VHDL File                     ; E:/Quartus5/file/week9/cpu/flag_reg.vhd   ;
+; ir.vhd                           ; yes             ; User VHDL File                     ; E:/Quartus5/file/week9/cpu/ir.vhd         ;
+; pc.vhd                           ; yes             ; User VHDL File                     ; E:/Quartus5/file/week9/cpu/pc.vhd         ;
+; reg.vhd                          ; yes             ; User VHDL File                     ; E:/Quartus5/file/week9/cpu/reg.vhd        ;
+; reg_mux.vhd                      ; yes             ; User VHDL File                     ; E:/Quartus5/file/week9/cpu/reg_mux.vhd    ;
+; reg_out.vhd                      ; yes             ; User VHDL File                     ; E:/Quartus5/file/week9/cpu/reg_out.vhd    ;
+; reg_testa.vhd                    ; yes             ; User VHDL File                     ; E:/Quartus5/file/week9/cpu/reg_testa.vhd  ;
+; t1.vhd                           ; yes             ; User VHDL File                     ; E:/Quartus5/file/week9/cpu/t1.vhd         ;
+; t2.vhd                           ; yes             ; User VHDL File                     ; E:/Quartus5/file/week9/cpu/t2.vhd         ;
+; t3.vhd                           ; yes             ; User VHDL File                     ; E:/Quartus5/file/week9/cpu/t3.vhd         ;
+; timer.vhd                        ; yes             ; User VHDL File                     ; E:/Quartus5/file/week9/cpu/timer.vhd      ;
+; cpu1.bdf                         ; yes             ; User Block Diagram/Schematic File  ; E:/Quartus5/file/week9/cpu/cpu1.bdf       ;
+; dram1.vhd                        ; yes             ; User VHDL File                     ; E:/Quartus5/file/week9/cpu/dram1.vhd      ;
++----------------------------------+-----------------+------------------------------------+-------------------------------------------+
 
 
 +---------------------------------------------+
 ; Analysis & Synthesis Resource Usage Summary ;
-+---------------------------------+-----------+
-; Resource                        ; Usage     ;
-+---------------------------------+-----------+
-; Total logic elements            ; 80        ;
-; Total combinational functions   ; 80        ;
-;     -- Total 4-input functions  ; 50        ;
-;     -- Total 3-input functions  ; 19        ;
-;     -- Total 2-input functions  ; 11        ;
-;     -- Total 1-input functions  ; 0         ;
-;     -- Total 0-input functions  ; 0         ;
-; Combinational cells for routing ; 0         ;
-; Total registers                 ; 0         ;
-; I/O pins                        ; 38        ;
-; Maximum fan-out node            ; timer[2]  ;
-; Maximum fan-out                 ; 25        ;
-; Total fan-out                   ; 302       ;
-; Average fan-out                 ; 2.56      ;
-+---------------------------------+-----------+
++-----------------------------------+---------+
+; Resource                          ; Usage   ;
++-----------------------------------+---------+
+; Total logic elements              ; 600     ;
+; Total combinational functions     ; 536     ;
+;     -- Total 4-input functions    ; 360     ;
+;     -- Total 3-input functions    ; 86      ;
+;     -- Total 2-input functions    ; 82      ;
+;     -- Total 1-input functions    ; 7       ;
+;     -- Total 0-input functions    ; 1       ;
+; Combinational cells for routing   ; 0       ;
+; Total registers                   ; 76      ;
+; Total logic cells in carry chains ; 41      ;
+; I/O pins                          ; 26      ;
+; Maximum fan-out node              ; reset   ;
+; Maximum fan-out                   ; 88      ;
+; Total fan-out                     ; 2194    ;
+; Average fan-out                   ; 3.50    ;
++-----------------------------------+---------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                       ;
-+----------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+---------------------+
-; Compilation Hierarchy Node ; Logic Cells ; LC Registers ; Memory Bits ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Full Hierarchy Name ;
-+----------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+---------------------+
-; |controller                ; 80 (80)     ; 0            ; 0           ; 38   ; 0            ; 80 (80)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; |controller         ;
-+----------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+---------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                          ;
++----------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+------------------------+
+; Compilation Hierarchy Node ; Logic Cells ; LC Registers ; Memory Bits ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Full Hierarchy Name    ;
++----------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+------------------------+
+; |cpu1                      ; 600 (0)     ; 76           ; 0           ; 26   ; 0            ; 524 (0)      ; 64 (0)            ; 12 (0)           ; 41 (0)          ; |cpu1                  ;
+;    |alu:inst13|            ; 100 (100)   ; 0            ; 0           ; 0    ; 0            ; 100 (100)    ; 0 (0)             ; 0 (0)            ; 41 (41)         ; |cpu1|alu:inst13       ;
+;    |ar:inst10|             ; 4 (4)       ; 4            ; 0           ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 4 (4)            ; 0 (0)           ; |cpu1|ar:inst10        ;
+;    |bus_mux:inst5|         ; 63 (63)     ; 0            ; 0           ; 0    ; 0            ; 63 (63)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; |cpu1|bus_mux:inst5    ;
+;    |controller:inst6|      ; 76 (76)     ; 0            ; 0           ; 0    ; 0            ; 76 (76)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; |cpu1|controller:inst6 ;
+;    |dram1:inst17|          ; 209 (209)   ; 0            ; 0           ; 0    ; 0            ; 209 (209)    ; 0 (0)             ; 0 (0)            ; 0 (0)           ; |cpu1|dram1:inst17     ;
+;    |flag_reg:inst14|       ; 5 (5)       ; 4            ; 0           ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 4 (4)            ; 0 (0)           ; |cpu1|flag_reg:inst14  ;
+;    |ir:inst9|              ; 9 (9)       ; 8            ; 0           ; 0    ; 0            ; 1 (1)        ; 8 (8)             ; 0 (0)            ; 0 (0)           ; |cpu1|ir:inst9         ;
+;    |pc:inst11|             ; 8 (8)       ; 8            ; 0           ; 0    ; 0            ; 0 (0)        ; 8 (8)             ; 0 (0)            ; 0 (0)           ; |cpu1|pc:inst11        ;
+;    |reg:inst1|             ; 8 (8)       ; 8            ; 0           ; 0    ; 0            ; 0 (0)        ; 8 (8)             ; 0 (0)            ; 0 (0)           ; |cpu1|reg:inst1        ;
+;    |reg:inst2|             ; 8 (8)       ; 8            ; 0           ; 0    ; 0            ; 0 (0)        ; 8 (8)             ; 0 (0)            ; 0 (0)           ; |cpu1|reg:inst2        ;
+;    |reg:inst3|             ; 8 (8)       ; 8            ; 0           ; 0    ; 0            ; 0 (0)        ; 8 (8)             ; 0 (0)            ; 0 (0)           ; |cpu1|reg:inst3        ;
+;    |reg:inst|              ; 8 (8)       ; 8            ; 0           ; 0    ; 0            ; 0 (0)        ; 8 (8)             ; 0 (0)            ; 0 (0)           ; |cpu1|reg:inst         ;
+;    |reg_mux:inst4|         ; 4 (4)       ; 0            ; 0           ; 0    ; 0            ; 4 (4)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; |cpu1|reg_mux:inst4    ;
+;    |reg_out:inst15|        ; 66 (66)     ; 0            ; 0           ; 0    ; 0            ; 66 (66)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; |cpu1|reg_out:inst15   ;
+;    |reg_testa:inst16|      ; 14 (14)     ; 14           ; 0           ; 0    ; 0            ; 0 (0)        ; 14 (14)           ; 0 (0)            ; 0 (0)           ; |cpu1|reg_testa:inst16 ;
+;    |t1:inst7|              ; 1 (1)       ; 0            ; 0           ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; |cpu1|t1:inst7         ;
+;    |timer:inst8|           ; 9 (9)       ; 6            ; 0           ; 0    ; 0            ; 3 (3)        ; 2 (2)             ; 4 (4)            ; 0 (0)           ; |cpu1|timer:inst8      ;
++----------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+------------------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+----------------------------------------------------+
-; User-Specified and Inferred Latches                ;
-+-----------------------------------------------+----+
-; Latch Name                                    ;    ;
-+-----------------------------------------------+----+
-; dest_reg[0]$latch                             ;    ;
-; dest_reg[1]$latch                             ;    ;
-; sour_reg[0]$latch                             ;    ;
-; sour_reg[1]$latch                             ;    ;
-; offset[0]$latch                               ;    ;
-; offset[1]$latch                               ;    ;
-; offset[2]$latch                               ;    ;
-; offset[3]$latch                               ;    ;
-; sst[0]$latch                                  ;    ;
-; sst[1]$latch                                  ;    ;
-; sci[0]$latch                                  ;    ;
-; sci[1]$latch                                  ;    ;
-; rec[0]$latch                                  ;    ;
-; rec[1]$latch                                  ;    ;
-; alu_func[0]$latch                             ;    ;
-; alu_func[1]$latch                             ;    ;
-; alu_func[2]$latch                             ;    ;
-; alu_in_sel[0]$latch                           ;    ;
-; alu_in_sel[1]$latch                           ;    ;
-; alu_in_sel[2]$latch                           ;    ;
-; alu_out_sel[0]                                ;    ;
-; alu_out_sel[1]                                ;    ;
-; wr$latch                                      ;    ;
-; Number of user-specified and inferred latches ; 23 ;
-+-----------------------------------------------+----+
-Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
++----------------------------------------------------------------------------+
+; State Machine - |cpu1|timer:inst8|state                                    ;
++----------+----------+----------+----------+----------+----------+----------+
+; Name     ; state.s5 ; state.s4 ; state.s3 ; state.s2 ; state.s1 ; state.s0 ;
++----------+----------+----------+----------+----------+----------+----------+
+; state.s0 ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ;
+; state.s1 ; 0        ; 0        ; 0        ; 0        ; 1        ; 1        ;
+; state.s2 ; 0        ; 0        ; 0        ; 1        ; 0        ; 1        ;
+; state.s3 ; 0        ; 0        ; 1        ; 0        ; 0        ; 1        ;
+; state.s4 ; 0        ; 1        ; 0        ; 0        ; 0        ; 1        ;
+; state.s5 ; 1        ; 0        ; 0        ; 0        ; 0        ; 1        ;
++----------+----------+----------+----------+----------+----------+----------+
+
+
++-----------------------------------------------------+
+; User-Specified and Inferred Latches                 ;
++-----------------------------------------------+-----+
+; Latch Name                                    ;     ;
++-----------------------------------------------+-----+
+; controller:inst6|alu_in_sel[2]                ;     ;
+; controller:inst6|sour_reg[0]                  ;     ;
+; controller:inst6|sour_reg[1]                  ;     ;
+; controller:inst6|offset[3]                    ;     ;
+; controller:inst6|alu_in_sel[0]                ;     ;
+; controller:inst6|alu_in_sel[1]                ;     ;
+; controller:inst6|dest_reg[0]                  ;     ;
+; controller:inst6|dest_reg[1]                  ;     ;
+; controller:inst6|alu_func[1]                  ;     ;
+; controller:inst6|alu_func[2]                  ;     ;
+; controller:inst6|alu_func[0]                  ;     ;
+; controller:inst6|offset[2]                    ;     ;
+; controller:inst6|offset[1]                    ;     ;
+; controller:inst6|offset[0]                    ;     ;
+; controller:inst6|sst[1]                       ;     ;
+; controller:inst6|sst[0]                       ;     ;
+; controller:inst6|alu_out_sel[0]               ;     ;
+; controller:inst6|alu_out_sel[1]               ;     ;
+; dram1:inst17|data[7]$latch                    ;     ;
+; dram1:inst17|data[6]$latch                    ;     ;
+; controller:inst6|rec[1]                       ;     ;
+; controller:inst6|rec[0]                       ;     ;
+; controller:inst6|sci[1]                       ;     ;
+; controller:inst6|sci[0]                       ;     ;
+; dram1:inst17|data[5]$latch                    ;     ;
+; dram1:inst17|data[4]$latch                    ;     ;
+; dram1:inst17|data[3]$latch                    ;     ;
+; dram1:inst17|data[2]$latch                    ;     ;
+; dram1:inst17|data[1]$latch                    ;     ;
+; dram1:inst17|data[0]$latch                    ;     ;
+; dram1:inst17|mem[9][7]                        ;     ;
+; dram1:inst17|mem[10][7]                       ;     ;
+; dram1:inst17|mem[4][7]                        ;     ;
+; dram1:inst17|mem[2][7]                        ;     ;
+; dram1:inst17|mem[6][7]                        ;     ;
+; dram1:inst17|mem[1][7]                        ;     ;
+; dram1:inst17|mem[5][7]                        ;     ;
+; dram1:inst17|mem[11][7]                       ;     ;
+; dram1:inst17|mem[3][7]                        ;     ;
+; dram1:inst17|mem[7][7]                        ;     ;
+; dram1:inst17|mem[0][7]                        ;     ;
+; dram1:inst17|mem[8][7]                        ;     ;
+; controller:inst6|wr                           ;     ;
+; dram1:inst17|mem[10][6]                       ;     ;
+; dram1:inst17|mem[4][6]                        ;     ;
+; dram1:inst17|mem[2][6]                        ;     ;
+; dram1:inst17|mem[6][6]                        ;     ;
+; dram1:inst17|mem[9][6]                        ;     ;
+; dram1:inst17|mem[1][6]                        ;     ;
+; dram1:inst17|mem[5][6]                        ;     ;
+; dram1:inst17|mem[11][6]                       ;     ;
+; dram1:inst17|mem[3][6]                        ;     ;
+; dram1:inst17|mem[7][6]                        ;     ;
+; dram1:inst17|mem[0][6]                        ;     ;
+; dram1:inst17|mem[8][6]                        ;     ;
+; dram1:inst17|mem[9][5]                        ;     ;
+; dram1:inst17|mem[10][5]                       ;     ;
+; dram1:inst17|mem[4][5]                        ;     ;
+; dram1:inst17|mem[2][5]                        ;     ;
+; dram1:inst17|mem[6][5]                        ;     ;
+; dram1:inst17|mem[1][5]                        ;     ;
+; dram1:inst17|mem[5][5]                        ;     ;
+; dram1:inst17|mem[11][5]                       ;     ;
+; dram1:inst17|mem[3][5]                        ;     ;
+; dram1:inst17|mem[7][5]                        ;     ;
+; dram1:inst17|mem[0][5]                        ;     ;
+; dram1:inst17|mem[8][5]                        ;     ;
+; dram1:inst17|mem[10][4]                       ;     ;
+; dram1:inst17|mem[4][4]                        ;     ;
+; dram1:inst17|mem[2][4]                        ;     ;
+; dram1:inst17|mem[6][4]                        ;     ;
+; dram1:inst17|mem[9][4]                        ;     ;
+; dram1:inst17|mem[1][4]                        ;     ;
+; dram1:inst17|mem[5][4]                        ;     ;
+; dram1:inst17|mem[11][4]                       ;     ;
+; dram1:inst17|mem[3][4]                        ;     ;
+; dram1:inst17|mem[7][4]                        ;     ;
+; dram1:inst17|mem[0][4]                        ;     ;
+; dram1:inst17|mem[8][4]                        ;     ;
+; dram1:inst17|mem[9][3]                        ;     ;
+; dram1:inst17|mem[10][3]                       ;     ;
+; dram1:inst17|mem[4][3]                        ;     ;
+; dram1:inst17|mem[2][3]                        ;     ;
+; dram1:inst17|mem[6][3]                        ;     ;
+; dram1:inst17|mem[1][3]                        ;     ;
+; dram1:inst17|mem[5][3]                        ;     ;
+; dram1:inst17|mem[11][3]                       ;     ;
+; dram1:inst17|mem[3][3]                        ;     ;
+; dram1:inst17|mem[7][3]                        ;     ;
+; dram1:inst17|mem[0][3]                        ;     ;
+; dram1:inst17|mem[8][3]                        ;     ;
+; dram1:inst17|mem[10][2]                       ;     ;
+; dram1:inst17|mem[4][2]                        ;     ;
+; dram1:inst17|mem[2][2]                        ;     ;
+; dram1:inst17|mem[6][2]                        ;     ;
+; dram1:inst17|mem[9][2]                        ;     ;
+; dram1:inst17|mem[1][2]                        ;     ;
+; dram1:inst17|mem[5][2]                        ;     ;
+; dram1:inst17|mem[11][2]                       ;     ;
+; dram1:inst17|mem[3][2]                        ;     ;
+; Number of user-specified and inferred latches ; 127 ;
++-----------------------------------------------+-----+
+Table restricted to first 100 entries. Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
 +------------------------------------------------------+
@@ -190,25 +316,45 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 0     ;
+; Total registers                              ; 76    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Clear ; 76    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 55    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; 14:1               ; 2 bits    ; 18 LEs        ; 8 LEs                ; 10 LEs                 ; No         ; |controller|Mux~31         ;
-; 10:1               ; 4 bits    ; 24 LEs        ; 4 LEs                ; 20 LEs                 ; No         ; |controller|Mux~24         ;
-; 10:1               ; 4 bits    ; 24 LEs        ; 4 LEs                ; 20 LEs                 ; No         ; |controller|Mux~14         ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------+
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |cpu1|ar:inst10|q[0]              ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; No         ; |cpu1|dram1:inst17|process0~305   ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; No         ; |cpu1|dram1:inst17|process0~290   ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; No         ; |cpu1|dram1:inst17|process0~269   ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; No         ; |cpu1|dram1:inst17|process0~230   ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; No         ; |cpu1|dram1:inst17|process0~200   ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; No         ; |cpu1|dram1:inst17|process0~173   ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; No         ; |cpu1|dram1:inst17|process0~149   ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; No         ; |cpu1|dram1:inst17|process0~134   ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; No         ; |cpu1|dram1:inst17|process0~85    ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; No         ; |cpu1|dram1:inst17|process0~58    ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; No         ; |cpu1|dram1:inst17|process0~35    ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; No         ; |cpu1|dram1:inst17|process0~14    ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |cpu1|reg_out:inst15|reg_data1[0] ;
+; 6:1                ; 5 bits    ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |cpu1|bus_mux:inst5|alu_sr[6]     ;
+; 12:1               ; 8 bits    ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |cpu1|dram1:inst17|Mux~0          ;
+; 10:1               ; 3 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; No         ; |cpu1|bus_mux:inst5|alu_sr[0]     ;
+; 10:1               ; 8 bits    ; 48 LEs        ; 40 LEs               ; 8 LEs                  ; No         ; |cpu1|bus_mux:inst5|alu_dr[7]     ;
+; 7:1                ; 6 bits    ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |cpu1|alu:inst13|alu_out[5]       ;
+; 14:1               ; 2 bits    ; 18 LEs        ; 8 LEs                ; 10 LEs                 ; No         ; |cpu1|controller:inst6|Mux~26     ;
+; 14:1               ; 8 bits    ; 72 LEs        ; 64 LEs               ; 8 LEs                  ; No         ; |cpu1|reg_out:inst15|reg_data2[7] ;
+; 10:1               ; 4 bits    ; 24 LEs        ; 4 LEs                ; 20 LEs                 ; No         ; |cpu1|controller:inst6|Mux~20     ;
+; 10:1               ; 4 bits    ; 24 LEs        ; 4 LEs                ; 20 LEs                 ; No         ; |cpu1|controller:inst6|Mux~14     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------+
 
 
 +--------------------------------+
@@ -223,7 +369,7 @@ The equations can be found in E:/Quartus5/file/week9/cpu/cpu0.map.eqn.
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 5.0 Build 148 04/26/2005 SJ Full Version
-    Info: Processing started: Wed Jun 03 12:19:43 2020
+    Info: Processing started: Thu Jun 04 17:24:34 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off cpu0 -c cpu0
 Info: Found 2 design units, including 1 entities, in source file ../dram.vhd
     Info: Found design unit 1: dram-b_dram
@@ -286,7 +432,17 @@ Info: Found 1 design units, including 1 entities, in source file cpu1.bdf
 Info: Found 2 design units, including 1 entities, in source file controllertest.vhd
     Info: Found design unit 1: controllertest-behave
     Info: Found entity 1: controllertest
-Info: Elaborating entity "controller" for the top level hierarchy
+Info: Found 1 design units, including 1 entities, in source file backups.bdf
+    Info: Found entity 1: backups
+Info: Found 2 design units, including 1 entities, in source file dram1.vhd
+    Info: Found design unit 1: dram1-b_dram
+    Info: Found entity 1: dram1
+Info: Elaborating entity "cpu1" for the top level hierarchy
+Warning: Port "pc" of type ar and instance "inst10" is missing source signal
+Info: Elaborating entity "flag_reg" for hierarchy "flag_reg:inst14"
+Info: Elaborating entity "alu" for hierarchy "alu:inst13"
+Info: Elaborating entity "t1" for hierarchy "t1:inst7"
+Info: Elaborating entity "controller" for hierarchy "controller:inst6"
 Warning: VHDL Process Statement warning at controller.vhd(23): signal or variable "dest_reg" may not be assigned a new value in every possible path through the Process Statement. Signal or variable "dest_reg" holds its previous value in every path with no new value assignment, which may create a combinational loop in the current design.
 Warning: VHDL Process Statement warning at controller.vhd(23): signal or variable "sour_reg" may not be assigned a new value in every possible path through the Process Statement. Signal or variable "sour_reg" holds its previous value in every path with no new value assignment, which may create a combinational loop in the current design.
 Warning: VHDL Process Statement warning at controller.vhd(23): signal or variable "offset" may not be assigned a new value in every possible path through the Process Statement. Signal or variable "offset" holds its previous value in every path with no new value assignment, which may create a combinational loop in the current design.
@@ -297,61 +453,310 @@ Warning: VHDL Process Statement warning at controller.vhd(23): signal or variabl
 Warning: VHDL Process Statement warning at controller.vhd(23): signal or variable "alu_func" may not be assigned a new value in every possible path through the Process Statement. Signal or variable "alu_func" holds its previous value in every path with no new value assignment, which may create a combinational loop in the current design.
 Warning: VHDL Process Statement warning at controller.vhd(23): signal or variable "wr" may not be assigned a new value in every possible path through the Process Statement. Signal or variable "wr" holds its previous value in every path with no new value assignment, which may create a combinational loop in the current design.
 Warning: VHDL Process Statement warning at controller.vhd(23): signal or variable "rec" may not be assigned a new value in every possible path through the Process Statement. Signal or variable "rec" holds its previous value in every path with no new value assignment, which may create a combinational loop in the current design.
-Warning: Latch dest_reg[0]$latch has unsafe behavior
-    Warning: Ports D and ENA on the latch are fed by the same signal timer[1]
-Warning: Latch dest_reg[1]$latch has unsafe behavior
-    Warning: Ports D and ENA on the latch are fed by the same signal timer[1]
-Warning: Latch sour_reg[0]$latch has unsafe behavior
-    Warning: Ports D and ENA on the latch are fed by the same signal timer[1]
-Warning: Latch sour_reg[1]$latch has unsafe behavior
-    Warning: Ports D and ENA on the latch are fed by the same signal timer[1]
-Warning: Latch offset[0]$latch has unsafe behavior
-    Warning: Ports D and ENA on the latch are fed by the same signal timer[0]
-Warning: Latch offset[1]$latch has unsafe behavior
-    Warning: Ports D and ENA on the latch are fed by the same signal timer[0]
-Warning: Latch offset[2]$latch has unsafe behavior
-    Warning: Ports D and ENA on the latch are fed by the same signal timer[0]
-Warning: Latch offset[3]$latch has unsafe behavior
-    Warning: Ports D and ENA on the latch are fed by the same signal timer[0]
-Warning: Latch sst[0]$latch has unsafe behavior
-    Warning: Ports D and ENA on the latch are fed by the same signal timer[2]
-Warning: Latch sst[1]$latch has unsafe behavior
-    Warning: Ports D and ENA on the latch are fed by the same signal timer[2]
-Warning: Latch sci[0]$latch has unsafe behavior
-    Warning: Ports D and ENA on the latch are fed by the same signal timer[1]
-Warning: Latch sci[1]$latch has unsafe behavior
-    Warning: Ports D and ENA on the latch are fed by the same signal timer[1]
-Warning: Latch rec[0]$latch has unsafe behavior
-    Warning: Ports D and ENA on the latch are fed by the same signal timer[1]
-Warning: Latch rec[1]$latch has unsafe behavior
-    Warning: Ports D and ENA on the latch are fed by the same signal timer[0]
-Warning: Latch alu_func[0]$latch has unsafe behavior
-    Warning: Ports D and ENA on the latch are fed by the same signal timer[2]
-Warning: Latch alu_func[1]$latch has unsafe behavior
-    Warning: Ports D and ENA on the latch are fed by the same signal instruction[6]
-Warning: Latch alu_func[2]$latch has unsafe behavior
-    Warning: Ports D and ENA on the latch are fed by the same signal instruction[6]
-Warning: Latch alu_in_sel[0]$latch has unsafe behavior
-    Warning: Ports D and ENA on the latch are fed by the same signal timer[0]
-Warning: Latch alu_in_sel[1]$latch has unsafe behavior
-    Warning: Ports D and ENA on the latch are fed by the same signal timer[0]
-Warning: Latch alu_in_sel[2]$latch has unsafe behavior
-    Warning: Ports D and ENA on the latch are fed by the same signal timer[1]
-Warning: Latch alu_out_sel[0] has unsafe behavior
-    Warning: Ports D and ENA on the latch are fed by the same signal timer[1]
-Warning: Latch alu_out_sel[1] has unsafe behavior
-    Warning: Ports D and ENA on the latch are fed by the same signal timer[1]
-Warning: Latch wr$latch has unsafe behavior
-    Warning: Ports D and ENA on the latch are fed by the same signal timer[1]
-Warning: Design contains 2 input pin(s) that do not drive logic
-    Warning: No output dependent on input pin "v"
-    Warning: No output dependent on input pin "s"
-Info: Implemented 118 device resources after synthesis - the final resource count might be different
-    Info: Implemented 15 input pins
-    Info: Implemented 23 output pins
-    Info: Implemented 80 logic cells
-Info: Quartus II Analysis & Synthesis was successful. 0 errors, 59 warnings
-    Info: Processing ended: Wed Jun 03 12:19:44 2020
-    Info: Elapsed time: 00:00:01
+Info: Elaborating entity "ir" for hierarchy "ir:inst9"
+Info: Elaborating entity "t3" for hierarchy "t3:inst22"
+Info: Elaborating entity "dram1" for hierarchy "dram1:inst17"
+Warning: VHDL Process Statement warning at dram1.vhd(36): signal "mem" is read inside the Process Statement but isn't in the Process Statement's sensivitity list
+Warning: VHDL Process Statement warning at dram1.vhd(16): signal or variable "mem" may not be assigned a new value in every possible path through the Process Statement. Signal or variable "mem" holds its previous value in every path with no new value assignment, which may create a combinational loop in the current design.
+Warning: VHDL Process Statement warning at dram1.vhd(16): signal or variable "data" may not be assigned a new value in every possible path through the Process Statement. Signal or variable "data" holds its previous value in every path with no new value assignment, which may create a combinational loop in the current design.
+Info: Elaborating entity "ar" for hierarchy "ar:inst10"
+Info: Elaborating entity "timer" for hierarchy "timer:inst8"
+Info: Elaborating entity "bus_mux" for hierarchy "bus_mux:inst5"
+Info: Elaborating entity "reg_mux" for hierarchy "reg_mux:inst4"
+Info: Elaborating entity "reg" for hierarchy "reg:inst"
+Info: Elaborating entity "t2" for hierarchy "t2:inst12"
+Info: Elaborating entity "pc" for hierarchy "pc:inst11"
+Info: Elaborating entity "reg_out" for hierarchy "reg_out:inst15"
+Info: Elaborating entity "reg_testa" for hierarchy "reg_testa:inst16"
+Warning: Reduced register "reg_testa:inst16|q1[3]" with stuck data_in port to stuck value GND
+Warning: Reduced register "reg_testa:inst16|q1[7]" with stuck data_in port to stuck value GND
+Info: State machine "|cpu1|timer:inst8|state" contains 6 states and 0 state bits
+Info: Selected Auto state machine encoding method for state machine "|cpu1|timer:inst8|state"
+Info: Encoding result for state machine "|cpu1|timer:inst8|state"
+    Info: Completed encoding using 6 state bits
+        Info: Encoded state bit "timer:inst8|state.s5"
+        Info: Encoded state bit "timer:inst8|state.s4"
+        Info: Encoded state bit "timer:inst8|state.s3"
+        Info: Encoded state bit "timer:inst8|state.s2"
+        Info: Encoded state bit "timer:inst8|state.s1"
+        Info: Encoded state bit "timer:inst8|state.s0"
+    Info: State "|cpu1|timer:inst8|state.s0" uses code string "000000"
+    Info: State "|cpu1|timer:inst8|state.s1" uses code string "000011"
+    Info: State "|cpu1|timer:inst8|state.s2" uses code string "000101"
+    Info: State "|cpu1|timer:inst8|state.s3" uses code string "001001"
+    Info: State "|cpu1|timer:inst8|state.s4" uses code string "010001"
+    Info: State "|cpu1|timer:inst8|state.s5" uses code string "100001"
+Warning: Inserted an always-enabled tri-state buffer between logic and the tri-state bus gdfx_temp0[7] that it feeds
+Warning: Inserted an always-enabled tri-state buffer between logic and the tri-state bus gdfx_temp0[6] that it feeds
+Warning: Inserted an always-enabled tri-state buffer between logic and the tri-state bus gdfx_temp0[5] that it feeds
+Warning: Inserted an always-enabled tri-state buffer between logic and the tri-state bus gdfx_temp0[4] that it feeds
+Warning: Inserted an always-enabled tri-state buffer between logic and the tri-state bus gdfx_temp0[3] that it feeds
+Warning: Inserted an always-enabled tri-state buffer between logic and the tri-state bus gdfx_temp0[2] that it feeds
+Warning: Inserted an always-enabled tri-state buffer between logic and the tri-state bus gdfx_temp0[1] that it feeds
+Warning: Inserted an always-enabled tri-state buffer between logic and the tri-state bus gdfx_temp0[0] that it feeds
+Warning: Tri-state bus gdfx_temp0[7] is fed by always-enabled I/O buffer gdfx_temp0[7]~0, deleting other fan-ins of the tri-state bus
+Warning: Tri-state bus gdfx_temp0[6] is fed by always-enabled I/O buffer gdfx_temp0[6]~1, deleting other fan-ins of the tri-state bus
+Warning: Tri-state bus gdfx_temp0[5] is fed by always-enabled I/O buffer gdfx_temp0[5]~2, deleting other fan-ins of the tri-state bus
+Warning: Tri-state bus gdfx_temp0[4] is fed by always-enabled I/O buffer gdfx_temp0[4]~3, deleting other fan-ins of the tri-state bus
+Warning: Tri-state bus gdfx_temp0[3] is fed by always-enabled I/O buffer gdfx_temp0[3]~4, deleting other fan-ins of the tri-state bus
+Warning: Tri-state bus gdfx_temp0[2] is fed by always-enabled I/O buffer gdfx_temp0[2]~5, deleting other fan-ins of the tri-state bus
+Warning: Tri-state bus gdfx_temp0[1] is fed by always-enabled I/O buffer gdfx_temp0[1]~6, deleting other fan-ins of the tri-state bus
+Warning: Tri-state bus gdfx_temp0[0] is fed by always-enabled I/O buffer gdfx_temp0[0]~7, deleting other fan-ins of the tri-state bus
+Warning: Converting TRI node "gdfx_temp0[7]~0" that feeds logic to an OR gate
+Warning: Converting TRI node "gdfx_temp0[6]~1" that feeds logic to an OR gate
+Warning: Converting TRI node "gdfx_temp0[5]~2" that feeds logic to an OR gate
+Warning: Converting TRI node "gdfx_temp0[4]~3" that feeds logic to an OR gate
+Warning: Converting TRI node "gdfx_temp0[3]~4" that feeds logic to an OR gate
+Warning: Converting TRI node "gdfx_temp0[2]~5" that feeds logic to an OR gate
+Warning: Converting TRI node "gdfx_temp0[1]~6" that feeds logic to an OR gate
+Warning: Converting TRI node "gdfx_temp0[0]~7" that feeds logic to an OR gate
+Warning: Latch controller:inst6|alu_in_sel[2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal timer:inst8|output[1]
+Warning: Latch controller:inst6|sour_reg[0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal timer:inst8|output~1
+Warning: Latch controller:inst6|sour_reg[1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal timer:inst8|output~1
+Warning: Latch controller:inst6|offset[3] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal timer:inst8|output[2]
+Warning: Latch controller:inst6|alu_in_sel[0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal timer:inst8|output~1
+Warning: Latch controller:inst6|alu_in_sel[1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal timer:inst8|output[2]
+Warning: Latch controller:inst6|dest_reg[0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal timer:inst8|output~1
+Warning: Latch controller:inst6|dest_reg[1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal timer:inst8|output~1
+Warning: Latch controller:inst6|alu_func[1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal ir:inst9|q[7]
+Warning: Latch controller:inst6|alu_func[2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal ir:inst9|q[6]
+Warning: Latch controller:inst6|alu_func[0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal timer:inst8|output[2]
+Warning: Latch controller:inst6|offset[2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal timer:inst8|output[2]
+Warning: Latch controller:inst6|offset[1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal timer:inst8|output[2]
+Warning: Latch controller:inst6|offset[0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal timer:inst8|output[2]
+Warning: Latch controller:inst6|sst[1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal timer:inst8|output[2]
+Warning: Latch controller:inst6|sst[0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal timer:inst8|output[2]
+Warning: Latch controller:inst6|alu_out_sel[0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal timer:inst8|output[1]
+Warning: Latch controller:inst6|alu_out_sel[1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal timer:inst8|output[1]
+Warning: Latch controller:inst6|rec[1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal timer:inst8|output[1]
+Warning: Latch controller:inst6|rec[0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal timer:inst8|output[1]
+Warning: Latch controller:inst6|sci[1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal timer:inst8|output[1]
+Warning: Latch controller:inst6|sci[0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal timer:inst8|output[1]
+Warning: Latch dram1:inst17|mem[9][7] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[10][7] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[4][7] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[2][7] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[6][7] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[1][7] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[5][7] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[11][7] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[3][7] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[7][7] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[0][7] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[8][7] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch controller:inst6|wr has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal timer:inst8|output[2]
+Warning: Latch dram1:inst17|mem[10][6] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[4][6] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[2][6] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[6][6] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[9][6] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[1][6] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[5][6] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[11][6] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[3][6] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[7][6] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[0][6] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[8][6] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[9][5] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[10][5] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[4][5] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[2][5] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[6][5] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[1][5] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[5][5] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[11][5] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[3][5] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[7][5] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[0][5] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[8][5] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[10][4] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[4][4] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[2][4] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[6][4] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[9][4] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[1][4] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[5][4] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[11][4] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[3][4] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[7][4] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[0][4] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[8][4] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[9][3] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[10][3] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[4][3] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[2][3] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[6][3] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[1][3] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[5][3] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[11][3] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[3][3] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[7][3] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[0][3] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[8][3] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[10][2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[4][2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[2][2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[6][2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[9][2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[1][2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[5][2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[11][2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[3][2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[7][2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[0][2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[8][2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[9][1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[10][1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[4][1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[2][1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[6][1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[1][1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[5][1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[11][1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[3][1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[7][1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[0][1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[8][1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[10][0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[4][0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[2][0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[6][0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[9][0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[1][0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[5][0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[11][0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[3][0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[7][0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[0][0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Latch dram1:inst17|mem[8][0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst6|wr
+Warning: Output pins are stuck at VCC or GND
+    Warning: Pin "reg_data1[7]" stuck at GND
+    Warning: Pin "reg_data1[3]" stuck at GND
+Info: Implemented 626 device resources after synthesis - the final resource count might be different
+    Info: Implemented 6 input pins
+    Info: Implemented 20 output pins
+    Info: Implemented 600 logic cells
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 281 warnings
+    Info: Processing ended: Thu Jun 04 17:24:37 2020
+    Info: Elapsed time: 00:00:04
 
 

@@ -30,6 +30,9 @@ ON
 AUTO_RESOURCE_SHARING
 OFF
 }
+# hierarchies {
+flag_reg:inst14
+}
 # end
 # entity
 t1
@@ -50,6 +53,9 @@ ADD_PASS_THROUGH_LOGIC_TO_INFERRED_RAMS
 ON
 AUTO_RESOURCE_SHARING
 OFF
+}
+# hierarchies {
+t1:inst7
 }
 # end
 # entity
@@ -72,6 +78,9 @@ ON
 AUTO_RESOURCE_SHARING
 OFF
 }
+# hierarchies {
+t2:inst12
+}
 # end
 # entity
 alu
@@ -93,6 +102,9 @@ ON
 AUTO_RESOURCE_SHARING
 OFF
 }
+# hierarchies {
+alu:inst13
+}
 # end
 # entity
 bus_mux
@@ -113,6 +125,9 @@ ADD_PASS_THROUGH_LOGIC_TO_INFERRED_RAMS
 ON
 AUTO_RESOURCE_SHARING
 OFF
+}
+# hierarchies {
+bus_mux:inst5
 }
 # end
 # entity
@@ -157,7 +172,264 @@ AUTO_RESOURCE_SHARING
 OFF
 }
 # hierarchies {
+controller:inst6
+}
+# end
+# entity
+dram1
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+dram1.vhd
+1591262340
+4
+# storage
+db|cpu0.(6).cnf
+db|cpu0.(6).cnf
+# internal_option {
+ADD_PASS_THROUGH_LOGIC_TO_INFERRED_RAMS
+ON
+AUTO_RESOURCE_SHARING
+OFF
+}
+# hierarchies {
+dram1:inst17
+}
+# end
+# entity
+ar
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+ar.vhd
+1589267500
+4
+# storage
+db|cpu0.(7).cnf
+db|cpu0.(7).cnf
+# internal_option {
+ADD_PASS_THROUGH_LOGIC_TO_INFERRED_RAMS
+ON
+AUTO_RESOURCE_SHARING
+OFF
+}
+# hierarchies {
+ar:inst10
+}
+# end
+# entity
+cpu1
+# case_insensitive
+# source_file
+cpu1.bdf
+1591262596
+23
+# storage
+db|cpu0.(8).cnf
+db|cpu0.(8).cnf
+# hierarchies {
 |
+}
+# end
+# entity
+ir
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+ir.vhd
+1589267601
+4
+# storage
+db|cpu0.(9).cnf
+db|cpu0.(9).cnf
+# internal_option {
+ADD_PASS_THROUGH_LOGIC_TO_INFERRED_RAMS
+ON
+AUTO_RESOURCE_SHARING
+OFF
+}
+# hierarchies {
+ir:inst9
+}
+# end
+# entity
+t3
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+t3.vhd
+1589870755
+4
+# storage
+db|cpu0.(10).cnf
+db|cpu0.(10).cnf
+# internal_option {
+ADD_PASS_THROUGH_LOGIC_TO_INFERRED_RAMS
+ON
+AUTO_RESOURCE_SHARING
+OFF
+}
+# hierarchies {
+t3:inst22
+}
+# end
+# entity
+timer
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+timer.vhd
+1589269792
+4
+# storage
+db|cpu0.(11).cnf
+db|cpu0.(11).cnf
+# internal_option {
+ADD_PASS_THROUGH_LOGIC_TO_INFERRED_RAMS
+ON
+AUTO_RESOURCE_SHARING
+OFF
+}
+# hierarchies {
+timer:inst8
+}
+# end
+# entity
+reg_mux
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+reg_mux.vhd
+1591150327
+4
+# storage
+db|cpu0.(12).cnf
+db|cpu0.(12).cnf
+# internal_option {
+ADD_PASS_THROUGH_LOGIC_TO_INFERRED_RAMS
+ON
+AUTO_RESOURCE_SHARING
+OFF
+}
+# hierarchies {
+reg_mux:inst4
+}
+# end
+# entity
+reg
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+reg.vhd
+1591150252
+4
+# storage
+db|cpu0.(13).cnf
+db|cpu0.(13).cnf
+# internal_option {
+ADD_PASS_THROUGH_LOGIC_TO_INFERRED_RAMS
+ON
+AUTO_RESOURCE_SHARING
+OFF
+}
+# hierarchies {
+reg:inst
+reg:inst1
+reg:inst2
+reg:inst3
+}
+# end
+# entity
+pc
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+pc.vhd
+1589267409
+4
+# storage
+db|cpu0.(15).cnf
+db|cpu0.(15).cnf
+# internal_option {
+ADD_PASS_THROUGH_LOGIC_TO_INFERRED_RAMS
+ON
+AUTO_RESOURCE_SHARING
+OFF
+}
+# hierarchies {
+pc:inst11
+}
+# end
+# entity
+reg_out
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+reg_out.vhd
+1589874096
+4
+# storage
+db|cpu0.(16).cnf
+db|cpu0.(16).cnf
+# internal_option {
+ADD_PASS_THROUGH_LOGIC_TO_INFERRED_RAMS
+ON
+AUTO_RESOURCE_SHARING
+OFF
+}
+# hierarchies {
+reg_out:inst15
+}
+# end
+# entity
+reg_testa
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+reg_testa.vhd
+1589874110
+4
+# storage
+db|cpu0.(17).cnf
+db|cpu0.(17).cnf
+# internal_option {
+ADD_PASS_THROUGH_LOGIC_TO_INFERRED_RAMS
+ON
+AUTO_RESOURCE_SHARING
+OFF
+}
+# hierarchies {
+reg_testa:inst16
 }
 # end
 # complete
