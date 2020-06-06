@@ -21,8 +21,8 @@ end reg_mux;
 
 architecture behave of reg_mux is
 begin
-	process(dest_reg,sour_reg,reg_sel,reg_0,reg_1,reg_2,reg_3,
-	        en)
+	process(dest_reg,sour_reg,reg_sel,reg_0,reg_1,
+		    reg_2,reg_3,en)
 	variable temp : std_logic_vector(3 downto 0);  --15
 	begin
 		case dest_reg is

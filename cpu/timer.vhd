@@ -23,7 +23,7 @@ begin
 				when s1=>
 					state<=s2;
 				when s2=>
-					if ins(7)='1'and ins(6)='1' then --if ins(15)='0' then
+					if ins(7)='1' and ins(6)='1' then --if ins(15)='0' then
 					state<=s4;--A  s3
 					else state<=s3;--B  s4
 					end if;

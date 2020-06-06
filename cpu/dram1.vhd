@@ -10,7 +10,7 @@ port(reset,wr : in std_logic;
 end dram1;
 
 architecture b_dram of dram1 is
-type MEMORY is array(0 to 11) of std_logic_vector(7 downto 0);
+type MEMORY is array(0 to 9) of std_logic_vector(7 downto 0);
 signal mem : MEMORY;
 begin
   process(reset,wr,addr,data)
@@ -27,9 +27,7 @@ begin
 			  "11111100",
 			  "00000100",
 			  "00000100",
-			  "01001100",
-			  "00101110",
-			  "10011101"
+			  "01001100"
 	        );
 	end if;
     if wr='1' then
@@ -38,4 +36,5 @@ begin
        mem(conv_integer(addr))<=data;
     end if;
   end process;
+
 end b_dram;

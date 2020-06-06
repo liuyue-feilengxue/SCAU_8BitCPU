@@ -1,13 +1,13 @@
-Flow Status : Successful - Thu Jun 04 17:24:37 2020
+Flow Status : Successful - Sat Jun 06 16:38:45 2020
 Quartus II Version : 5.0 Build 148 04/26/2005 SJ Full Version
 Revision Name : cpu0
-Top-level Entity Name : cpu1
+Top-level Entity Name : cpu2
 Family : Cyclone
 Device : EP1C12Q240C8
 Timing Models : Final
 Met timing requirements : N/A
-Total logic elements : 600
-Total pins : 26
+Total logic elements : 501
+Total pins : 18
 Total virtual pins : 0
 Total memory bits : 0
 Total PLLs : 0

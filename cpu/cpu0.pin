@@ -66,8 +66,8 @@ GND*                         : 8         :        :                   :         
 VCCIO1                       : 9         : power  :                   : 3.3V    : 1         :                
 GND                          : 10        : gnd    :                   :         :           :                
 GND*                         : 11        :        :                   :         : 1         :                
-GND*                         : 12        :        :                   :         : 1         :                
-GND*                         : 13        :        :                   :         : 1         :                
+reg_sel[0]                   : 12        : input  : LVTTL             :         : 1         : Y              
+reg_sel[1]                   : 13        : input  : LVTTL             :         : 1         : Y              
 GND*                         : 14        :        :                   :         : 1         :                
 GND*                         : 15        :        :                   :         : 1         :                
 sel[0]                       : 16        : input  : LVTTL             :         : 1         : Y              
@@ -77,7 +77,7 @@ GND*                         : 19        :        :                   :         
 GND*                         : 20        :        :                   :         : 1         :                
 GND*                         : 21        :        :                   :         : 1         :                
 VCCIO1                       : 22        : power  :                   : 3.3V    : 1         :                
-reg_data2[3]                 : 23        : output : LVTTL             :         : 1         : N              
+GND*                         : 23        :        :                   :         : 1         :                
 ~nCSO~ / GND*                : 24        : output : LVTTL             :         : 1         : N              
 DATA0                        : 25        : input  :                   :         : 1         :                
 nCONFIG                      : 26        :        :                   :         : 1         :                
@@ -93,7 +93,7 @@ MSEL1                        : 35        :        :                   :         
 DCLK                         : 36        : bidir  :                   :         : 1         :                
 ~ASDO~ / GND*                : 37        : output : LVTTL             :         : 1         : N              
 GND*                         : 38        :        :                   :         : 1         :                
-reg_data2[1]                 : 39        : output : LVTTL             :         : 1         : N              
+GND*                         : 39        :        :                   :         : 1         :                
 GND                          : 40        : gnd    :                   :         :           :                
 GND*                         : 41        :        :                   :         : 1         :                
 GND*                         : 42        :        :                   :         : 1         :                
@@ -110,7 +110,7 @@ GND                          : 52        : gnd    :                   :         
 GND*                         : 53        :        :                   :         : 1         :                
 GND*                         : 54        :        :                   :         : 1         :                
 GND*                         : 55        :        :                   :         : 1         :                
-reg_data1[7]                 : 56        : output : LVTTL             :         : 1         : N              
+GND*                         : 56        :        :                   :         : 1         :                
 GND*                         : 57        :        :                   :         : 1         :                
 GND*                         : 58        :        :                   :         : 1         :                
 GND*                         : 59        :        :                   :         : 1         :                
@@ -132,16 +132,16 @@ GND*                         : 74        :        :                   :         
 GND*                         : 75        :        :                   :         : 4         :                
 GND*                         : 76        :        :                   :         : 4         :                
 GND*                         : 77        :        :                   :         : 4         :                
-reg_data1[1]                 : 78        : output : LVTTL             :         : 4         : N              
-reg_data1[6]                 : 79        : output : LVTTL             :         : 4         : N              
+GND*                         : 78        :        :                   :         : 4         :                
+GND*                         : 79        :        :                   :         : 4         :                
 GND                          : 80        : gnd    :                   :         :           :                
 VCCINT                       : 81        : power  :                   : 1.5V    :           :                
-reg_data1[0]                 : 82        : output : LVTTL             :         : 4         : N              
+GND*                         : 82        :        :                   :         : 4         :                
 s                            : 83        : output : LVTTL             :         : 4         : Y              
 v                            : 84        : output : LVTTL             :         : 4         : Y              
 z                            : 85        : output : LVTTL             :         : 4         : Y              
 c                            : 86        : output : LVTTL             :         : 4         : Y              
-reg_data1[2]                 : 87        : output : LVTTL             :         : 4         : N              
+GND*                         : 87        :        :                   :         : 4         :                
 GND*                         : 88        :        :                   :         : 4         :                
 GND                          : 89        : gnd    :                   :         :           :                
 VCCINT                       : 90        : power  :                   : 1.5V    :           :                
@@ -189,7 +189,7 @@ GND*                         : 131       :        :                   :         
 GND*                         : 132       :        :                   :         : 3         :                
 GND*                         : 133       :        :                   :         : 3         :                
 GND*                         : 134       :        :                   :         : 3         :                
-reg_data1[3]                 : 135       : output : LVTTL             :         : 3         : N              
+GND*                         : 135       :        :                   :         : 3         :                
 GND*                         : 136       :        :                   :         : 3         :                
 GND*                         : 137       :        :                   :         : 3         :                
 GND*                         : 138       :        :                   :         : 3         :                
@@ -212,14 +212,14 @@ VCCA_PLL2                    : 154       : power  :                   : 1.5V    
 TDI                          : 155       : input  :                   :         : 3         :                
 GND*                         : 156       :        :                   :         : 3         :                
 VCCIO3                       : 157       : power  :                   : 3.3V    : 3         :                
-GND*                         : 158       :        :                   :         : 3         :                
-GND*                         : 159       :        :                   :         : 3         :                
-GND*                         : 160       :        :                   :         : 3         :                
-GND*                         : 161       :        :                   :         : 3         :                
-GND*                         : 162       :        :                   :         : 3         :                
-GND*                         : 163       :        :                   :         : 3         :                
-GND*                         : 164       :        :                   :         : 3         :                
-GND*                         : 165       :        :                   :         : 3         :                
+reg_data[0]                  : 158       : output : LVTTL             :         : 3         : Y              
+reg_data[1]                  : 159       : output : LVTTL             :         : 3         : Y              
+reg_data[2]                  : 160       : output : LVTTL             :         : 3         : Y              
+reg_data[3]                  : 161       : output : LVTTL             :         : 3         : Y              
+reg_data[4]                  : 162       : output : LVTTL             :         : 3         : Y              
+reg_data[5]                  : 163       : output : LVTTL             :         : 3         : Y              
+reg_data[6]                  : 164       : output : LVTTL             :         : 3         : Y              
+reg_data[7]                  : 165       : output : LVTTL             :         : 3         : Y              
 GND*                         : 166       :        :                   :         : 3         :                
 GND*                         : 167       :        :                   :         : 3         :                
 GND*                         : 168       :        :                   :         : 3         :                
@@ -268,19 +268,19 @@ GND                          : 210       : gnd    :                   :         
 VCCINT                       : 211       : power  :                   : 1.5V    :           :                
 GND                          : 212       : gnd    :                   :         :           :                
 GND*                         : 213       :        :                   :         : 2         :                
-res_sel[1]                   : 214       : input  : LVTTL             :         : 2         : N              
+GND*                         : 214       :        :                   :         : 2         :                
 GND*                         : 215       :        :                   :         : 2         :                
-res_sel[0]                   : 216       : input  : LVTTL             :         : 2         : N              
-reg_data2[5]                 : 217       : output : LVTTL             :         : 2         : N              
-reg_data2[6]                 : 218       : output : LVTTL             :         : 2         : N              
-reg_data2[7]                 : 219       : output : LVTTL             :         : 2         : N              
+GND*                         : 216       :        :                   :         : 2         :                
+GND*                         : 217       :        :                   :         : 2         :                
+GND*                         : 218       :        :                   :         : 2         :                
+GND*                         : 219       :        :                   :         : 2         :                
 VCCINT                       : 220       : power  :                   : 1.5V    :           :                
 GND                          : 221       : gnd    :                   :         :           :                
-reg_data1[4]                 : 222       : output : LVTTL             :         : 2         : N              
-reg_data1[5]                 : 223       : output : LVTTL             :         : 2         : N              
-reg_data2[2]                 : 224       : output : LVTTL             :         : 2         : N              
-reg_data2[4]                 : 225       : output : LVTTL             :         : 2         : N              
-reg_data2[0]                 : 226       : output : LVTTL             :         : 2         : N              
+GND*                         : 222       :        :                   :         : 2         :                
+GND*                         : 223       :        :                   :         : 2         :                
+GND*                         : 224       :        :                   :         : 2         :                
+GND*                         : 225       :        :                   :         : 2         :                
+GND*                         : 226       :        :                   :         : 2         :                
 GND*                         : 227       :        :                   :         : 2         :                
 GND*                         : 228       :        :                   :         : 2         :                
 VCCINT                       : 229       : power  :                   : 1.5V    :           :                

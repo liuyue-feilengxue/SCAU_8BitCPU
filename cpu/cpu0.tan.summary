@@ -5,9 +5,9 @@ Timing Analyzer Summary
 Type           : Worst-case tsu
 Slack          : N/A
 Required Time  : None
-Actual Time    : 44.778 ns
+Actual Time    : 40.196 ns
 From           : reset
-To             : flag_reg:inst14|flag_z
+To             : flag_reg:inst2|flag_z
 From Clock     : 
 To Clock       : clk
 Failed Paths   : 0
@@ -15,9 +15,9 @@ Failed Paths   : 0
 Type           : Worst-case tco
 Slack          : N/A
 Required Time  : None
-Actual Time    : 57.287 ns
-From           : timer:inst8|state.s3
-To             : reg_data2[7]
+Actual Time    : 15.280 ns
+From           : reg:inst5|q[5]
+To             : reg_data[5]
 From Clock     : clk
 To Clock       : 
 Failed Paths   : 0
@@ -25,9 +25,9 @@ Failed Paths   : 0
 Type           : Worst-case tpd
 Slack          : N/A
 Required Time  : None
-Actual Time    : 54.326 ns
-From           : reset
-To             : reg_data2[7]
+Actual Time    : 22.503 ns
+From           : reg_sel[1]
+To             : reg_data[7]
 From Clock     : 
 To Clock       : 
 Failed Paths   : 0
@@ -35,9 +35,9 @@ Failed Paths   : 0
 Type           : Worst-case th
 Slack          : N/A
 Required Time  : None
-Actual Time    : -11.633 ns
+Actual Time    : -14.870 ns
 From           : reset
-To             : ir:inst9|q[2]
+To             : ir:inst20|q[5]
 From Clock     : 
 To Clock       : clk
 Failed Paths   : 0
@@ -45,9 +45,9 @@ Failed Paths   : 0
 Type           : Worst-case Minimum tco
 Slack          : N/A
 Required Time  : None
-Actual Time    : 7.766 ns
-From           : flag_reg:inst14|flag_v
-To             : v
+Actual Time    : 9.875 ns
+From           : reg:inst11|q[1]
+To             : reg_data[1]
 From Clock     : clk
 To Clock       : 
 Failed Paths   : 0
@@ -55,9 +55,9 @@ Failed Paths   : 0
 Type           : Worst-case Minimum tpd
 Slack          : N/A
 Required Time  : None
-Actual Time    : 13.327 ns
-From           : sel[1]
-To             : reg_data2[6]
+Actual Time    : 16.639 ns
+From           : sel[0]
+To             : reg_data[7]
 From Clock     : 
 To Clock       : 
 Failed Paths   : 0
@@ -65,9 +65,9 @@ Failed Paths   : 0
 Type           : Clock Setup: 'clk'
 Slack          : N/A
 Required Time  : None
-Actual Time    : 20.95 MHz ( period = 47.739 ns )
-From           : timer:inst8|state.s3
-To             : flag_reg:inst14|flag_z
+Actual Time    : 23.88 MHz ( period = 41.874 ns )
+From           : timer:inst|state.s3
+To             : flag_reg:inst2|flag_z
 From Clock     : clk
 To Clock       : clk
 Failed Paths   : 0

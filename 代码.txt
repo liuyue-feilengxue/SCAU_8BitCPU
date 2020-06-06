@@ -5,9 +5,7 @@ MAIN:
 	MVRD  R1,10  ;加数2
 	MVRD  R2,0    ;比较是不是0
 	MVRD  R3,4    ;循环次数
-LOOP:                             ;-3
+
 	ADD  R1,R0     ;加法
-	DEC R3            ;次数
-	CMP R3,R2
-	JRNZ LOOP     ;不是0就继续循环
+	DEC R3            ;
 	

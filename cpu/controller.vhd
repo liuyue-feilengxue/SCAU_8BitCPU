@@ -2,17 +2,11 @@ library ieee;
 use ieee.std_logic_1164.all;
 
 entity controller is
-port(
-
-	 timer:                   in std_logic_vector(2 downto 0);
-	
+port(timer:                   in std_logic_vector(2 downto 0);
      instruction:             in std_logic_vector(7 downto 0);  -- 15
-
      c,z,v,s:                 in std_logic;
      dest_reg,sour_reg:       out std_logic_vector(1 downto 0);  --3
-
      offset:                  out std_logic_vector(3 downto 0);  --7
-
      sst,sci,rec:             out std_logic_vector(1 downto 0);
      alu_func,alu_in_sel:     out std_logic_vector(2 downto 0);
      en_reg,en_pc,wr:         out std_logic);
@@ -67,7 +61,6 @@ begin
 				alu_func<="000";
 				wr<='1';
 				rec<="10";
-				--A
 			when "011"=>
 				wr<='1';
 				rec<="00";
