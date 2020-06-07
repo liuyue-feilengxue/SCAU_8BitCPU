@@ -135,7 +135,7 @@ set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
 # Simulator Assignments
 # =====================
 set_global_assignment -name SIMULATION_MODE FUNCTIONAL
-set_global_assignment -name VECTOR_INPUT_SOURCE test.vwf
+set_global_assignment -name VECTOR_INPUT_SOURCE cpu1.vwf
 
 # LogicLock Region Assignments
 # ============================
